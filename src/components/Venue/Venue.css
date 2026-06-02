@@ -1,0 +1,267 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap");
+
+:root {
+  --venue-text: #ffffff;
+  --venue-border: rgba(255, 255, 255, 0.25);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.venue-page {
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+  overflow: hidden;
+  position: relative;
+  background:
+    radial-gradient(circle at 15% 20%, rgba(255, 255, 255, 0.16), transparent 35%),
+    radial-gradient(circle at 85% 25%, rgba(255, 255, 255, 0.12), transparent 40%),
+    radial-gradient(circle at 75% 85%, rgba(255, 255, 255, 0.08), transparent 35%),
+    radial-gradient(circle at 25% 75%, rgba(255, 255, 255, 0.07), transparent 45%),
+    linear-gradient(
+      135deg,
+      #a5b7d4 0%,
+      #8ea6ca 25%,
+      #96acd0 50%,
+      #8ea4c8 75%,
+      #9db0d1 100%
+    );
+}
+
+.venue-page::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(
+      ellipse at top left,
+      rgba(255, 255, 255, 0.08),
+      transparent 60%
+    ),
+    radial-gradient(
+      ellipse at bottom right,
+      rgba(255, 255, 255, 0.08),
+      transparent 60%
+    );
+  pointer-events: none;
+}
+
+.venue-container {
+  width: 100%;
+  height: 100%;
+  border: 1px solid var(--venue-border);
+  padding: 1rem 5rem;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 1s ease;
+}
+
+.venue-container::before,
+.venue-container::after {
+  content: "";
+  position: absolute;
+  left: 30px;
+  right: 30px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.venue-container::before {
+  top: 20px;
+}
+
+.venue-container::after {
+  bottom: 20px;
+}
+
+.venue-title {
+  text-align: center;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 4rem;
+  font-weight: 400;
+  color: white;
+  margin-top: 2rem;
+  margin-bottom: 1rem;
+  letter-spacing: 2px;
+}
+
+.venue-grid {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  align-items: start;
+}
+
+.venue-card {
+  text-align: center;
+  height: fit-content;
+}
+
+.venue-card h2 {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 3rem;
+  font-weight: 500;
+  font-style: italic;
+  color: white;
+  margin-bottom: 0.75rem;
+}
+
+.venue-image {
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  margin-bottom: 0.5rem;
+}
+
+.venue-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.venue-card h3 {
+  font-family: "Playfair Display", serif;
+  color: white;
+  font-size: 1.6rem;
+  margin-bottom: 0.25rem;
+}
+
+.venue-address {
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 0.75rem;
+}
+
+.venue-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 0.75rem;
+}
+
+.venue-divider span {
+  width: 100px;
+  height: 1px;
+  background: rgba(255, 255, 255, 0.4);
+}
+
+.divider-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: white;
+}
+
+.venue-description {
+  max-width: 500px;
+  margin: 0 auto 1rem;
+  font-family: "Cormorant Garamond", serif;
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: white;
+}
+
+.venue-button {
+  display: inline-block;
+  padding: 0.8rem 1.8rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  text-decoration: none;
+  background: #c79aa0;
+  color: white;
+  font-family: "Playfair Display", serif;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.venue-button:hover {
+  background: #b98990;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(25px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 1024px) {
+  .venue-title {
+    font-size: 3.8rem;
+  }
+
+  .venue-card h2 {
+    font-size: 2.5rem;
+  }
+
+  .venue-image {
+    height: 170px;
+  }
+
+  .venue-description {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .venue-page {
+    height: auto;
+    min-height: 100vh;
+    overflow-y: auto;
+  }
+
+  .venue-container {
+    height: auto;
+    min-height: calc(100vh - 2rem);
+  }
+
+  .venue-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .venue-title {
+    font-size: 3rem;
+  }
+
+  .venue-card h2 {
+    font-size: 2.2rem;
+  }
+
+  .venue-card h3 {
+    font-size: 1.4rem;
+  }
+
+  .venue-address {
+    font-size: 1.1rem;
+  }
+
+  .venue-description {
+    font-size: 1.05rem;
+  }
+
+  .venue-image {
+    height: 220px;
+  }
+
+  .venue-divider span {
+    width: 70px;
+  }
+}
