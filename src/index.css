@@ -9,13 +9,28 @@ body,
 #root {
   width: 100%;
   height: 100%;
+  background: #000;
 }
 
 body {
   overflow: hidden;
 }
 
-/* Main App Container */
+/* Default cursor everywhere */
+* {
+  cursor: default;
+}
+
+/* Pointer only for clickable elements */
+button,
+a,
+input[type="submit"],
+input[type="button"],
+.nav-item,
+.clickable {
+  cursor: pointer;
+}
+
 .app-container {
   width: 100vw;
   height: 100vh;
@@ -23,7 +38,17 @@ body {
   position: relative;
 }
 
-/* Horizontal Page Slider */
+.home-fade {
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  transition: opacity 1.5s ease;
+}
+
+.home-fade.visible {
+  opacity: 1;
+}
+
 .page-slider {
   display: flex;
   width: 500vw;
@@ -43,7 +68,6 @@ body {
   transform-style: preserve-3d;
 }
 
-/* Individual Pages */
 .page {
   width: 100vw;
   height: 100vh;
@@ -62,27 +86,12 @@ body {
   display: none;
 }
 
-.app-content {
-  opacity: 0;
-  transform: translateY(20px);
-  transition:
-    opacity 1.2s ease,
-    transform 1.2s ease;
-}
-
-.app-content.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Desktop */
 @media (min-width: 1025px) {
   .page {
     overflow-y: auto;
   }
 }
 
-/* Tablet */
 @media (max-width: 1024px) {
   .page {
     overflow-y: auto;
@@ -93,7 +102,6 @@ body {
   }
 }
 
-/* Mobile */
 @media (max-width: 768px) {
   .page {
     height: 100vh;

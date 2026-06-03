@@ -1,45 +1,92 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./Intro.css";
 
-export default function Intro({ onOpen }) {
-  const [opening, setOpening] = useState(false);
+import introVideo from "../../assets/intro.mp4";
 
-  const handleOpen = () => {
-    setOpening(true);
+const Intro = ({ onFinish, setGuestInfo }) => {
+  const [showModal, setShowModal] = useState(true);
+  const [isLeaving, setIsLeaving] = useState(false);
+
+  const [firstName, setFirstName] = useState("");
+  const [lastName, setLastName] = useState("");
+
+  const videoRef = useRef(null);
+
+  const handleEnter = async () => {
+    if (!firstName.trim() || !lastName.trim()) {
+      alert("Please enter your first name and last name.");
+      return;
+    }
+
+    setGuestInfo({
+      firstName: firstName.trim(),
+      lastName: lastName.trim(),
+    });
+
+    setShowModal(false);
+
+    try {
+      await videoRef.current.play();
+    } catch (err) {
+      console.error(err);
+    }
+  };
+
+  const handleVideoEnd = () => {
+    setIsLeaving(true);
 
     setTimeout(() => {
-      onOpen();
-    }, 2200);
+      onFinish();
+    }, 1200);
   };
 
   return (
-    <div className={`intro ${opening ? "opening" : ""}`}>
-      {/* Left Panel */}
-      <div className="intro-panel left-panel" />
+    <div className={`intro ${isLeaving ? "intro-leave" : ""}`}>
+      <video
+        ref={videoRef}
+        className="intro-video"
+        src={introVideo}
+        playsInline
+        preload="auto"
+        onEnded={handleVideoEnd}
+      />
 
-      {/* Right Panel */}
-      <div className="intro-panel right-panel" />
+      <div className="video-overlay" />
 
-      {/* Center Content */}
-      <div className="intro-center">
-        <button
-          className="monogram-btn"
-          onClick={handleOpen}
-        >
-          <div className="monogram">
-            <span>I</span>
-            <span>&</span>
-            <span>T</span>
+      {showModal && (
+        <div className="intro-modal-backdrop">
+          <div className="intro-modal">
+            <h1 className="intro-title">
+              Welcome! Please enter your full name.
+            </h1>
+
+            <input
+              type="text"
+              placeholder="First Name"
+              className="intro-input"
+              value={firstName}
+              onChange={(e) => setFirstName(e.target.value)}
+            />
+
+            <input
+              type="text"
+              placeholder="Last Name"
+              className="intro-input"
+              value={lastName}
+              onChange={(e) => setLastName(e.target.value)}
+            />
+
+            <button
+              className="intro-button"
+              onClick={handleEnter}
+            >
+              Submit
+            </button>
           </div>
-
-          <p className="tap-text">
-            Tap to Open Invitation
-          </p>
-        </button>
-      </div>
-
-      {/* Black Fade Overlay */}
-      <div className="intro-blackout"></div>
+        </div>
+      )}
     </div>
   );
-}
+};
+
+export default Intro;

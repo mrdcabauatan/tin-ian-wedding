@@ -1,9 +1,7 @@
 import { useState } from "react";
 
-function RsvpForm({ onClose }) {
+function RsvpForm({ onClose, guestInfo }) {
   const [formData, setFormData] = useState({
-    firstName: "",
-    lastName: "",
     attendance: "",
   });
 
@@ -32,15 +30,17 @@ function RsvpForm({ onClose }) {
           headers: {
             "Content-Type": "application/json",
           },
-          body: JSON.stringify(formData),
+          body: JSON.stringify({
+            firstName: guestInfo.firstName,
+            lastName: guestInfo.lastName,
+            attendance: formData.attendance,
+          }),
         }
       );
 
       alert("Thank you for your RSVP!");
 
       setFormData({
-        firstName: "",
-        lastName: "",
         attendance: "",
       });
 
@@ -55,24 +55,6 @@ function RsvpForm({ onClose }) {
 
   return (
     <form className="rsvp-form" onSubmit={handleSubmit}>
-      <input
-        type="text"
-        name="firstName"
-        placeholder="First Name"
-        value={formData.firstName}
-        onChange={handleChange}
-        required
-      />
-
-      <input
-        type="text"
-        name="lastName"
-        placeholder="Last Name"
-        value={formData.lastName}
-        onChange={handleChange}
-        required
-      />
-
       <div className="attendance-options">
         <label>
           <input

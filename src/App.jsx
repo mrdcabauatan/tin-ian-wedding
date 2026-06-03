@@ -14,6 +14,11 @@ const App = () => {
   const [showIntro, setShowIntro] = useState(true);
   const [fadeIn, setFadeIn] = useState(false);
 
+  const [guestInfo, setGuestInfo] = useState({
+    firstName: "",
+    lastName: "",
+  });
+
   const audioRef = useRef(null);
 
   const touchStartX = useRef(0);
@@ -38,14 +43,14 @@ const App = () => {
     setCurrentPage(page);
   };
 
-  const handleIntroOpen = () => {
+  const handleIntroFinish = () => {
     startMusic();
 
-    setShowIntro(false);
+    setFadeIn(false);
 
     setTimeout(() => {
-      setFadeIn(true);
-    }, 50);
+      setShowIntro(false);
+    }, 1200);
   };
 
   const isMobileOrTablet = () => {
@@ -68,7 +73,6 @@ const App = () => {
 
     const threshold = 50;
 
-    // Swipe Left → Next Page
     if (swipeDistance > threshold) {
       const nextIndex = Math.min(
         currentIndex + 1,
@@ -78,7 +82,6 @@ const App = () => {
       setCurrentPage(pages[nextIndex]);
     }
 
-    // Swipe Right → Previous Page
     if (swipeDistance < -threshold) {
       const prevIndex = Math.max(
         currentIndex - 1,
@@ -91,43 +94,46 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {showIntro ? (
-        <Intro onOpen={handleIntroOpen} />
-      ) : (
-        <div className={`home-fade ${fadeIn ? "visible" : ""}`}>
-          {currentPage !== "home" && (
-            <Navbar setCurrentPage={changePage} />
-          )}
+      <div>
+        {currentPage !== "home" && (
+          <Navbar setCurrentPage={changePage} />
+        )}
 
-          <div
-            className="page-slider"
-            onTouchStart={handleTouchStart}
-            onTouchEnd={handleTouchEnd}
-            style={{
-              transform: `translateX(-${currentIndex * 100}vw)`,
-            }}
-          >
-            <div className="page">
-              <Home
-                onEnterInvitation={() =>
-                  changePage("invitation")
-                }
-              />
-            </div>
+        <div
+          className="page-slider"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          style={{
+            transform: `translateX(-${currentIndex * 100}vw)`,
+          }}
+        >
+          <div className="page">
+            <Home
+              onEnterInvitation={() =>
+                changePage("invitation")
+              }
+            />
+          </div>
 
-            <div className="page">
-              <Invitation />
-            </div>
+          <div className="page">
+            <Invitation />
+          </div>
 
-            <div className="page">
-              <Details />
-            </div>
+          <div className="page">
+            <Details />
+          </div>
 
-            <div className="page">
-              <Rsvp />
-            </div>
+          <div className="page">
+            <Rsvp guestInfo={guestInfo} />
           </div>
         </div>
+      </div>
+
+      {showIntro && (
+        <Intro
+          onFinish={handleIntroFinish}
+          setGuestInfo={setGuestInfo}
+        />
       )}
     </div>
   );
