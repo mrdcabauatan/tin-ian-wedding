@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap&family=Pinyon+Script&display=swap");
 
 :root {
   --dusty-blue: #d8e4f0;
@@ -107,7 +107,7 @@
 }
 
 .couple-names {
-  font-family: "Great Vibes", cursive;
+  font-family: "Pinyon Script", cursive;
   font-size: clamp(5rem, 7vw, 8rem);
   font-weight: 400;
   line-height: 1;

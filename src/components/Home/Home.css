@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap&family=Great+Vibes&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Montserrat:wght@300;400;500&family=Playfair+Display:wght@400;500;600&display=swap&family=Great+Vibes&display=swap&family=Pinyon+Script&display=swap");
 
 .hero {
   position: relative;
@@ -50,7 +50,7 @@
 }
 
 .title {
-  font-family: "Great Vibes", cursive;
+  font-family: "Pinyon Script", cursive;
   font-size: clamp(7rem, 12vw, 11rem);
   font-weight: 300;
   line-height: 1;
