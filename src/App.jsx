@@ -16,6 +16,7 @@ const App = () => {
 
   const audioRef = useRef(null);
 
+  // Create audio only once
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
@@ -23,15 +24,19 @@ const App = () => {
   }
 
   const startMusic = () => {
-    audioRef.current.play().catch((err) => console.log(err));
+    if (audioRef.current && audioRef.current.paused) {
+      audioRef.current.play().catch((err) => console.log(err));
+    }
   };
 
   const changePage = (page) => {
-    startMusic();
     setCurrentPage(page);
   };
 
   const handleIntroOpen = () => {
+    // Start music immediately after user interaction
+    startMusic();
+
     setShowIntro(false);
 
     setTimeout(() => {
@@ -59,7 +64,9 @@ const App = () => {
             }}
           >
             <div className="page">
-              <Home onEnterInvitation={() => changePage("invitation")} />
+              <Home
+                onEnterInvitation={() => changePage("invitation")}
+              />
             </div>
 
             <div className="page">
