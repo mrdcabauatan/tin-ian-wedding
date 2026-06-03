@@ -12,6 +12,7 @@ body,
   background: #000;
 }
 
+/* Desktop */
 body {
   overflow: hidden;
 }
@@ -67,32 +68,34 @@ input[type="button"],
   display: none;
 }
 
-@media (min-width: 1025px) {
-  .page {
-    overflow-y: auto;
-  }
-}
-
+/* MOBILE & TABLET */
 @media (max-width: 1024px) {
-  .page {
-    overflow-y: auto;
+  html,
+  body,
+  #root {
+    height: auto;
+    min-height: 100%;
   }
-}
 
-@media (max-width: 768px) {
-  .page {
-    height: 100vh;
-
+  body {
     overflow-x: hidden;
     overflow-y: auto;
-
-    -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
   }
 
-  .page::-webkit-scrollbar {
-    display: none;
+  .app-container {
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
+  }
+
+  .mobile-scroll-container {
+    width: 100%;
+  }
+
+  .page {
+    width: 100%;
+    height: auto;
+    min-height: 100vh;
+    overflow: visible;
   }
 }
