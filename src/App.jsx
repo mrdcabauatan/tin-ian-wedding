@@ -6,6 +6,7 @@ import Home from "./components/Home/Home";
 import Invitation from "./components/Invitation/Invitation";
 import Details from "./components/Details/Details";
 import Rsvp from "./components/Rsvp/Rsvp";
+import PetalOverlay from "./components/PetalOverlay/PetalOverlay";
 
 import bgMusic from "./assets/bgmusic.mp3";
 
@@ -98,6 +99,15 @@ const App = () => {
         {currentPage !== "home" && (
           <Navbar setCurrentPage={changePage} />
         )}
+
+        {/* Persistent Falling Petals */}
+        <PetalOverlay
+          active={[
+            "invitation",
+            "details",
+            "rsvp",
+          ].includes(currentPage)}
+        />
 
         <div
           className="page-slider"
