@@ -149,6 +149,11 @@
   transition: 0.3s ease;
 }
 
+.map-button:hover {
+  transform: translateY(-3px);
+  background: #b78d9c;
+}
+
 .dress-description {
   font-family: "Cormorant Garamond", serif;
   font-size: 1.3rem;
