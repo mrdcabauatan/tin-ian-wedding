@@ -1,0 +1,98 @@
+.petal-overlay {
+  position: fixed;
+  inset: 0;
+
+  pointer-events: none;
+  overflow: hidden;
+
+  z-index: 9998;
+}
+
+.petal {
+  position: absolute;
+  top: -120px;
+
+  width: 32px;
+  height: 40px;
+
+  opacity: 0.9;
+
+  animation: petalFall linear infinite;
+  transform-origin: center center;
+
+  filter:
+    drop-shadow(0 2px 4px rgba(255, 182, 193, 0.2))
+    drop-shadow(0 4px 10px rgba(255, 182, 193, 0.15));
+}
+
+.petal svg {
+  width: 100%;
+  height: 100%;
+}
+
+@keyframes petalFall {
+  0% {
+    transform:
+      translateY(-100px)
+      translateX(0)
+      rotate(0deg)
+      rotateY(0deg);
+
+    opacity: 0;
+  }
+
+  5% {
+    opacity: 0.9;
+  }
+
+  90% {
+    transform:
+      translateY(95vh)
+      translateX(-20px)
+      rotate(320deg)
+      rotateY(420deg);
+
+    opacity: 0.9;
+  }
+
+  98% {
+    opacity: 0.9;
+  }
+
+  100% {
+    transform:
+      translateY(115vh)
+      translateX(30px)
+      rotate(360deg)
+      rotateY(480deg);
+
+    opacity: 0;
+  }
+}
+
+/* Tablet */
+
+@media (max-width: 1024px) {
+  .petal {
+    width: 28px;
+    height: 35px;
+  }
+}
+
+/* Mobile */
+
+@media (max-width: 768px) {
+  .petal {
+    width: 22px;
+    height: 28px;
+  }
+}
+
+/* Small devices */
+
+@media (max-width: 400px) {
+  .petal {
+    width: 18px;
+    height: 24px;
+  }
+}
