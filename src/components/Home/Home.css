@@ -153,8 +153,8 @@
 }
 
 .mouse {
-  width: 70px;
-  height: 44px;
+  width: 44px;
+  height: 70px;
   border: 2px solid white;
   border-radius: 30px;
   display: flex;
@@ -186,11 +186,11 @@
 @keyframes bounce {
   0%,
   100% {
-    transform: translateX(-4px);
+    transform: translateY(-4px);
   }
 
   50% {
-    transform: translateX(8px);
+    transform: translateY(8px);
   }
 }
 

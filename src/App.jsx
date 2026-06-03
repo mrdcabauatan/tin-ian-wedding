@@ -69,25 +69,18 @@ const App = () => {
 
     touchEndX.current = e.changedTouches[0].clientX;
 
-    const swipeDistance =
-      touchStartX.current - touchEndX.current;
+    const swipeDistance = touchStartX.current - touchEndX.current;
 
     const threshold = 50;
 
     if (swipeDistance > threshold) {
-      const nextIndex = Math.min(
-        currentIndex + 1,
-        pages.length - 1
-      );
+      const nextIndex = Math.min(currentIndex + 1, pages.length - 1);
 
       setCurrentPage(pages[nextIndex]);
     }
 
     if (swipeDistance < -threshold) {
-      const prevIndex = Math.max(
-        currentIndex - 1,
-        0
-      );
+      const prevIndex = Math.max(currentIndex - 1, 0);
 
       setCurrentPage(pages[prevIndex]);
     }
@@ -96,33 +89,24 @@ const App = () => {
   return (
     <div className="app-container">
       <div>
-        {currentPage !== "home" && (
-          <Navbar setCurrentPage={changePage} />
-        )}
+        {currentPage !== "home" && <Navbar setCurrentPage={changePage} />}
 
         {/* Persistent Falling Petals */}
         <PetalOverlay
-          active={[
-            "invitation",
-            "details",
-            "rsvp",
-          ].includes(currentPage)}
+          active={["invitation", "details", "rsvp"].includes(currentPage)}
         />
 
         <div
-          className="page-slider"
           onTouchStart={handleTouchStart}
           onTouchEnd={handleTouchEnd}
           style={{
-            transform: `translateX(-${currentIndex * 100}vw)`,
+            height: `${pages.length * 100}vh`,
+            transform: `translateY(-${currentIndex * 100}vh)`,
+            transition: "transform 1s ease-in-out",
           }}
         >
           <div className="page">
-            <Home
-              onEnterInvitation={() =>
-                changePage("invitation")
-              }
-            />
+            <Home onEnterInvitation={() => changePage("invitation")} />
           </div>
 
           <div className="page">
@@ -140,10 +124,7 @@ const App = () => {
       </div>
 
       {showIntro && (
-        <Intro
-          onFinish={handleIntroFinish}
-          setGuestInfo={setGuestInfo}
-        />
+        <Intro onFinish={handleIntroFinish} setGuestInfo={setGuestInfo} />
       )}
     </div>
   );
