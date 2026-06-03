@@ -160,6 +160,23 @@
   display: flex;
   justify-content: center;
   align-items: center;
+
+  cursor: pointer;
+
+  transition:
+    transform 0.35s ease,
+    box-shadow 0.35s ease,
+    border-color 0.35s ease;
+    border-color: #d8e4f0;
+
+  box-shadow:
+    0 0 10px rgba(216, 228, 240, 0.8),
+    0 0 20px rgba(191, 208, 226, 0.6),
+    0 0 40px rgba(90, 134, 173, 0.4);
+}
+
+.mouse:hover {
+  transform: translateY(-3px);
 }
 
 .mouse span {
