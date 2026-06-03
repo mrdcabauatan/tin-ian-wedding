@@ -1,10 +1,9 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useRef } from "react";
 
 import Navbar from "./components/Navbar/Navbar";
 import Home from "./components/Home/Home";
 import Invitation from "./components/Invitation/Invitation";
-import Venue from "./components/Venue/Venue";
-import Attire from "./components/Attire/Attire";
+import Details from "./components/Details/Details";
 import Rsvp from "./components/Rsvp/Rsvp";
 
 import bgMusic from "./assets/bgmusic.mp3";
@@ -29,31 +28,34 @@ const App = () => {
     setCurrentPage(page);
   };
 
-  const pages = ["home", "invitation", "venue", "dress", "rsvp"];
+  const pages = ["home", "invitation", "details", "rsvp"];
   const currentIndex = pages.indexOf(currentPage);
 
   return (
-    <div
-      style={{
-        height: "100vh",
-        overflow: "hidden",
-      }}
-    >
+    <div className="app-container">
       {currentPage !== "home" && <Navbar setCurrentPage={changePage} />}
 
       <div
+        className="page-slider"
         style={{
-          height: `${pages.length * 100}vh`,
-          transform: `translateY(-${currentIndex * 100}vh)`,
-          transition: "transform 1s ease-in-out",
+          transform: `translateX(-${currentIndex * 100}vw)`,
         }}
       >
-        <Home onEnterInvitation={() => changePage("invitation")} />
+        <div className="page">
+          <Home onEnterInvitation={() => changePage("invitation")} />
+        </div>
 
-        <Invitation />
-        <Venue />
-        <Attire />
-        <Rsvp />
+        <div className="page">
+          <Invitation />
+        </div>
+
+        <div className="page">
+          <Details />
+        </div>
+
+        <div className="page">
+          <Rsvp />
+        </div>
       </div>
     </div>
   );

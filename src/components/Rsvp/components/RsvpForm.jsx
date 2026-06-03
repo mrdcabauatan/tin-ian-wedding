@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function RsvpForm({ onSuccess }) {
+function RsvpForm({ onClose }) {
   const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -10,10 +10,12 @@ function RsvpForm({ onSuccess }) {
   const [loading, setLoading] = useState(false);
 
   const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = e.target;
+
+    setFormData((prev) => ({
+      ...prev,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = async (e) => {
@@ -31,7 +33,7 @@ function RsvpForm({ onSuccess }) {
             "Content-Type": "application/json",
           },
           body: JSON.stringify(formData),
-        },
+        }
       );
 
       alert("Thank you for your RSVP!");
@@ -42,7 +44,7 @@ function RsvpForm({ onSuccess }) {
         attendance: "",
       });
 
-      onSuccess();
+      onClose();
     } catch (error) {
       console.error(error);
       alert("Something went wrong.");
@@ -57,18 +59,18 @@ function RsvpForm({ onSuccess }) {
         type="text"
         name="firstName"
         placeholder="First Name"
-        required
         value={formData.firstName}
         onChange={handleChange}
+        required
       />
 
       <input
         type="text"
         name="lastName"
         placeholder="Last Name"
-        required
         value={formData.lastName}
         onChange={handleChange}
+        required
       />
 
       <div className="attendance-options">
@@ -77,9 +79,9 @@ function RsvpForm({ onSuccess }) {
             type="radio"
             name="attendance"
             value="Attending"
-            required
             checked={formData.attendance === "Attending"}
             onChange={handleChange}
+            required
           />
           Yes, I'll be there
         </label>
@@ -96,7 +98,11 @@ function RsvpForm({ onSuccess }) {
         </label>
       </div>
 
-      <button type="submit" className="submit-rsvp-btn" disabled={loading}>
+      <button
+        type="submit"
+        className="submit-rsvp-btn"
+        disabled={loading}
+      >
         {loading ? "Submitting..." : "Submit RSVP"}
       </button>
     </form>
