@@ -4,8 +4,7 @@ function Navbar({ setCurrentPage }) {
   const navItems = [
     { label: "Home", page: "home" },
     { label: "Invitation", page: "invitation" },
-    { label: "Venue", page: "venue" },
-    { label: "Dress Code", page: "dress" },
+    { label: "Details", page: "details" },
     { label: "RSVP", page: "rsvp" },
   ];
 

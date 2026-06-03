@@ -3,8 +3,6 @@
 :root {
   --dusty-blue: #d8e4f0;
   --dusty-blue-dark: #ffffff;
-
-  --accent: rgba(255, 255, 255, 0.75);
   --border: rgba(255, 255, 255, 0.45);
 }
 
@@ -17,7 +15,7 @@
 .invitation-page {
   width: 100%;
   height: 100vh;
-  background-image: url("../../assets/watercolor-background.avif");
+  background-image: url("../../assets/bluebg.jpg");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -27,18 +25,6 @@
   overflow: hidden;
   padding: 2rem;
   position: relative;
-}
-
-.invitation-page::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    135deg,
-    rgba(122, 150, 181, 0.55),
-    rgba(92, 123, 156, 0.45)
-  );
-  z-index: 0;
 }
 
 .invitation-container {
@@ -67,7 +53,7 @@
   pointer-events: none;
 }
 
-.monogram {
+.invitation-monogram {
   display: flex;
   align-items: center;
   gap: 1rem;
@@ -78,7 +64,7 @@
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-.monogram-divider {
+.invitation-monogram-divider {
   width: 1px;
   height: 60px;
   background: rgba(255, 255, 255, 0.6);
@@ -114,7 +100,6 @@
 
 .subtitle {
   font-family: "Cormorant Garamond", serif;
-  font-style: italic;
   font-size: 1rem;
   letter-spacing: 0.4rem;
   color: rgba(255, 255, 255, 0.9);
@@ -162,13 +147,11 @@
 
 .celebrate-text {
   font-family: "Cormorant Garamond", serif;
-  font-style: italic;
   font-weight: 500;
   font-size: 2.8rem;
   color: #ffffff;
   margin-bottom: 1rem;
   margin-top: 3rem;
-
   text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
@@ -220,72 +203,95 @@
   }
 
   .message p {
-    font-size: 1.4rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 820px) {
+  .couple-names {
+    font-size: 4.5rem;
   }
 
   .celebrate-text {
-    font-size: 2.2rem;
+    font-size: 2rem;
   }
 }
 
 @media (max-width: 768px) {
   .invitation-page {
-    min-height: 100vh;
     height: auto;
+    min-height: 100vh;
     padding: 1rem;
   }
 
   .invitation-container {
-    min-height: calc(100vh - 2rem);
     height: auto;
-
+    min-height: calc(100vh - 2rem);
     padding: 2rem 1.5rem;
   }
 
-  .invitation-container::before {
-    top: 10px;
-    left: 10px;
-    right: 10px;
-    bottom: 10px;
-  }
-
-  .monogram {
-    font-size: 2.5rem;
-  }
-
-  .monogram-divider {
-    height: 40px;
-  }
-
-  .invite-title {
-    letter-spacing: 0.25rem;
-    font-size: 0.8rem;
-  }
-
-  .subtitle {
-    letter-spacing: 0.15rem;
-    font-size: 0.85rem;
-  }
-
   .couple-names {
-    font-size: 3.5rem;
+    font-size: 3.8rem;
   }
 
   .message p {
     font-size: 1.2rem;
-    line-height: 1.6;
+  }
+}
+
+@media (max-width: 540px) {
+  .couple-names {
+    font-size: 3.2rem;
   }
 
   .celebrate-text {
-    font-size: 1.8rem;
+    font-size: 1.7rem;
+  }
+
+  .message p {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 430px) {
+  .invitation-monogram {
+    font-size: 2.2rem;
+  }
+
+  .couple-names {
+    font-size: 2.8rem;
+  }
+
+  .invite-title {
+    font-size: 0.75rem;
+  }
+}
+
+@media (max-width: 390px) {
+  .couple-names {
+    font-size: 2.5rem;
+  }
+
+  .message p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 375px) {
+  .couple-names {
+    font-size: 2.2rem;
+  }
+
+  .celebrate-text {
+    font-size: 1.4rem;
   }
 
   .line-divider {
-    width: 220px;
+    width: 160px;
   }
 
   .heart-divider span:first-child,
   .heart-divider span:last-child {
-    width: 50px;
+    width: 40px;
   }
 }

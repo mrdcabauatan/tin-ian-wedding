@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Home.css";
 
 function Home({ onEnterInvitation }) {
-  const weddingDate = new Date("2027-08-30T23:59:59");
+  const weddingDate = new Date("2026-08-30T23:59:59");
 
   const calculateTimeLeft = () => {
     const difference = weddingDate - new Date();
@@ -98,7 +98,7 @@ function Home({ onEnterInvitation }) {
           style={{ cursor: "pointer" }}
         >
           <div className="mouse">
-            <span>↓</span>
+            <span>→</span>
           </div>
         </div>
       </div>

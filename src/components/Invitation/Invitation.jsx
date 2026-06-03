@@ -4,9 +4,9 @@ function Invitation() {
   return (
     <section id="invitation" className="invitation-page">
       <div className="invitation-container">
-        <div className="monogram">
+        <div className="invitation-monogram">
           <span>I</span>
-          <div className="monogram-divider"></div>
+          <div className="invitation-monogram-divider"></div>
           <span>T</span>
         </div>
 

@@ -1,324 +1,265 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600&display=swap");
+
+:root {
+  --dusty-blue: #d8e4f0;
+  --border: rgba(255, 255, 255, 0.45);
+}
+
+/* =========================
+   PAGE
+========================= */
 
 .rsvp-page {
   width: 100%;
   height: 100vh;
-  position: relative;
+
+  background-image: url("../../assets/rsvpBg.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1rem;
+
   overflow: hidden;
-  font-family: "Cormorant Garamond", serif;
-  background:
-    radial-gradient(
-      circle at 15% 20%,
-      rgba(255, 255, 255, 0.16),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 85% 25%,
-      rgba(255, 255, 255, 0.12),
-      transparent 40%
-    ),
-    radial-gradient(
-      circle at 75% 85%,
-      rgba(255, 255, 255, 0.08),
-      transparent 35%
-    ),
-    radial-gradient(
-      circle at 25% 75%,
-      rgba(255, 255, 255, 0.07),
-      transparent 45%
-    ),
-    linear-gradient(
-      135deg,
-      #a5b7d4 0%,
-      #8ea6ca 25%,
-      #96acd0 50%,
-      #8ea4c8 75%,
-      #9db0d1 100%
-    );
+  padding: 2rem;
+  position: relative;
 }
 
-.rsvp-page::before {
+.rsvp-container {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: calc(100vh - 4rem);
+
+  border: 1px solid var(--border);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  padding: 3rem;
+}
+
+.rsvp-container::before {
   content: "";
   position: absolute;
-  inset: 0;
-  background:
-    radial-gradient(
-      ellipse at top left,
-      rgba(255, 255, 255, 0.08),
-      transparent 60%
-    ),
-    radial-gradient(
-      ellipse at bottom right,
-      rgba(255, 255, 255, 0.08),
-      transparent 60%
-    );
+
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
 
   pointer-events: none;
 }
 
-.rsvp-container {
-  width: 100%;
-  height: 100%;
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  position: relative;
-  padding: 1.5rem 3rem;
-  backdrop-filter: blur(4px);
-  z-index: 2;
-}
-
-.rsvp-container::before,
-.rsvp-container::after {
-  content: "";
-  position: absolute;
-  left: 30px;
-  right: 30px;
-  height: 1px;
-  background: rgba(255, 255, 255, 0.18);
-}
-
-.rsvp-container::before {
-  top: 20px;
-}
-
-.rsvp-container::after {
-  bottom: 20px;
-}
+/* =========================
+   TITLE
+========================= */
 
 .rsvp-title {
-  text-align: center;
-
-  font-size: 4rem;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 400;
 
   color: white;
-  margin-top: 2rem;
-  margin-bottom: 2rem;
+  letter-spacing: 0.25rem;
+
+  margin-bottom: 1rem;
+
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
+/* =========================
+   INFO CARDS
+========================= */
+
 .rsvp-info {
-  display: flex;
-  justify-content: center;
-  gap: 5rem;
-  margin-bottom: 3rem;
+  width: min(900px, 100%);
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 1rem;
+  margin-bottom: 1.5rem;
 }
 
 .rsvp-info-card {
-  min-width: 220px;
-  text-align: center;
+  padding: 1rem;
 }
 
 .rsvp-icon {
-  width: 65px;
-  height: 65px;
-  margin: auto;
-  border-radius: 50%;
-  background: rgba(255, 255, 255, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(10px);
+  width: 55px;
+  height: 55px;
+
+  margin: 0 auto 0.8rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-bottom: 0.75rem;
+
+  border-radius: 50%;
+
   color: white;
+
+  border: 1px solid rgba(255, 255, 255, 0.25);
 }
 
 .rsvp-info-card h3 {
   color: white;
-  font-size: 1.5rem;
-  margin-bottom: 0.3rem;
-  font-weight: 500;
+
+  margin-bottom: 0.5rem;
+
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1rem, 1.2rem, 1.4rem);
+
+  letter-spacing: 1px;
 }
 
 .rsvp-info-card p {
   color: rgba(255, 255, 255, 0.9);
-  font-size: 1.1rem;
+  font-size: clamp(1rem, 1.15rem, 1.3rem);
 }
+
+/* =========================
+   MESSAGE
+========================= */
 
 .rsvp-message {
-  text-align: center;
-  max-width: 850px;
-  margin: 0 auto 1.5rem;
+  max-width: 800px;
+
+  margin: 0 auto 2rem;
+
   color: white;
-  font-size: 1.25rem;
-  line-height: 1.5;
+
+  font-size: clamp(1rem, 1.2rem, 1.5rem);
+  line-height: 1.8;
 }
 
-.rsvp-message p {
-  margin-bottom: 6px;
-}
+/* =========================
+   BUTTON
+========================= */
 
 .rsvp-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 600px;
-  max-width: 100%;
-  height: 60px;
-  margin: 0 auto;
+  width: 260px;
+  height: 55px;
+
+  border: none;
+  border-radius: 999px;
+
   background: #c8a2b0;
   color: white;
-  border: none;
-  border-radius: 50px;
-  text-decoration: none;
+
+  cursor: pointer;
+
   font-family: "Playfair Display", serif;
-  font-size: 1.1rem;
-  font-weight: 600;
-  letter-spacing: 1px;
-  box-shadow:
-    0 8px 20px rgba(200, 162, 176, 0.35);
+  font-size: 1rem;
+
   transition: all 0.3s ease;
 }
 
 .rsvp-button:hover {
-  background: #b78d9c;
   transform: translateY(-3px);
-  box-shadow:
-    0 12px 25px rgba(200, 162, 176, 0.45);
+  background: #b78d9c;
 }
 
+/* =========================
+   DEADLINE
+========================= */
+
 .rsvp-deadline {
-  text-align: center;
-  margin-top: 2rem;
+  margin-top: 1rem;
   color: white;
 }
 
 .rsvp-deadline h4 {
-  font-size: 1.4rem;
-  margin-bottom: 0.3rem;
-  font-weight: 600;
+  font-family: "Playfair Display", serif;
+  margin-bottom: 0.5rem;
 }
 
 .rsvp-deadline span {
-  font-weight: 400;
+  font-weight: 600;
 }
 
 .rsvp-deadline p {
-  font-size: 1rem;
-  opacity: 0.95;
+  max-width: 700px;
+  margin: auto;
+  line-height: 1.8;
 }
 
+/* =========================
+   REMINDERS
+========================= */
+
 .rsvp-reminders {
-  max-width: 650px;
-  margin: 3rem auto 0;
+  margin-top: 2rem;
   color: white;
 }
 
 .rsvp-reminders h2 {
-  text-align: center;
-  font-size: 1.8rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.8rem;
+  font-family: "Playfair Display", serif;
+  font-size: clamp(1.2rem, 1.5rem, 1.8rem);
 }
 
 .rsvp-reminders ul {
-  width: fit-content;
-  margin: 0 auto;
-  padding-left: 1.5rem;
-}
-
-.rsvp-reminders li {
-  font-size: 1.15rem;
-  margin-bottom: 0.75rem;
-  line-height: 1.5;
+  display: inline-block;
   text-align: left;
+  line-height: 1.8;
+  font-size: clamp(1rem, 1.15rem, 1.3rem);
 }
 
-@media (max-width: 1024px) {
-  .rsvp-info {
-    gap: 3rem;
-  }
-
-  .rsvp-title {
-    font-size: 3.5rem;
-  }
-
-  .rsvp-info-card {
-    min-width: 180px;
-  }
-}
-
-@media (max-width: 768px) {
-  .rsvp-page {
-    height: auto;
-    min-height: 100vh;
-
-    overflow-y: auto;
-  }
-
-  .rsvp-container {
-    height: auto;
-    min-height: calc(100vh - 2rem);
-
-    padding: 2rem 1.5rem;
-  }
-
-  .rsvp-title {
-    font-size: 3rem;
-
-    margin-bottom: 1.5rem;
-  }
-
-  .rsvp-info {
-    flex-direction: column;
-
-    gap: 1.5rem;
-
-    margin-bottom: 1.5rem;
-  }
-
-  .rsvp-message {
-    font-size: 1.1rem;
-  }
-
-  .rsvp-button {
-    width: 100%;
-  }
-
-  .rsvp-deadline h4 {
-    font-size: 1.2rem;
-  }
-
-  .rsvp-deadline p {
-    font-size: 0.95rem;
-  }
-
-  .rsvp-reminders h2 {
-    font-size: 1.5rem;
-  }
-
-  .rsvp-reminders li {
-    font-size: 1rem;
-  }
-}
+/* =========================
+   MODAL
+========================= */
 
 .rsvp-modal-overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0, 0, 0, 0.65);
+
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
-  padding: 1rem;
+
+  background: rgba(0, 0, 0, 0.7);
+  backdrop-filter: blur(5px);
+
+  z-index: 99999;
+  padding: 20px;
 }
 
 .rsvp-modal {
-  width: 100%;
-  max-width: 600px;
-  background: white;
-  border-radius: 20px;
-  padding: 2rem;
   position: relative;
-  animation: modalFade 0.3s ease;
+
+  width: 100%;
+  max-width: 650px;
+  max-height: 90vh;
+
+  overflow-y: auto;
+
+  background: white;
+  border-radius: 24px;
+
+  padding: 2.5rem;
+
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.25);
+
+  z-index: 100000;
+
+  animation: modalFadeIn 0.35s ease;
 }
 
-@keyframes modalFade {
+@keyframes modalFadeIn {
   from {
     opacity: 0;
-    transform: translateY(20px);
+    transform: translateY(25px);
   }
 
   to {
@@ -329,19 +270,47 @@
 
 .close-btn {
   position: absolute;
-  top: 10px;
-  right: 15px;
+
+  top: 12px;
+  right: 18px;
+
+  width: 40px;
+  height: 40px;
+
   border: none;
   background: transparent;
+
   font-size: 2rem;
+
   cursor: pointer;
+
+  color: #7c90b4;
+}
+
+.close-btn:hover {
+  color: #c8a2b0;
 }
 
 .rsvp-modal h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
+
   color: #7c90b4;
-  font-size: 1.2rem;
+
+  font-family: "Playfair Display", serif;
+
+  font-size: 2.2rem;
+
+  margin-bottom: 1rem;
+}
+
+.rsvp-modal p {
+  text-align: center;
+
+  color: #666;
+
+  line-height: 1.8;
+
+  margin-bottom: 1.5rem;
 }
 
 .rsvp-form {
@@ -352,9 +321,12 @@
 
 .rsvp-form input[type="text"] {
   width: 100%;
-  padding: 14px 18px;
-  border: 1px solid #d4d4d4;
+
+  padding: 14px 16px;
+
+  border: 1px solid #d9d9d9;
   border-radius: 12px;
+
   font-size: 1rem;
 }
 
@@ -362,30 +334,163 @@
   display: flex;
   flex-direction: column;
   gap: 12px;
-  margin-top: 10px;
-}
-
-.attendance-options label {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  font-size: 1rem;
 }
 
 .submit-rsvp-btn {
-  width: 100%;
-  margin-top: 1rem;
-  padding: 14px;
+  padding: 15px;
+
   border: none;
-  border-radius: 50px;
+  border-radius: 999px;
+
   background: #c8a2b0;
   color: white;
-  font-size: 1rem;
-  font-weight: 600;
+
   cursor: pointer;
-  transition: 0.3s;
 }
 
-.submit-rsvp-btn:hover {
-  background: #b78d9c;
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 1024px) {
+  .rsvp-container {
+    padding: 2rem;
+  }
+
+  .rsvp-info {
+    width: 100%;
+  }
+}
+
+/* =========================
+   IPAD MINI / AIR
+========================= */
+
+@media (max-width: 820px) {
+  .rsvp-title {
+    font-size: 3rem;
+  }
+
+  .rsvp-info {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* =========================
+   PHONES
+========================= */
+
+@media (max-width: 600px) {
+  .rsvp-page {
+    height: auto;
+    min-height: 100vh;
+
+    overflow-y: auto;
+    overflow-x: hidden;
+
+    padding: 1rem;
+
+    align-items: flex-start;
+  }
+
+  .rsvp-container {
+    height: auto;
+    min-height: calc(100vh - 2rem);
+
+    justify-content: flex-start;
+
+    padding: 2rem 1rem;
+  }
+
+  .rsvp-container::before {
+    top: 10px;
+    left: 10px;
+    right: 10px;
+    bottom: 10px;
+  }
+
+  .rsvp-title {
+    font-size: 2.5rem;
+    margin-top: 1rem;
+  }
+
+  .rsvp-info {
+    grid-template-columns: 1fr;
+    width: 100%;
+    gap: 0.75rem;
+  }
+
+  .rsvp-message {
+    width: 100%;
+    font-size: 1rem;
+  }
+
+  .rsvp-button {
+    width: 100%;
+    max-width: 280px;
+  }
+
+  .rsvp-reminders ul {
+    width: 100%;
+    padding-left: 1.25rem;
+  }
+
+  .rsvp-modal {
+    padding: 1.5rem;
+  }
+}
+
+/* =========================
+   IPHONE SE
+========================= */
+
+@media (max-width: 400px) {
+  .rsvp-title {
+    font-size: 2rem;
+    letter-spacing: 0.1rem;
+  }
+
+  .rsvp-container {
+    padding: 1.5rem 0.75rem;
+  }
+
+  .rsvp-info-card {
+    padding: 0.5rem;
+  }
+
+  .rsvp-info-card h3 {
+    font-size: 0.95rem;
+  }
+
+  .rsvp-info-card p {
+    font-size: 0.95rem;
+  }
+
+  .rsvp-message {
+    font-size: 0.95rem;
+  }
+
+  .rsvp-button {
+    height: 48px;
+    max-width: 240px;
+  }
+}
+
+/* =========================
+   GALAXY FOLD
+========================= */
+
+@media (max-width: 320px) {
+  .rsvp-title {
+    font-size: 1.7rem;
+  }
+
+  .rsvp-button {
+    max-width: 200px;
+  }
+
+  .rsvp-info-card h3,
+  .rsvp-info-card p {
+    font-size: 0.85rem;
+  }
 }
