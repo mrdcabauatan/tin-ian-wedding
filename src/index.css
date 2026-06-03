@@ -87,6 +87,10 @@ body {
   .page {
     overflow-y: auto;
   }
+
+  .page-slider {
+    touch-action: pan-y;
+  }
 }
 
 /* Mobile */

@@ -16,11 +16,16 @@ const App = () => {
 
   const audioRef = useRef(null);
 
-  // Create audio only once
+  const touchStartX = useRef(0);
+  const touchEndX = useRef(0);
+
+  const pages = ["home", "invitation", "details", "rsvp"];
+  const currentIndex = pages.indexOf(currentPage);
+
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
-    audioRef.current.volume = 0.8;
+    audioRef.current.volume = 0.5;
   }
 
   const startMusic = () => {
@@ -34,7 +39,6 @@ const App = () => {
   };
 
   const handleIntroOpen = () => {
-    // Start music immediately after user interaction
     startMusic();
 
     setShowIntro(false);
@@ -44,8 +48,46 @@ const App = () => {
     }, 50);
   };
 
-  const pages = ["home", "invitation", "details", "rsvp"];
-  const currentIndex = pages.indexOf(currentPage);
+  const isMobileOrTablet = () => {
+    return window.innerWidth <= 1024;
+  };
+
+  const handleTouchStart = (e) => {
+    if (!isMobileOrTablet()) return;
+
+    touchStartX.current = e.changedTouches[0].clientX;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!isMobileOrTablet()) return;
+
+    touchEndX.current = e.changedTouches[0].clientX;
+
+    const swipeDistance =
+      touchStartX.current - touchEndX.current;
+
+    const threshold = 50;
+
+    // Swipe Left → Next Page
+    if (swipeDistance > threshold) {
+      const nextIndex = Math.min(
+        currentIndex + 1,
+        pages.length - 1
+      );
+
+      setCurrentPage(pages[nextIndex]);
+    }
+
+    // Swipe Right → Previous Page
+    if (swipeDistance < -threshold) {
+      const prevIndex = Math.max(
+        currentIndex - 1,
+        0
+      );
+
+      setCurrentPage(pages[prevIndex]);
+    }
+  };
 
   return (
     <div className="app-container">
@@ -59,13 +101,17 @@ const App = () => {
 
           <div
             className="page-slider"
+            onTouchStart={handleTouchStart}
+            onTouchEnd={handleTouchEnd}
             style={{
               transform: `translateX(-${currentIndex * 100}vw)`,
             }}
           >
             <div className="page">
               <Home
-                onEnterInvitation={() => changePage("invitation")}
+                onEnterInvitation={() =>
+                  changePage("invitation")
+                }
               />
             </div>
 
