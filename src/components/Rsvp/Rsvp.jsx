@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import RsvpForm from "./components/RsvpForm";
 
-function RSVP() {
+function RSVP({ guestInfo }) {
   const [showModal, setShowModal] = useState(false);
 
   return (
@@ -101,15 +101,16 @@ function RSVP() {
                 ×
               </button>
 
-              <h2>RSVP</h2>
-
               <p>
                 We are very excited to celebrate our wedding day with our family
                 and friends. Please let us know whether you'll be able to join
                 us by submitting your RSVP below.
               </p>
 
-              <RsvpForm onClose={() => setShowModal(false)} />
+              <RsvpForm
+                guestInfo={guestInfo}
+                onClose={() => setShowModal(false)}
+              />
             </div>
           </div>,
           document.body

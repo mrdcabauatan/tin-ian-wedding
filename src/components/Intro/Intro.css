@@ -1,233 +1,232 @@
 @import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap");
 
 :root {
-  --dusty-blue-light: #8fa9c3;
-  --dusty-blue: #6f8daa;
-  --dusty-blue-dark: #4f6f8f;
-  --dusty-blue-deep: #385676;
-
-  --border: rgba(255, 255, 255, 0.35);
+  --dusty-blue: #d8e4f0;
+  --dusty-blue-light: #eef4fb;
 }
 
 .intro {
   position: fixed;
   inset: 0;
-  z-index: 9999;
   overflow: hidden;
-  background: var(--dusty-blue);
-}
-
-/* ========================================
-   DARK OVERLAY
-======================================== */
-
-.intro::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-
-  background:
-    linear-gradient(
-      rgba(20, 35, 55, 0.22),
-      rgba(20, 35, 55, 0.22)
-    );
-
-  z-index: 1;
-  pointer-events: none;
-}
-
-/* ========================================
-   OPENING PANELS
-======================================== */
-
-.intro-panel {
-  position: absolute;
-  top: 0;
-  width: 50%;
-  height: 100%;
-
-  background:
-    linear-gradient(
-      135deg,
-      var(--dusty-blue-light) 0%,
-      var(--dusty-blue) 35%,
-      var(--dusty-blue-dark) 75%,
-      var(--dusty-blue-deep) 100%
-    );
-
-  transition:
-    transform 1.8s cubic-bezier(0.77, 0, 0.175, 1);
-}
-
-.left-panel {
-  left: 0;
-  border-right: 1px solid var(--border);
-}
-
-.right-panel {
-  right: 0;
-  border-left: 1px solid var(--border);
-}
-
-/* ========================================
-   PANEL OPENING
-======================================== */
-
-.opening .left-panel {
-  transform: translateX(-100%);
-}
-
-.opening .right-panel {
-  transform: translateX(100%);
-}
-
-/* ========================================
-   CENTER CONTENT
-======================================== */
-
-.intro-center {
-  position: absolute;
-  inset: 0;
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  z-index: 10;
+  z-index: 9999;
 
   opacity: 1;
 
-  transition: opacity 0.8s ease;
+  transition:
+    opacity 1.2s ease,
+    visibility 1.2s ease;
 }
 
-.opening .intro-center {
+.intro-leave {
   opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
 }
 
-/* ========================================
-   MONOGRAM
-======================================== */
+.intro-video {
+  position: absolute;
+  inset: 0;
 
-.monogram-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
+  width: 100%;
+  height: 100%;
 
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  transition: transform 0.4s ease;
+  object-fit: cover;
 }
 
-.monogram-btn:hover {
-  transform: scale(1.08);
+.video-overlay {
+  position: absolute;
+  inset: 0;
+
+  background: rgba(0, 0, 0, 0.25);
 }
 
-.monogram {
-  width: 180px;
-  height: 180px;
-
-  border-radius: 50%;
-  border: 2px solid rgba(255, 255, 255, 0.85);
+.intro-modal-backdrop {
+  position: absolute;
+  inset: 0;
 
   display: flex;
   justify-content: center;
   align-items: center;
 
+  padding: 1rem;
+
+  backdrop-filter: blur(10px);
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.intro-modal {
+  width: min(90%, 420px);
+
+  padding: 3rem 2rem;
+
+  border-radius: 24px;
+
+  background: rgba(255, 255, 255, 0.15);
+
+  border: 1px solid rgba(255, 255, 255, 0.3);
+
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.2);
+
+  backdrop-filter: blur(20px);
+
+  text-align: center;
+}
+
+.intro-title {
   font-family: "Cormorant Garamond", serif;
-  font-size: 4rem;
-  font-weight: 400;
+  font-size: clamp(2rem, 4vw, 3rem);
+  font-weight: 500;
 
   color: white;
 
-  background: rgba(255, 255, 255, 0.12);
-
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-
-  box-shadow:
-    0 0 40px rgba(255, 255, 255, 0.18),
-    inset 0 0 30px rgba(255, 255, 255, 0.12);
+  margin-bottom: 0.5rem;
 }
 
-.tap-text {
-  margin-top: 24px;
+.intro-subtitle {
+  color: rgba(255, 255, 255, 0.9);
 
-  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 2rem;
 
-  letter-spacing: 4px;
-  text-transform: uppercase;
-
-  font-size: 0.85rem;
-  font-family: "Cormorant Garamond", serif;
+  font-size: 1rem;
+  line-height: 1.6;
 }
 
-/* ========================================
-   BLACK TRANSITION
-======================================== */
+.intro-input {
+  width: 100%;
 
-.intro-blackout {
-  position: absolute;
-  inset: 0;
+  padding: 14px 18px;
+  margin-bottom: 1rem;
 
-  background: #000;
+  border: none;
+  border-radius: 12px;
 
-  opacity: 0;
+  outline: none;
 
-  z-index: 30;
-
-  pointer-events: none;
-
-  transition:
-    opacity 0.9s ease;
+  font-size: 1rem;
 }
 
-.opening .intro-blackout {
-  opacity: 1;
+.intro-button {
+  width: 100%;
+
+  padding: 14px;
+
+  border: none;
+  border-radius: 12px;
+
+  background: var(--dusty-blue);
+
+  font-size: 1rem;
+
+  cursor: pointer;
+
+  transition: all 0.3s ease;
 }
 
-/* ========================================
+.intro-button:hover {
+  transform: translateY(-2px);
+  background: var(--dusty-blue-light);
+}
+
+/* =========================
+   TABLETS
+========================= */
+
+@media (max-width: 1024px) {
+  .intro-modal {
+    width: min(92%, 400px);
+  }
+}
+
+/* =========================
    MOBILE
-======================================== */
+========================= */
 
 @media (max-width: 768px) {
-  .monogram {
-    width: 140px;
-    height: 140px;
-    font-size: 3rem;
+  .intro-modal {
+    width: min(95%, 380px);
+
+    padding: 2rem 1.5rem;
+
+    border-radius: 20px;
   }
 
-  .tap-text {
-    font-size: 0.7rem;
-    letter-spacing: 3px;
+  .intro-title {
+    font-size: 2.3rem;
+  }
+
+  .intro-subtitle {
+    font-size: 0.95rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .intro-input,
+  .intro-button {
+    padding: 12px;
+    font-size: 0.95rem;
   }
 }
 
-/* ========================================
-   IPHONE 14 PRO MAX
-======================================== */
+/* =========================
+   IPHONE XR / 12 PRO
+========================= */
 
 @media (max-width: 430px) {
-  .monogram {
-    width: 130px;
-    height: 130px;
-    font-size: 2.8rem;
+  .intro-modal {
+    width: 95%;
+    padding: 1.75rem 1.25rem;
+  }
+
+  .intro-title {
+    font-size: 2rem;
   }
 }
 
-/* ========================================
-   SMALL DEVICES
-======================================== */
+/* =========================
+   IPHONE SE
+========================= */
 
 @media (max-width: 375px) {
-  .monogram {
-    width: 120px;
-    height: 120px;
-    font-size: 2.5rem;
+  .intro-modal {
+    width: 96%;
+    padding: 1.5rem 1rem;
   }
 
-  .tap-text {
-    font-size: 0.65rem;
+  .intro-title {
+    font-size: 1.8rem;
+  }
+
+  .intro-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .intro-input,
+  .intro-button {
+    font-size: 0.9rem;
+  }
+}
+
+/* =========================
+   GALAXY FOLD
+========================= */
+
+@media (max-width: 320px) {
+  .intro-modal {
+    width: 98%;
+    padding: 1.25rem 0.9rem;
+  }
+
+  .intro-title {
+    font-size: 1.6rem;
+  }
+
+  .intro-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .intro-input,
+  .intro-button {
+    padding: 10px;
+    font-size: 0.85rem;
   }
 }
