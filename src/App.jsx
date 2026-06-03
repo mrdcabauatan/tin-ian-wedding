@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import Intro from "./components/Intro/Intro";
 import Navbar from "./components/Navbar/Navbar";
@@ -25,6 +25,18 @@ const App = () => {
   const currentIndex = pages.indexOf(currentPage);
 
   const isMobileOrTablet = window.innerWidth <= 1024;
+
+  useEffect(() => {
+    if (showIntro) {
+      document.body.classList.add("intro-active");
+    } else {
+      document.body.classList.remove("intro-active");
+    }
+
+    return () => {
+      document.body.classList.remove("intro-active");
+    };
+  }, [showIntro]);
 
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
