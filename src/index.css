@@ -79,7 +79,18 @@ body {
 /* Mobile */
 @media (max-width: 768px) {
   .page {
-    overflow-y: auto;
     height: 100vh;
+
+    overflow-x: hidden;
+    overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .page::-webkit-scrollbar {
+    display: none;
   }
 }

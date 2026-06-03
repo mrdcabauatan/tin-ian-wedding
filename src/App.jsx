@@ -16,7 +16,7 @@ const App = () => {
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
-    audioRef.current.volume = 0.8;
+    audioRef.current.volume = 0;
   }
 
   const startMusic = () => {
