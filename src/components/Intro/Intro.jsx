@@ -65,7 +65,7 @@ const Intro = ({ onFinish, setGuestInfo }) => {
               placeholder="First Name"
               className="intro-input"
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={(e) => setFirstName(e.target.value.replace(/[^a-zA-Z\s]/g, ""))}
             />
 
             <input
@@ -73,7 +73,7 @@ const Intro = ({ onFinish, setGuestInfo }) => {
               placeholder="Last Name"
               className="intro-input"
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              onChange={(e) => setLastName(e.target.value.replace(/[^a-zA-Z\s]/g, ""))}
             />
 
             <button

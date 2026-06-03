@@ -83,7 +83,7 @@ const App = () => {
           </div>
 
           <div className="page">
-            <Invitation />
+            <Invitation guestInfo={guestInfo.firstName.toUpperCase()} />
           </div>
 
           <div className="page">
@@ -104,11 +104,13 @@ const App = () => {
             }}
           >
             <div className="page">
-              <Home onEnterInvitation={() => changePage("invitation")} />
+              <Home
+                onEnterInvitation={() => changePage("invitation")}
+              />
             </div>
 
             <div className="page">
-              <Invitation />
+              <Invitation guestInfo={guestInfo.firstName.toUpperCase()}/>
             </div>
 
             <div className="page">
@@ -120,17 +122,12 @@ const App = () => {
             </div>
           </div>
 
-          {currentPage !== "home" && (
-            <Navbar setCurrentPage={changePage} />
-          )}
+          {currentPage !== "home" && <Navbar setCurrentPage={changePage} />}
         </>
       )}
 
       {showIntro && (
-        <Intro
-          onFinish={handleIntroFinish}
-          setGuestInfo={setGuestInfo}
-        />
+        <Intro onFinish={handleIntroFinish} setGuestInfo={setGuestInfo} />
       )}
     </div>
   );
