@@ -17,6 +17,11 @@ body {
   overflow: hidden;
 }
 
+body.intro-active {
+  overflow: hidden !important;
+  touch-action: none;
+}
+
 /* Default cursor everywhere */
 * {
   cursor: default;
