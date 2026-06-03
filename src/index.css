@@ -49,25 +49,6 @@ input[type="button"],
   opacity: 1;
 }
 
-.page-slider {
-  display: flex;
-  width: 500vw;
-  height: 100vh;
-
-  transition:
-    transform 2.5s cubic-bezier(
-      0.22,
-      1,
-      0.36,
-      1
-    );
-
-  will-change: transform;
-
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-}
-
 .page {
   width: 100vw;
   height: 100vh;
@@ -95,10 +76,6 @@ input[type="button"],
 @media (max-width: 1024px) {
   .page {
     overflow-y: auto;
-  }
-
-  .page-slider {
-    touch-action: pan-y;
   }
 }
 

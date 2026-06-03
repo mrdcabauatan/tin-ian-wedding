@@ -98,7 +98,7 @@ function Home({ onEnterInvitation }) {
           style={{ cursor: "pointer" }}
         >
           <div className="mouse">
-            <span>→</span>
+            <span>↓</span>
           </div>
         </div>
       </div>
