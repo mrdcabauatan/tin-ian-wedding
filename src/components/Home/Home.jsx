@@ -54,7 +54,7 @@ function Home({ onEnterInvitation }) {
           <span></span>❤<span></span>
         </div>
 
-        <h2 className="home-subtitle">Two Hearts, One Forever</h2>
+        <h2 className="home-subtitle">This Love, Evermore</h2>
 
         <p className="description">
           A Beautiful Beginning

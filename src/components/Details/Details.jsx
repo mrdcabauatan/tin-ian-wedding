@@ -10,12 +10,12 @@ export default function Details() {
       id="details"
     >
       <div className="details-container">
-        <h2 className="details-title">DETAILS</h2>
+        <h2 className="details-title">Details</h2>
 
         <div className="details-grid">
           {/* Church */}
           <div className="details-card">
-            <h3 className="details-heading">CHURCH</h3>
+            <h3 className="details-heading">Church</h3>
 
             <div className="mini-divider"></div>
 
@@ -43,7 +43,7 @@ export default function Details() {
 
           {/* Reception */}
           <div className="details-card">
-            <h3 className="details-heading">RECEPTION</h3>
+            <h3 className="details-heading">Reception</h3>
 
             <div className="mini-divider"></div>
 
@@ -71,7 +71,7 @@ export default function Details() {
 
           {/* Dress Code */}
           <div className="details-card">
-            <h3 className="details-heading">DRESS CODE</h3>
+            <h3 className="details-heading">Dress Code</h3>
 
             <div className="mini-divider"></div>
 

@@ -49,12 +49,10 @@
 
 
 .details-title {
-  font-family: "Playfair Display", serif;
+  font-family: "Great Vibes", cursive;
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 400;
   color: #fff;
-
-  letter-spacing: 0.25rem;
   margin-bottom: 2rem;
 }
 
@@ -75,9 +73,8 @@
 }
 
 .details-heading {
-  font-family: "Playfair Display", serif;
-  font-size: 0.95rem;
-
+  font-family: "Great Vibes", cursive;
+  font-size: 2rem;
   letter-spacing: 0.35rem;
   color: rgba(255, 255, 255, 0.95);
 
