@@ -27,19 +27,6 @@ const App = () => {
 
   const isMobileOrTablet = window.innerWidth <= 1024;
 
-  // Lock page while intro is active
-  useEffect(() => {
-    if (showIntro) {
-      document.body.classList.add("intro-active");
-    } else {
-      document.body.classList.remove("intro-active");
-    }
-
-    return () => {
-      document.body.classList.remove("intro-active");
-    };
-  }, [showIntro]);
-
   // Create audio once
   useEffect(() => {
     const audio = new Audio(bgMusic);
