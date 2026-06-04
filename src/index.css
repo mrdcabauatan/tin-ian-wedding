@@ -12,7 +12,6 @@ body,
   background: #000;
 }
 
-/* Desktop */
 body {
   overflow: hidden;
 }
@@ -50,6 +49,25 @@ input[type="button"],
   opacity: 1;
 }
 
+.page-slider {
+  display: flex;
+  width: 500vw;
+  height: 100vh;
+
+  transition:
+    transform 2.5s cubic-bezier(
+      0.22,
+      1,
+      0.36,
+      1
+    );
+
+  will-change: transform;
+
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+}
+
 .page {
   width: 100vw;
   height: 100vh;
@@ -68,13 +86,15 @@ input[type="button"],
   display: none;
 }
 
-/* MOBILE & TABLET */
+@media (min-width: 1025px) {
+  .page {
+    overflow-y: auto;
+  }
+}
+
 @media (max-width: 1024px) {
-  html,
-  body,
-  #root {
-    height: auto;
-    min-height: 100%;
+  .page {
+    overflow-y: auto;
   }
 
   .page-slider {
@@ -92,22 +112,14 @@ input[type="button"],
 
     overflow-x: hidden;
     overflow-y: auto;
+
+    -webkit-overflow-scrolling: touch;
+
+    scrollbar-width: none;
+    -ms-overflow-style: none;
   }
 
-  .app-container {
-    height: auto;
-    min-height: 100vh;
-    overflow: visible;
-  }
-
-  .mobile-scroll-container {
-    width: 100%;
-  }
-
-  .page {
-    width: 100%;
-    height: auto;
-    min-height: 100vh;
-    overflow: visible;
+  .page::-webkit-scrollbar {
+    display: none;
   }
 }
