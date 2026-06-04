@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import Intro from "./components/Intro/Intro";
 import Navbar from "./components/Navbar/Navbar";
@@ -27,6 +27,8 @@ const App = () => {
   const pages = ["home", "invitation", "details", "rsvp"];
   const currentIndex = pages.indexOf(currentPage);
 
+  const isMobileOrTablet = window.innerWidth <= 1024;
+
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
@@ -37,10 +39,6 @@ const App = () => {
     if (audioRef.current && audioRef.current.paused) {
       audioRef.current.play().catch((err) => console.log(err));
     }
-  };
-
-  const changePage = (page) => {
-    setCurrentPage(page);
   };
 
   const handleIntroFinish = () => {
@@ -141,7 +139,70 @@ const App = () => {
         <Intro
           onFinish={handleIntroFinish}
           setGuestInfo={setGuestInfo}
+          setLoginStatus={setSuccessLogin}
         />
+      )}
+
+      {successLogin && (
+        <>
+          {/* Desktop Navbar */}
+          {!isMobileOrTablet && currentPage !== "home" && (
+            <Navbar setCurrentPage={changePage} />
+          )}
+
+          {/* Petals start immediately after successful login */}
+          <PetalOverlay
+            active={["invitation", "details", "rsvp"].includes(currentPage)}
+          />
+
+          {isMobileOrTablet ? (
+            <div className="mobile-scroll-container">
+              <div className="page">
+                <Home onEnterInvitation={() => {}} />
+              </div>
+
+              <div className="page">
+                <Invitation guestInfo={guestInfo.firstName.toUpperCase()} />
+              </div>
+
+              <div className="page">
+                <Details />
+              </div>
+
+              <div className="page">
+                <Rsvp guestInfo={guestInfo} />
+              </div>
+            </div>
+          ) : (
+            <>
+              <div
+                style={{
+                  height: `${pages.length * 100}vh`,
+                  transform: `translateY(-${currentIndex * 100}vh)`,
+                  transition: "transform 1s ease-in-out",
+                }}
+              >
+                <div className="page">
+                  <Home onEnterInvitation={() => changePage("invitation")} />
+                </div>
+
+                <div className="page">
+                  <Invitation guestInfo={guestInfo.firstName.toUpperCase()} />
+                </div>
+
+                <div className="page">
+                  <Details />
+                </div>
+
+                <div className="page">
+                  <Rsvp guestInfo={guestInfo} />
+                </div>
+              </div>
+
+              {currentPage !== "home" && <Navbar setCurrentPage={changePage} />}
+            </>
+          )}
+        </>
       )}
     </div>
   );
