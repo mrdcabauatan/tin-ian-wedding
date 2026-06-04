@@ -1,6 +1,6 @@
 import "./Invitation.css";
 
-function Invitation({ guestInfo }) {
+function Invitation() {
   return (
     <section id="invitation" className="invitation-page">
       <div className="invitation-container">
@@ -10,7 +10,7 @@ function Invitation({ guestInfo }) {
           <span>T</span>
         </div>
 
-        <h3 className="invite-title">HELLO {guestInfo}, YOU ARE INVITED</h3>
+        <h3 className="invite-title">YOU ARE INVITED</h3>
 
         <div className="heart-divider">
           <span></span>
