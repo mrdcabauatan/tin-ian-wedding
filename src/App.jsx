@@ -27,6 +27,7 @@ const App = () => {
 
   const isMobileOrTablet = window.innerWidth <= 1024;
 
+  // Lock page while intro is active
   useEffect(() => {
     if (showIntro) {
       document.body.classList.add("intro-active");
@@ -39,25 +40,33 @@ const App = () => {
     };
   }, [showIntro]);
 
-  if (!audioRef.current) {
-    audioRef.current = new Audio(bgMusic);
-    audioRef.current.loop = true;
-    audioRef.current.volume = 0.5;
-  }
+  // Create audio once
+  useEffect(() => {
+    const audio = new Audio(bgMusic);
+    audio.loop = true;
+    audio.volume = 0.5;
 
-  const startMusic = () => {
-    if (audioRef.current && audioRef.current.paused) {
-      audioRef.current.play().catch((err) => console.log(err));
-    }
-  };
+    audioRef.current = audio;
+
+    return () => {
+      audio.pause();
+    };
+  }, []);
+
+  // Start music after successful login
+  useEffect(() => {
+    if (!successLogin) return;
+
+    audioRef.current?.play().catch((err) => {
+      console.log("Audio playback failed:", err);
+    });
+  }, [successLogin]);
 
   const changePage = (page) => {
     setCurrentPage(page);
   };
 
   const handleIntroFinish = () => {
-    startMusic();
-
     setTimeout(() => {
       setShowIntro(false);
     }, 1200);
@@ -75,13 +84,13 @@ const App = () => {
 
       {successLogin && (
         <>
+          {/* Desktop Navbar */}
           {!isMobileOrTablet && currentPage !== "home" && (
             <Navbar setCurrentPage={changePage} />
           )}
 
-          <PetalOverlay
-            active={["invitation", "details", "rsvp"].includes(currentPage)}
-          />
+          {/* Petals start immediately after successful login */}
+          <PetalOverlay active={successLogin} />
 
           {isMobileOrTablet ? (
             <div className="mobile-scroll-container">
@@ -90,7 +99,9 @@ const App = () => {
               </div>
 
               <div className="page">
-                <Invitation guestInfo={guestInfo.firstName.toUpperCase()} />
+                <Invitation
+                  guestInfo={guestInfo.firstName.toUpperCase()}
+                />
               </div>
 
               <div className="page">
@@ -111,11 +122,17 @@ const App = () => {
                 }}
               >
                 <div className="page">
-                  <Home onEnterInvitation={() => changePage("invitation")} />
+                  <Home
+                    onEnterInvitation={() =>
+                      changePage("invitation")
+                    }
+                  />
                 </div>
 
                 <div className="page">
-                  <Invitation guestInfo={guestInfo.firstName.toUpperCase()} />
+                  <Invitation
+                    guestInfo={guestInfo.firstName.toUpperCase()}
+                  />
                 </div>
 
                 <div className="page">
@@ -127,7 +144,9 @@ const App = () => {
                 </div>
               </div>
 
-              {currentPage !== "home" && <Navbar setCurrentPage={changePage} />}
+              {currentPage !== "home" && (
+                <Navbar setCurrentPage={changePage} />
+              )}
             </>
           )}
         </>
