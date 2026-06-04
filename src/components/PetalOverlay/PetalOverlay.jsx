@@ -3,7 +3,7 @@ import "./PetalOverlay.css";
 const PetalOverlay = ({ active }) => {
   if (!active) return null;
 
-  const isMobile = window.innerWidth <= 768;
+  const isMobile = window.innerWidth <= 430;
 
   return (
     <div className="petal-overlay">

@@ -13,6 +13,7 @@ import bgMusic from "./assets/bgmusic.mp3";
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
   const [showIntro, setShowIntro] = useState(true);
+  const [successLogin, setSuccessLogin] = useState(false);
 
   const [guestInfo, setGuestInfo] = useState({
     firstName: "",
@@ -64,70 +65,76 @@ const App = () => {
 
   return (
     <div className="app-container">
-      {!isMobileOrTablet && currentPage !== "home" && (
-        <Navbar setCurrentPage={changePage} />
-      )}
-
-      <PetalOverlay
-        active={
-          isMobileOrTablet
-            ? true
-            : ["invitation", "details", "rsvp"].includes(currentPage)
-        }
-      />
-
-      {isMobileOrTablet ? (
-        <div className="mobile-scroll-container">
-          <div className="page">
-            <Home onEnterInvitation={() => {}} />
-          </div>
-
-          <div className="page">
-            <Invitation guestInfo={guestInfo.firstName.toUpperCase()} />
-          </div>
-
-          <div className="page">
-            <Details />
-          </div>
-
-          <div className="page">
-            <Rsvp guestInfo={guestInfo} />
-          </div>
-        </div>
-      ) : (
-        <>
-          <div
-            style={{
-              height: `${pages.length * 100}vh`,
-              transform: `translateY(-${currentIndex * 100}vh)`,
-              transition: "transform 1s ease-in-out",
-            }}
-          >
-            <div className="page">
-              <Home
-                onEnterInvitation={() => changePage("invitation")}
-              />
-            </div>
-
-            <div className="page">
-              <Invitation guestInfo={guestInfo.firstName.toUpperCase()}/>
-            </div>
-
-            <div className="page">
-              <Details />
-            </div>
-
-            <div className="page">
-              <Rsvp guestInfo={guestInfo} />
-            </div>
-          </div>
-
-          {currentPage !== "home" && <Navbar setCurrentPage={changePage} />}
-        </>
-      )}
-
       {showIntro && (
-        <Intro onFinish={handleIntroFinish} setGuestInfo={setGuestInfo} />
+        <Intro
+          onFinish={handleIntroFinish}
+          setGuestInfo={setGuestInfo}
+          setLoginStatus={setSuccessLogin}
+        />
+      )}
+
+      {successLogin && (
+        <>
+          {!isMobileOrTablet && currentPage !== "home" && (
+            <Navbar setCurrentPage={changePage} />
+          )}
+
+          <PetalOverlay
+            active={
+              isMobileOrTablet
+                ? true
+                : ["invitation", "details", "rsvp"].includes(currentPage)
+            }
+          />
+
+          {isMobileOrTablet ? (
+            <div className="mobile-scroll-container">
+              <div className="page">
+                <Home onEnterInvitation={() => {}} />
+              </div>
+
+              <div className="page">
+                <Invitation guestInfo={guestInfo.firstName.toUpperCase()} />
+              </div>
+
+              <div className="page">
+                <Details />
+              </div>
+
+              <div className="page">
+                <Rsvp guestInfo={guestInfo} />
+              </div>
+            </div>
+          ) : (
+            <>
+              <div
+                style={{
+                  height: `${pages.length * 100}vh`,
+                  transform: `translateY(-${currentIndex * 100}vh)`,
+                  transition: "transform 1s ease-in-out",
+                }}
+              >
+                <div className="page">
+                  <Home onEnterInvitation={() => changePage("invitation")} />
+                </div>
+
+                <div className="page">
+                  <Invitation guestInfo={guestInfo.firstName.toUpperCase()} />
+                </div>
+
+                <div className="page">
+                  <Details />
+                </div>
+
+                <div className="page">
+                  <Rsvp guestInfo={guestInfo} />
+                </div>
+              </div>
+
+              {currentPage !== "home" && <Navbar setCurrentPage={changePage} />}
+            </>
+          )}
+        </>
       )}
     </div>
   );
