@@ -3,7 +3,7 @@ import "./Intro.css";
 
 import introVideo from "../../assets/intro.mp4";
 
-const Intro = ({ onFinish, setGuestInfo, setLoginStatus }) => {
+const Intro = ({ onFinish, setGuestInfo }) => {
   const [showModal, setShowModal] = useState(true);
   const [isLeaving, setIsLeaving] = useState(false);
 
@@ -24,8 +24,6 @@ const Intro = ({ onFinish, setGuestInfo, setLoginStatus }) => {
     });
 
     setShowModal(false);
-
-    setLoginStatus(true);
 
     try {
       await videoRef.current.play();
@@ -67,9 +65,7 @@ const Intro = ({ onFinish, setGuestInfo, setLoginStatus }) => {
               placeholder="First Name"
               className="intro-input"
               value={firstName}
-              onChange={(e) =>
-                setFirstName(e.target.value.replace(/[^a-zA-Z\s]/g, ""))
-              }
+              onChange={(e) => setFirstName(e.target.value)}
             />
 
             <input
@@ -77,12 +73,13 @@ const Intro = ({ onFinish, setGuestInfo, setLoginStatus }) => {
               placeholder="Last Name"
               className="intro-input"
               value={lastName}
-              onChange={(e) =>
-                setLastName(e.target.value.replace(/[^a-zA-Z\s]/g, ""))
-              }
+              onChange={(e) => setLastName(e.target.value)}
             />
 
-            <button className="intro-button" onClick={handleEnter}>
+            <button
+              className="intro-button"
+              onClick={handleEnter}
+            >
               Submit
             </button>
           </div>

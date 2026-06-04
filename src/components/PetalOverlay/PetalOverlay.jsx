@@ -3,11 +3,9 @@ import "./PetalOverlay.css";
 const PetalOverlay = ({ active }) => {
   if (!active) return null;
 
-  const isMobile = window.innerWidth <= 430;
-
   return (
     <div className="petal-overlay">
-      {Array.from({ length: isMobile ? 10 : 30 }).map((_, i) => (
+      {Array.from({ length: 30 }).map((_, i) => (
         <div
           key={i}
           className="petal"
