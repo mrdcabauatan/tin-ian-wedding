@@ -4,6 +4,8 @@ import "./Home.css";
 function Home({ onEnterInvitation }) {
   const weddingDate = new Date("2026-08-30T23:59:59");
 
+  const isMobile = window.innerWidth <= 1024;
+
   const calculateTimeLeft = () => {
     const difference = weddingDate - new Date();
 
@@ -49,19 +51,15 @@ function Home({ onEnterInvitation }) {
         <h1 className="title">
           Ian <span>&</span> Tin
         </h1>
-
         <div className="divider">
           <span></span>❤<span></span>
         </div>
-
         <h2 className="home-subtitle">This Love, Evermore</h2>
-
         <p className="description">
           A Beautiful Beginning
           <br />
           To Our Journey
         </p>
-
         <div className="countdown">
           <div className="time-box">
             <div className="time-content">
@@ -91,14 +89,13 @@ function Home({ onEnterInvitation }) {
             </div>
           </div>
         </div>
-
         <div
           className="scroll-indicator"
           onClick={onEnterInvitation}
           style={{ cursor: "pointer" }}
         >
-          <div className="mouse">
-            <span>↓</span>
+          <div className={isMobile ? "mouse-mobile" : "mouse"}>
+            <span>{isMobile ? "↓" : "→"}</span>
           </div>
         </div>
       </div>

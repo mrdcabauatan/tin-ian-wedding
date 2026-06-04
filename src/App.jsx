@@ -13,7 +13,6 @@ import bgMusic from "./assets/bgmusic.mp3";
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
   const [showIntro, setShowIntro] = useState(true);
-  const [successLogin, setSuccessLogin] = useState(false);
 
   const [guestInfo, setGuestInfo] = useState({
     firstName: "",
@@ -21,6 +20,9 @@ const App = () => {
   });
 
   const audioRef = useRef(null);
+
+  const touchStartY = useRef(0);
+  const touchEndY = useRef(0);
 
   const pages = ["home", "invitation", "details", "rsvp"];
   const currentIndex = pages.indexOf(currentPage);
@@ -41,14 +43,98 @@ const App = () => {
 
   const handleIntroFinish = () => {
     startMusic();
-    
+
     setTimeout(() => {
       setShowIntro(false);
     }, 1200);
   };
 
+  const isMobileOrTablet = () => {
+    return window.innerWidth <= 1024;
+  };
+
+  const handleTouchStart = (e) => {
+    if (!isMobileOrTablet()) return;
+
+    touchStartY.current = e.changedTouches[0].clientY;
+  };
+
+  const handleTouchEnd = (e) => {
+    if (!isMobileOrTablet()) return;
+
+    touchEndY.current = e.changedTouches[0].clientY;
+
+    const swipeDistance =
+      touchStartY.current - touchEndY.current;
+
+    const threshold = 60;
+
+    if (swipeDistance > threshold) {
+      const nextIndex = Math.min(
+        currentIndex + 1,
+        pages.length - 1
+      );
+
+      setCurrentPage(pages[nextIndex]);
+    }
+
+    if (swipeDistance < -threshold) {
+      const prevIndex = Math.max(
+        currentIndex - 1,
+        0
+      );
+
+      setCurrentPage(pages[prevIndex]);
+    }
+  };
+
   return (
     <div className="app-container">
+      <div>
+        {currentPage !== "home" && (
+          <Navbar setCurrentPage={changePage} />
+        )}
+
+        <PetalOverlay
+          active={[
+            "invitation",
+            "details",
+            "rsvp",
+          ].includes(currentPage)}
+        />
+
+        <div
+          className="page-slider"
+          onTouchStart={handleTouchStart}
+          onTouchEnd={handleTouchEnd}
+          style={{
+            transform: isMobileOrTablet()
+              ? `translateY(-${currentIndex * 100}vh)`
+              : `translateX(-${currentIndex * 100}vw)`,
+          }}
+        >
+          <div className="page">
+            <Home
+              onEnterInvitation={() =>
+                changePage("invitation")
+              }
+            />
+          </div>
+
+          <div className="page">
+            <Invitation />
+          </div>
+
+          <div className="page">
+            <Details />
+          </div>
+
+          <div className="page">
+            <Rsvp guestInfo={guestInfo} />
+          </div>
+        </div>
+      </div>
+
       {showIntro && (
         <Intro
           onFinish={handleIntroFinish}

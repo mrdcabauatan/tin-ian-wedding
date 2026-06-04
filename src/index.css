@@ -77,7 +77,19 @@ input[type="button"],
     min-height: 100%;
   }
 
-  body {
+  .page-slider {
+    flex-direction: column;
+    width: 100vw;
+    height: 400vh;
+
+    touch-action: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .page {
+    height: 100vh;
+
     overflow-x: hidden;
     overflow-y: auto;
   }
