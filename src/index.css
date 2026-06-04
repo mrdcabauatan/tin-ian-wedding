@@ -98,7 +98,11 @@ input[type="button"],
   }
 
   .page-slider {
-    touch-action: pan-y;
+    flex-direction: column;
+    width: 100vw;
+    height: 400vh;
+
+    touch-action: none;
   }
 }
 
