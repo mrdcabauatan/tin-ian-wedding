@@ -80,11 +80,7 @@ const App = () => {
           )}
 
           <PetalOverlay
-            active={
-              isMobileOrTablet
-                ? true
-                : ["invitation", "details", "rsvp"].includes(currentPage)
-            }
+            active={["invitation", "details", "rsvp"].includes(currentPage)}
           />
 
           {isMobileOrTablet ? (
