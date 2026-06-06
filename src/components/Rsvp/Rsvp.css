@@ -421,12 +421,20 @@
 
   .rsvp-button {
     width: 100%;
-    max-width: 280px;
+    max-width: 200px;
+  }
+
+  .rsvp-reminders{
+    width: 20rem;
+  }
+
+  .rsvp-reminders h2 {
+    font-size: clamp(1rem, 1.2rem, 1.5rem);
   }
 
   .rsvp-reminders ul {
-    width: 100%;
-    padding-left: 1.25rem;
+    font-size: clamp(0.8rem, 1rem, 1.2rem);
+    margin-left: 1.7rem;
   }
 
   .rsvp-modal {
