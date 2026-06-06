@@ -215,6 +215,10 @@
    MODAL
 ========================= */
 
+/* =========================
+   MODAL
+========================= */
+
 .rsvp-modal-overlay {
   position: fixed;
   inset: 0;
@@ -267,7 +271,7 @@
   position: absolute;
 
   top: 12px;
-  right: 18px;
+  right: 16px;
 
   width: 40px;
   height: 40px;
@@ -276,6 +280,7 @@
   background: transparent;
 
   font-size: 2rem;
+  line-height: 1;
 
   cursor: pointer;
 
@@ -306,6 +311,8 @@
   line-height: 1.8;
 
   margin-bottom: 1.5rem;
+
+  font-size: 1rem;
 }
 
 .rsvp-form {
@@ -328,10 +335,28 @@
 .attendance-options {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 14px;
+}
+
+.attendance-options label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+
+  font-size: 1rem;
+  line-height: 1.5;
+
+  cursor: pointer;
+}
+
+.attendance-options input[type="radio"] {
+  margin-top: 3px;
+  flex-shrink: 0;
 }
 
 .submit-rsvp-btn {
+  width: 100%;
+
   padding: 15px;
 
   border: none;
@@ -341,6 +366,14 @@
   color: white;
 
   cursor: pointer;
+
+  font-size: 1rem;
+
+  transition: all 0.3s ease;
+}
+
+.submit-rsvp-btn:hover {
+  background: #b78d9c;
 }
 
 /* =========================
@@ -424,8 +457,9 @@
     max-width: 200px;
   }
 
-  .rsvp-reminders{
-    width: 20rem;
+  .rsvp-reminders {
+    width: 100%;
+    max-width: 320px;
   }
 
   .rsvp-reminders h2 {
@@ -434,13 +468,61 @@
 
   .rsvp-reminders ul {
     font-size: clamp(0.8rem, 1rem, 1.2rem);
-    margin-left: 1.7rem;
+    margin-left: 1.2rem;
+  }
+
+  /* MODAL FIXES */
+
+  .rsvp-modal-overlay {
+    padding: 16px;
   }
 
   .rsvp-modal {
-    padding: 1.5rem;
+    width: 100%;
+    max-width: 100%;
+
+    padding: 1.5rem 1.25rem;
+
+    border-radius: 20px;
+  }
+
+  .close-btn {
+    top: 8px;
+    right: 10px;
+
+    width: 34px;
+    height: 34px;
+
+    font-size: 1.75rem;
+  }
+
+  .rsvp-modal p {
+    font-size: 0.95rem;
+    line-height: 1.7;
+
+    margin-bottom: 1.25rem;
+
+    padding-top: 0.5rem;
+  }
+
+  .attendance-options {
+    gap: 12px;
+  }
+
+  .attendance-options label {
+    font-size: 0.95rem;
+  }
+
+  .submit-rsvp-btn {
+    width: 100%;
+    height: 48px;
+    font-size: 0.95rem;
   }
 }
+
+/* =========================
+   IPHONE SE
+========================= */
 
 /* =========================
    IPHONE SE
@@ -475,6 +557,23 @@
   .rsvp-button {
     height: 48px;
     max-width: 240px;
+  }
+
+  .rsvp-modal {
+    padding: 1.25rem 1rem;
+  }
+
+  .rsvp-modal p {
+    font-size: 0.9rem;
+  }
+
+  .attendance-options label {
+    font-size: 0.9rem;
+  }
+
+  .submit-rsvp-btn {
+    height: 46px;
+    font-size: 0.9rem;
   }
 }
 
