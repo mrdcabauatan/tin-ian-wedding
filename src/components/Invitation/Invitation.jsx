@@ -1,6 +1,20 @@
 import "./Invitation.css";
+import { INVITATION_CONTENT } from "./constants/invitation_roles";
 
-function Invitation() {
+function Invitation({ name, role }) {
+  const roleMap = {
+    "Best Man": 1,
+    "Bridesmaid": 2,
+    "Principal Sponsor": 3,
+    "Flower Girl": 4,
+    "Ring Bearer": 5,
+  };
+
+  const content =
+    INVITATION_CONTENT[
+      roleMap[role] ?? 0
+    ];
+
   return (
     <section id="invitation" className="invitation-page">
       <div className="invitation-container">
@@ -10,7 +24,7 @@ function Invitation() {
           <span>T</span>
         </div>
 
-        <h3 className="invite-title">YOU ARE INVITED</h3>
+        <h3 className="invite-title">HELLO {name}, YOU ARE INVITED</h3>
 
         <div className="heart-divider">
           <span></span>
@@ -18,7 +32,9 @@ function Invitation() {
           <span></span>
         </div>
 
-        <p className="subtitle">TO CELEBRATE THE WEDDING OF</p>
+        <p className="subtitle">
+          TO CELEBRATE THE WEDDING OF
+        </p>
 
         <h1 className="couple-names">
           Ian <span>&</span> Tin
@@ -27,14 +43,22 @@ function Invitation() {
         <div className="line-divider"></div>
 
         <div className="message">
-          <p>
-            Together with our families, we warmly invite you to join us as we
-            celebrate our love, exchange vows, and begin our forever. Your
-            presence on this special day would mean the world to us.
-          </p>
+          <p>{content.message}</p>
         </div>
 
-        <h2 className="celebrate-text">We can't wait to celebrate with you!</h2>
+        <h2
+          className={
+            roleMap[role]
+              ? "participation-text"
+              : "celebrate-text"
+          }
+        >
+          {content.title}
+        </h2>
+
+        <h4 className="role-subtitle">
+          {content.subtitle}
+        </h4>
 
         <div className="heart-divider bottom-divider">
           <span></span>
