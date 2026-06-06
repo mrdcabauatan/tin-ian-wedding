@@ -46,11 +46,11 @@ const App = () => {
   };
 
   const handleIntroFinish = () => {
+    startMusic();
+
     setTimeout(() => {
       setShowIntro(false);
     }, 1200);
-
-    startMusic();
   };
 
   return (

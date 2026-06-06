@@ -3,7 +3,7 @@ import "./Intro.css";
 
 import introVideo from "../../assets/intro.mp4";
 
-const Intro = ({ onFinish, setGuestInfo, setSuccessLogin}) => {
+const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
   const [showModal, setShowModal] = useState(true);
   const [isLeaving, setIsLeaving] = useState(false);
 
@@ -35,10 +35,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin}) => {
 
   const handleVideoEnd = () => {
     setIsLeaving(true);
-
-    setTimeout(() => {
-      onFinish();
-    }, 1200);
+    onFinish();
   };
 
   return (
@@ -77,10 +74,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin}) => {
               onChange={(e) => setLastName(e.target.value)}
             />
 
-            <button
-              className="intro-button"
-              onClick={handleEnter}
-            >
+            <button className="intro-button" onClick={handleEnter}>
               Submit
             </button>
           </div>
