@@ -216,14 +216,14 @@
 @media (max-width: 768px) {
   .details-section {
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
     overflow: visible;
     padding: 1rem;
   }
 
   .details-container {
     height: auto;
-    min-height: calc(100vh - 2rem);
+    min-height: auto;
     padding: 2rem 1rem;
   }
 

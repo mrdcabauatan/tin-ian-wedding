@@ -378,10 +378,9 @@
 @media (max-width: 600px) {
   .rsvp-page {
     height: auto;
-    min-height: 100vh;
+    min-height: auto;
 
-    overflow-y: auto;
-    overflow-x: hidden;
+    overflow: visible;
 
     padding: 1rem;
 
@@ -390,7 +389,7 @@
 
   .rsvp-container {
     height: auto;
-    min-height: calc(100vh - 2rem);
+    min-height: auto;
 
     justify-content: flex-start;
 

@@ -2,14 +2,17 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  max-width: 100%;
 }
 
 html,
 body,
 #root {
   width: 100%;
+  max-width: 100%;
   height: 100%;
   background: #000;
+  overflow-x: hidden;
 }
 
 body {
@@ -32,7 +35,7 @@ input[type="button"],
 }
 
 .app-container {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   overflow: hidden;
   position: relative;
@@ -69,7 +72,7 @@ input[type="button"],
 }
 
 .page {
-  width: 100vw;
+  width: 100%;
   height: 100vh;
   flex-shrink: 0;
 
@@ -93,30 +96,53 @@ input[type="button"],
 }
 
 @media (max-width: 1024px) {
-  .page {
+  html,
+  body,
+  #root {
+    overflow-x: hidden;
+  }
+
+  body {
     overflow-y: auto;
   }
 
-  .page-slider {
-    flex-direction: column;
-    width: 100vw;
-    height: 400vh;
+  .app-container {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
 
-    touch-action: none;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .page {
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
+
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  .page-slider {
+    display: block;
+
+    width: 100%;
+    height: auto;
+
+    transform: none !important;
+    transition: none !important;
   }
 }
 
 @media (max-width: 768px) {
   .page {
-    height: 100vh;
+    width: 100%;
+    min-height: 100vh;
+    height: auto;
 
     overflow-x: hidden;
-    overflow-y: auto;
-
-    -webkit-overflow-scrolling: touch;
-
-    scrollbar-width: none;
-    -ms-overflow-style: none;
+    overflow-y: visible;
   }
 
   .page::-webkit-scrollbar {

@@ -3,7 +3,7 @@ import "./Intro.css";
 
 import introVideo from "../../assets/intro.mp4";
 
-const Intro = ({ onFinish, setGuestInfo }) => {
+const Intro = ({ onFinish, setGuestInfo, setSuccessLogin}) => {
   const [showModal, setShowModal] = useState(true);
   const [isLeaving, setIsLeaving] = useState(false);
 
@@ -23,8 +23,9 @@ const Intro = ({ onFinish, setGuestInfo }) => {
       lastName: lastName.trim(),
     });
 
-    setShowModal(false);
+    setSuccessLogin(true);
 
+    setShowModal(false);
     try {
       await videoRef.current.play();
     } catch (err) {
