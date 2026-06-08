@@ -83,9 +83,10 @@ export default function Details() {
             </p>
 
             <div className="color-palette">
-              <span className="palette dusty-blue"></span>
-              <span className="palette soft-blue"></span>
-              <span className="palette warm-gray"></span>
+              <span className="palette color1"></span>
+              <span className="palette color2"></span>
+              <span className="palette color3"></span>
+              <span className="palette color4"></span>
             </div>
           </div>
         </div>
