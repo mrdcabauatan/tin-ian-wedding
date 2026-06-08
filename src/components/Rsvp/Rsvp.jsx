@@ -9,9 +9,9 @@ function RSVP({ guestInfo }) {
 
   return (
     <>
-      <section id="rsvp" className="rsvp-page">
-        <div className="rsvp-container">
-          <h1 className="rsvp-title">RSVP</h1>
+      <section id="rsvp" className="rsvp-page section-page">
+        <div className="rsvp-container section-container">
+          <h1 className="rsvp-title section-title">RSVP</h1>
 
           <div className="rsvp-info">
             <div className="rsvp-info-card">

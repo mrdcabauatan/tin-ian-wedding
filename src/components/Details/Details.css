@@ -1,63 +1,29 @@
-:root {
-  --border: rgba(255, 255, 255, 0.45);
-}
-
 .details-section {
-  width: 100%;
-  min-height: 100vh;
-  background-image: url("../../assets/commonBg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
-  padding: 2rem;
-  position: relative;
 }
 
 .details-container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
   max-width: 1800px;
   min-height: calc(100vh - 4rem);
-  border: 1px solid var(--border);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
+
   text-align: center;
+
   padding: 4rem;
   margin: 0 auto;
-}
-
-.details-container::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  pointer-events: none;
-}
-
-.details-title {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 400;
-  color: #1F2A44;
-  letter-spacing: 0.25rem;
-  margin-bottom: 1rem;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
 .details-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(280px, 500px));
+
   justify-content: center;
+
   gap: 2rem;
+
   width: 100%;
   margin: 0 auto;
 }
@@ -68,71 +34,68 @@
   padding: 2rem;
 }
 
+.details-title {
+  margin-bottom: 1rem;
+}
+
 .details-heading {
   font-family: "Great Vibes", cursive;
   font-size: 2rem;
   letter-spacing: 0.35rem;
-  color: #1F2A44;
+
+  color: var(--primary-color);
+
   margin-bottom: 1rem;
 }
 
 .mini-divider {
   width: 80px;
-  height: 1px;
-  background: #B89B5E;
   margin: 0 auto 1.8rem;
+}
+
+.time-divider {
+  width: 120px;
+  margin: 2rem auto;
+}
+
+.mini-divider,
+.time-divider {
+  height: 1px;
+  background: var(--accent-color);
 }
 
 .venue-name {
   font-size: 2.4rem;
   font-weight: 300;
-  color: #1F2A44;
+
+  color: var(--primary-color);
+
   margin-bottom: 1rem;
 }
 
 .venue-address {
   font-size: 1.3rem;
   line-height: 1.8;
-  color: #1F2A44;
-  margin-bottom: 2rem;
-}
 
-.time-divider {
-  width: 120px;
-  height: 1px;
-  background: #B89B5E;
-  margin: 2rem auto;
+  color: var(--primary-color);
+
+  margin-bottom: 2rem;
 }
 
 .venue-time {
   font-size: 2rem;
-  color: #1F2A44;
+
+  color: var(--primary-color);
+
   margin-bottom: 2rem;
-}
-
-.map-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-  max-width: 260px;
-  height: 55px;
-  background: #1F2A44;
-  color: #FFFFFF;
-  text-decoration: none;
-  border-radius: 999px;
-  transition: 0.3s ease;
-}
-
-.map-button:hover {
-  transform: translateY(-3px);
-  background: #2F4156;
 }
 
 .dress-description {
   font-size: 1.3rem;
   line-height: 1.8;
-  color: #1F2A44;
+
+  color: var(--primary-color);
+
   margin-bottom: 2rem;
 }
 
@@ -145,24 +108,25 @@
 .palette {
   width: 45px;
   height: 45px;
+
   border-radius: 50%;
-  border: 2px solid #B89B5E;
+  border: 2px solid var(--accent-color);
 }
 
 .color1 {
-  background: #CEE0F4;
+  background: #cee0f4;
 }
 
 .color2 {
-  background: #A7C1E1;
+  background: #a7c1e1;
 }
 
 .color3 {
-  background: #84A1C4;
+  background: #84a1c4;
 }
 
 .color4 {
-  background: #607B9B;
+  background: #607b9b;
 }
 
 /* ===============================
@@ -177,11 +141,6 @@
 
   .details-grid {
     grid-template-columns: repeat(2, minmax(320px, 450px));
-    gap: 2rem;
-  }
-
-  .details-title {
-    font-size: 4.5rem;
   }
 
   .venue-name {
@@ -207,15 +166,6 @@
   .details-grid {
     grid-template-columns: 1fr;
     max-width: 700px;
-    gap: 2rem;
-  }
-
-  .details-title {
-    font-size: 4rem;
-  }
-
-  .details-heading {
-    font-size: 2rem;
   }
 
   .venue-name {
@@ -248,13 +198,6 @@
     padding: 2.5rem 1.5rem;
   }
 
-  .details-container::before {
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-  }
-
   .details-grid {
     max-width: 100%;
     gap: 1.5rem;
@@ -262,10 +205,6 @@
 
   .details-card {
     padding: 1.5rem;
-  }
-
-  .details-title {
-    font-size: 3.5rem;
   }
 
   .details-heading {
@@ -288,7 +227,6 @@
 
   .map-button {
     max-width: 280px;
-    height: 55px;
     font-size: 1rem;
   }
 }
@@ -300,10 +238,6 @@
 @media (max-width: 480px) {
   .details-container {
     padding: 2rem 1rem;
-  }
-
-  .details-title {
-    font-size: 3rem;
   }
 
   .details-heading {
@@ -334,10 +268,6 @@
 ================================= */
 
 @media (max-width: 375px) {
-  .details-title {
-    font-size: 2.6rem;
-  }
-
   .details-heading {
     font-size: 1.5rem;
   }

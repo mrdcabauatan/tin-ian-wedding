@@ -2,8 +2,8 @@ import "./Invitation.css";
 
 function Invitation() {
   return (
-    <section id="invitation" className="invitation-page">
-      <div className="invitation-container">
+    <section id="invitation" className="invitation-page section-page">
+      <div className="invitation-container section-container">
         <div className="invitation-monogram">
           <span>I</span>
           <div className="invitation-monogram-divider"></div>

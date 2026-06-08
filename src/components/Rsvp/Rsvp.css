@@ -1,74 +1,32 @@
-:root {
-  --dusty-blue: #d8e4f0;
-  --border: rgba(255, 255, 255, 0.45);
-}
-
-/* =========================
-   PAGE
-========================= */
-
 .rsvp-page {
-  width: 100%;
-  height: 100vh;
-  background-image: url("../../assets/commonBg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  display: flex;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
-  padding: 2rem;
-  position: relative;
 }
 
 .rsvp-container {
-  position: relative;
-  z-index: 1;
-  width: 100%;
   height: calc(100vh - 4rem);
-  border: 1px solid var(--border);
+
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+
   text-align: center;
+
   padding: 3rem;
 }
 
-.rsvp-container::before {
-  content: "";
-  position: absolute;
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-  border: 1px solid rgba(255, 255, 255, 0.18);
-  pointer-events: none;
-}
-
-/* =========================
-   TITLE
-========================= */
-
 .rsvp-title {
-  font-family: "Great Vibes", cursive;
-  font-size: clamp(3rem, 6vw, 5rem);
-  font-weight: 400;
-  color: #1F2A44;
-  letter-spacing: 0.25rem;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  margin-bottom: 0.5rem;
 }
-
-/* =========================
-   INFO CARDS
-========================= */
 
 .rsvp-info {
   width: min(900px, 100%);
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   gap: 1rem;
+
   margin-bottom: 0.5rem;
 }
 
@@ -79,61 +37,73 @@
 .rsvp-icon {
   width: 55px;
   height: 55px;
+
   margin: 0 auto 0.8rem;
+
   display: flex;
   justify-content: center;
   align-items: center;
+
   border-radius: 50%;
-  color: #1F2A44;
-  border: 1px solid #1F2A44;
+
+  color: var(--primary-color);
+  border: 1px solid var(--primary-color);
 }
 
 .rsvp-info-card h3 {
   font-family: "Great Vibes", cursive;
+
   font-size: 1.3rem;
+
   letter-spacing: 0.35rem;
-  color: #1F2A44;
+
+  color: var(--primary-color);
+
   margin-bottom: 0.5rem;
 }
 
 .rsvp-info-card p {
-  color: #1F2A44;
+  color: var(--primary-color);
+
   font-size: 1.3rem;
+
   letter-spacing: 0.35rem;
 }
 
-/* =========================
-   MESSAGE
-========================= */
-
 .rsvp-message {
   max-width: 600px;
+
   margin: 0 auto 1rem;
-  color: #1F2A44;
+
+  color: var(--primary-color);
+
   font-size: 1.3rem;
   line-height: 1.8;
 }
 
-/* =========================
-   RSVP LINK
-========================= */
-
 .rsvp-link {
   display: inline-block;
+
   margin-bottom: 1rem;
-  color: #1F2A44;
+
+  color: var(--primary-color);
+
   font-size: 3rem;
   font-weight: 400;
+
   text-decoration: none;
-  border-bottom: 2px solid #B89B5E;
+
+  border-bottom: 2px solid var(--accent-color);
+
   padding-bottom: 2px;
-  cursor: pointer;
+
   transition: all 0.3s ease;
 }
 
 .rsvp-link:hover {
-  color: #2F4156;
-  border-color: #2F4156;
+  color: var(--primary-hover);
+  border-color: var(--primary-hover);
+
   transform: translateY(-2px);
 }
 
@@ -141,13 +111,10 @@
   outline: none;
 }
 
-/* =========================
-   DEADLINE
-========================= */
-
 .rsvp-deadline {
   margin-top: 1rem;
-  color: #1F2A44;
+
+  color: var(--primary-color);
 }
 
 .rsvp-deadline h4 {
@@ -160,36 +127,35 @@
 
 .rsvp-deadline p {
   max-width: 700px;
+
   margin: auto;
+
   line-height: 1.8;
 }
 
-/* =========================
-   REMINDERS
-========================= */
-
 .rsvp-reminders {
   margin-top: 2rem;
-  color: #1F2A44;
+
+  color: var(--primary-color);
 }
 
 .rsvp-reminders h2 {
   margin-bottom: 0.8rem;
+
   font-family: "Great Vibes", cursive;
+
   letter-spacing: 0.25rem;
   font-size: 1.3rem;
 }
 
 .rsvp-reminders ul {
   display: inline-block;
+
   text-align: left;
+
   line-height: 1.8;
   font-size: 1.3rem;
 }
-
-/* =========================
-   MODAL
-========================= */
 
 .rsvp-modal-overlay {
   position: fixed;
@@ -199,11 +165,13 @@
   justify-content: center;
   align-items: center;
 
+  padding: 20px;
+
   background: rgba(0, 0, 0, 0.7);
+
   backdrop-filter: blur(5px);
 
   z-index: 99999;
-  padding: 20px;
 }
 
 .rsvp-modal {
@@ -216,6 +184,7 @@
   overflow-y: auto;
 
   background: white;
+
   border-radius: 24px;
 
   padding: 2.5rem;
@@ -251,12 +220,12 @@
   border: none;
   background: transparent;
 
+  color: var(--primary-color);
+
   font-size: 2rem;
   line-height: 1;
 
   cursor: pointer;
-
-  color: #1F2A44;
 }
 
 .close-btn:hover {
@@ -265,8 +234,11 @@
 
 .rsvp-modal h2 {
   text-align: center;
+
   color: #7c90b4;
+
   font-size: 2.2rem;
+
   margin-bottom: 1rem;
 }
 
@@ -285,6 +257,7 @@
 .rsvp-form {
   display: flex;
   flex-direction: column;
+
   gap: 1rem;
 }
 
@@ -302,12 +275,14 @@
 .attendance-options {
   display: flex;
   flex-direction: column;
+
   gap: 14px;
 }
 
 .attendance-options label {
   display: flex;
   align-items: flex-start;
+
   gap: 8px;
 
   font-size: 1rem;
@@ -318,23 +293,30 @@
 
 .attendance-options input[type="radio"] {
   margin-top: 3px;
+
   flex-shrink: 0;
 }
 
 .submit-rsvp-btn {
   width: 100%;
+
   padding: 15px;
+
   border: none;
   border-radius: 999px;
-  background: #1F2A44;
-  color: #FFFFFF;
-  cursor: pointer;
+
+  background: var(--primary-color);
+  color: white;
+
   font-size: 1rem;
+
+  cursor: pointer;
+
   transition: all 0.3s ease;
 }
 
 .submit-rsvp-btn:hover {
-  background: #2F4156;
+  background: var(--primary-hover);
 }
 
 /* =========================
@@ -342,21 +324,12 @@
 ========================= */
 
 @media (max-width: 1024px) {
-  .rsvp-page {
-    min-height: auto;
-  }
-
   .rsvp-container {
     padding: 2.5rem;
   }
 
-  .rsvp-title {
-    font-size: 4rem;
-  }
-
   .rsvp-info {
     width: 100%;
-    gap: 1rem;
   }
 
   .rsvp-info-card p {
@@ -370,28 +343,15 @@
 }
 
 /* =========================
-   IPAD / TABLET
+   IPAD
 ========================= */
 
 @media (max-width: 820px) {
-  .rsvp-page {
-    height: auto;
-    min-height: auto;
-    overflow: visible;
-  }
-
   .rsvp-container {
     height: auto;
     min-height: auto;
+
     padding: 3rem 2rem;
-  }
-
-  .rsvp-title {
-    font-size: 3.8rem;
-  }
-
-  .rsvp-info {
-    grid-template-columns: repeat(3, 1fr);
   }
 
   .rsvp-info-card h3 {
@@ -418,30 +378,17 @@
 @media (max-width: 768px) {
   .rsvp-page {
     padding: 1rem;
-    overflow: visible;
-    align-items: flex-start;
   }
 
   .rsvp-container {
     height: auto;
     min-height: auto;
+
     padding: 2.5rem 1.5rem;
-  }
-
-  .rsvp-container::before {
-    top: 12px;
-    left: 12px;
-    right: 12px;
-    bottom: 12px;
-  }
-
-  .rsvp-title {
-    font-size: 3.3rem;
   }
 
   .rsvp-info {
     grid-template-columns: 1fr;
-    gap: 1rem;
   }
 
   .rsvp-icon {
@@ -449,17 +396,9 @@
     height: 50px;
   }
 
-  .rsvp-info-card h3 {
-    font-size: 1.2rem;
-  }
-
-  .rsvp-info-card p {
-    font-size: 1.1rem;
-  }
-
   .rsvp-message {
-    font-size: 1.1rem;
     max-width: 15.8rem;
+    font-size: 1.1rem;
   }
 
   .rsvp-deadline {
@@ -470,13 +409,11 @@
     font-size: 2.4rem;
   }
 
-  .rsvp-reminders h2 {
-    font-size: 1.3rem;
-  }
-
   .rsvp-reminders ul {
-    font-size: 1.05rem;
     max-width: 18rem;
+
+    font-size: 1.05rem;
+
     transform: translateX(0.8rem);
   }
 }
@@ -490,21 +427,9 @@
     padding: 2rem 1rem;
   }
 
-  .rsvp-title {
-    font-size: 2.8rem;
-  }
-
-  .rsvp-info-card h3 {
-    font-size: 1.1rem;
-  }
-
-  .rsvp-info-card p {
-    font-size: 1rem;
-  }
-
   .rsvp-message {
-    font-size: 1rem;
     max-width: 14rem;
+    font-size: 1rem;
   }
 
   .rsvp-link {
@@ -512,9 +437,9 @@
   }
 
   .rsvp-reminders ul {
-    font-size: 1rem;
     max-width: 14rem;
-    transform: translateX(0.8rem);
+
+    font-size: 1rem;
   }
 }
 
@@ -523,19 +448,12 @@
 ========================= */
 
 @media (max-width: 375px) {
-  .rsvp-title {
-    font-size: 2.4rem;
-  }
-
   .rsvp-link {
     font-size: 1.8rem;
   }
 
   .rsvp-info-card h3,
-  .rsvp-info-card p {
-    font-size: 0.95rem;
-  }
-
+  .rsvp-info-card p,
   .rsvp-message,
   .rsvp-reminders ul {
     font-size: 0.95rem;
