@@ -5,9 +5,9 @@ const PetalOverlay = () => {
   const petalCount = useMemo(() => {
     const width = window.innerWidth;
 
-    if (width <= 480) return 8;
+    if (width <= 480) return 12;
     if (width <= 768) return 10;
-    if (width <= 1024) return 15;
+    if (width <= 1024) return 30;
 
     return 25;
   }, []);
