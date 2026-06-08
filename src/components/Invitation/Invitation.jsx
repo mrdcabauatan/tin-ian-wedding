@@ -16,8 +16,8 @@ function Invitation({ name, role }) {
     ];
 
   return (
-    <section id="invitation" className="invitation-page">
-      <div className="invitation-container">
+    <section id="invitation" className="invitation-page section-page">
+      <div className="invitation-container section-container">
         <div className="invitation-monogram">
           <span>I</span>
           <div className="invitation-monogram-divider"></div>
@@ -37,7 +37,7 @@ function Invitation({ name, role }) {
         </p>
 
         <h1 className="couple-names">
-          Ian <span>&</span> Tin
+          Ian & Tin
         </h1>
 
         <div className="line-divider"></div>

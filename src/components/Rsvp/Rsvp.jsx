@@ -9,12 +9,9 @@ function RSVP({ guestInfo }) {
 
   return (
     <>
-      <section
-        id="rsvp"
-        className="rsvp-page"
-      >
-        <div className="rsvp-container">
-          <h1 className="rsvp-title">RSVP</h1>
+      <section id="rsvp" className="rsvp-page section-page">
+        <div className="rsvp-container section-container">
+          <h1 className="rsvp-title section-title">RSVP</h1>
 
           <div className="rsvp-info">
             <div className="rsvp-info-card">
@@ -46,17 +43,20 @@ function RSVP({ guestInfo }) {
           </div>
 
           <div className="rsvp-message">
-            <p>Please confirm your attendance by clicking the button below.</p>
+            <p>Please confirm your attendance by clicking the link below.</p>
             <p>We can't wait to share this moment with you.</p>
           </div>
 
-          <button
-            type="button"
-            className="rsvp-button"
-            onClick={() => setShowModal(true)}
+          <a
+            href="#"
+            className="rsvp-link"
+            onClick={(e) => {
+              e.preventDefault();
+              setShowModal(true);
+            }}
           >
             RSVP Now
-          </button>
+          </a>
 
           <div className="rsvp-deadline">
             <h4>
@@ -90,14 +90,8 @@ function RSVP({ guestInfo }) {
             className="rsvp-modal-overlay"
             onClick={() => setShowModal(false)}
           >
-            <div
-              className="rsvp-modal"
-              onClick={(e) => e.stopPropagation()}
-            >
-              <button
-                className="close-btn"
-                onClick={() => setShowModal(false)}
-              >
+            <div className="rsvp-modal" onClick={(e) => e.stopPropagation()}>
+              <button className="close-btn" onClick={() => setShowModal(false)}>
                 ×
               </button>
 
@@ -113,7 +107,7 @@ function RSVP({ guestInfo }) {
               />
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );

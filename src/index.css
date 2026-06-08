@@ -1,9 +1,48 @@
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600");
+
+/* ==================================
+   GLOBAL VARIABLES
+================================== */
+
+:root {
+  --primary-color: #1f2a44;
+  --primary-hover: #2f4156;
+
+  --accent-color: #b89b5e;
+  --home-accent: #5a86ad;
+
+  --dusty-blue: #d8e4f0;
+  --dusty-blue-light: #eef4fb;
+
+  --border: rgba(255, 255, 255, 0.45);
+  --inner-border: rgba(255, 255, 255, 0.18);
+}
+
+/* ==================================
+   RESET
+================================== */
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   max-width: 100%;
+  font-family: "Cormorant Garamond", serif;
+  cursor: default;
 }
+
+button,
+a,
+input[type="submit"],
+input[type="button"],
+.nav-item,
+.clickable {
+  cursor: pointer;
+}
+
+/* ==================================
+   ROOT
+================================== */
 
 html,
 body,
@@ -19,20 +58,96 @@ body {
   overflow: hidden;
 }
 
-/* Default cursor everywhere */
-* {
-  cursor: default;
+/* ==================================
+   SHARED SECTION LAYOUT
+================================== */
+
+.section-page {
+  width: 100%;
+  min-height: 100vh;
+
+  background-image: url("./assets/commonBg.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  position: relative;
+  padding: 2rem;
 }
 
-/* Pointer only for clickable elements */
-button,
-a,
-input[type="submit"],
-input[type="button"],
-.nav-item,
-.clickable {
-  cursor: pointer;
+.section-container {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  border: 1px solid var(--border);
 }
+
+.section-container::before {
+  content: "";
+
+  position: absolute;
+
+  top: 20px;
+  left: 20px;
+  right: 20px;
+  bottom: 20px;
+
+  border: 1px solid var(--inner-border);
+
+  pointer-events: none;
+}
+
+/* ==================================
+   SHARED TITLES
+================================== */
+
+.section-title {
+  font-family: "Great Vibes", cursive;
+  font-size: clamp(3rem, 6vw, 5rem);
+  font-weight: 400;
+
+  color: var(--primary-color);
+
+  letter-spacing: 0.25rem;
+
+  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+}
+
+/* ==================================
+   SHARED BUTTON
+================================== */
+
+.primary-button {
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+
+  width: 100%;
+  max-width: 260px;
+  height: 55px;
+
+  border-radius: 999px;
+
+  text-decoration: none;
+
+  color: white;
+  background: var(--primary-color);
+
+  transition: 0.3s ease;
+}
+
+.primary-button:hover {
+  transform: translateY(-3px);
+  background: var(--primary-hover);
+}
+
+/* ==================================
+   APP
+================================== */
 
 .app-container {
   width: 100%;
@@ -89,6 +204,10 @@ input[type="button"],
   display: none;
 }
 
+/* ==================================
+   RESPONSIVE
+================================== */
+
 @media (min-width: 1025px) {
   .page {
     overflow-y: auto;
@@ -143,9 +262,5 @@ input[type="button"],
 
     overflow-x: hidden;
     overflow-y: visible;
-  }
-
-  .page::-webkit-scrollbar {
-    display: none;
   }
 }

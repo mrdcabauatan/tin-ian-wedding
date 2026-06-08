@@ -5,12 +5,9 @@ export default function Details() {
   const receptionMap = "https://maps.app.goo.gl/pVBPfpwvsJGJJ21c8";
 
   return (
-    <section
-      className="details-section"
-      id="details"
-    >
-      <div className="details-container">
-        <h2 className="details-title">Details</h2>
+    <section className="details-section section-page" id="details">
+      <div className="details-container section-container">
+        <h2 className="details-title section-title">Details</h2>
 
         <div className="details-grid">
           {/* Church */}
@@ -35,7 +32,7 @@ export default function Details() {
               href={churchMap}
               target="_blank"
               rel="noreferrer"
-              className="map-button"
+              className="map-button primary-button"
             >
               📍 View on Google Maps
             </a>
@@ -63,7 +60,7 @@ export default function Details() {
               href={receptionMap}
               target="_blank"
               rel="noreferrer"
-              className="map-button"
+              className="map-button primary-button"
             >
               📍 View on Google Maps
             </a>
@@ -83,9 +80,10 @@ export default function Details() {
             </p>
 
             <div className="color-palette">
-              <span className="palette dusty-blue"></span>
-              <span className="palette soft-blue"></span>
-              <span className="palette warm-gray"></span>
+              <span className="palette color1"></span>
+              <span className="palette color2"></span>
+              <span className="palette color3"></span>
+              <span className="palette color4"></span>
             </div>
           </div>
         </div>
