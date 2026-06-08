@@ -5,13 +5,10 @@
 .details-container {
   max-width: 1800px;
   min-height: calc(100vh - 4rem);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
-
   text-align: center;
-
   padding: 4rem;
   margin: 0 auto;
 }
@@ -19,11 +16,8 @@
 .details-grid {
   display: grid;
   grid-template-columns: repeat(3, minmax(280px, 500px));
-
   justify-content: center;
-
   gap: 2rem;
-
   width: 100%;
   margin: 0 auto;
 }
@@ -36,15 +30,14 @@
 
 .details-title {
   margin-bottom: 1rem;
+  font-weight: 700;
 }
 
 .details-heading {
   font-family: "Great Vibes", cursive;
   font-size: 2rem;
   letter-spacing: 0.35rem;
-
   color: var(--primary-color);
-
   margin-bottom: 1rem;
 }
 
@@ -66,36 +59,31 @@
 
 .venue-name {
   font-size: 2.4rem;
-  font-weight: 300;
-
+  font-weight: 500;
   color: var(--primary-color);
-
   margin-bottom: 1rem;
 }
 
 .venue-address {
   font-size: 1.3rem;
+  font-weight: 500;
   line-height: 1.8;
-
   color: var(--primary-color);
-
   margin-bottom: 2rem;
 }
 
 .venue-time {
   font-size: 2rem;
-
+  font-weight: 500;
   color: var(--primary-color);
-
   margin-bottom: 2rem;
 }
 
 .dress-description {
   font-size: 1.3rem;
+  font-weight: 500;
   line-height: 1.8;
-
   color: var(--primary-color);
-
   margin-bottom: 2rem;
 }
 
@@ -108,7 +96,6 @@
 .palette {
   width: 45px;
   height: 45px;
-
   border-radius: 50%;
   border: 2px solid var(--accent-color);
 }

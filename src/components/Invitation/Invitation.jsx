@@ -21,7 +21,7 @@ function Invitation() {
         <p className="subtitle">TO CELEBRATE THE WEDDING OF</p>
 
         <h1 className="couple-names">
-          Ian <span>&</span> Tin
+          Ian & Tin
         </h1>
 
         <div className="line-divider"></div>

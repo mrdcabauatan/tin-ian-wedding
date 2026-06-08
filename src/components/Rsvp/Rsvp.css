@@ -4,30 +4,24 @@
 
 .rsvp-container {
   height: calc(100vh - 4rem);
-
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-
   text-align: center;
-
   padding: 3rem;
 }
 
 .rsvp-title {
   margin-bottom: 0.5rem;
+  font-weight: 700;
 }
 
 .rsvp-info {
   width: min(900px, 100%);
-
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-
   gap: 1rem;
-
-  margin-bottom: 0.5rem;
 }
 
 .rsvp-info-card {
@@ -37,73 +31,54 @@
 .rsvp-icon {
   width: 55px;
   height: 55px;
-
   margin: 0 auto 0.8rem;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   border-radius: 50%;
-
   color: var(--primary-color);
   border: 1px solid var(--primary-color);
 }
 
 .rsvp-info-card h3 {
   font-family: "Great Vibes", cursive;
-
   font-size: 1.3rem;
-
   letter-spacing: 0.35rem;
-
   color: var(--primary-color);
-
   margin-bottom: 0.5rem;
 }
 
 .rsvp-info-card p {
   color: var(--primary-color);
-
   font-size: 1.3rem;
-
+  font-weight: 500;
   letter-spacing: 0.35rem;
 }
 
 .rsvp-message {
   max-width: 600px;
-
   margin: 0 auto 1rem;
-
   color: var(--primary-color);
-
   font-size: 1.3rem;
+  font-weight: 500;
   line-height: 1.8;
 }
 
 .rsvp-link {
   display: inline-block;
-
   margin-bottom: 1rem;
-
   color: var(--primary-color);
-
   font-size: 3rem;
-  font-weight: 400;
-
+  font-weight: 500;
   text-decoration: none;
-
   border-bottom: 2px solid var(--accent-color);
-
   padding-bottom: 2px;
-
   transition: all 0.3s ease;
 }
 
 .rsvp-link:hover {
   color: var(--primary-hover);
   border-color: var(--primary-hover);
-
   transform: translateY(-2px);
 }
 
@@ -113,7 +88,6 @@
 
 .rsvp-deadline {
   margin-top: 1rem;
-
   color: var(--primary-color);
 }
 
@@ -127,34 +101,29 @@
 
 .rsvp-deadline p {
   max-width: 700px;
-
   margin: auto;
-
   line-height: 1.8;
+  font-weight: 500;
 }
 
 .rsvp-reminders {
   margin-top: 2rem;
-
   color: var(--primary-color);
 }
 
 .rsvp-reminders h2 {
   margin-bottom: 0.8rem;
-
   font-family: "Great Vibes", cursive;
-
   letter-spacing: 0.25rem;
   font-size: 1.3rem;
 }
 
 .rsvp-reminders ul {
   display: inline-block;
-
   text-align: left;
-
   line-height: 1.8;
   font-size: 1.3rem;
+  font-weight: 500;
 }
 
 .rsvp-modal-overlay {
