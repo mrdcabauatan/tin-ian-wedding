@@ -43,7 +43,7 @@ function RSVP({ guestInfo }) {
           </div>
 
           <div className="rsvp-message">
-            <p>Please confirm your attendance by clicking the button below.</p>
+            <p>Please confirm your attendance by clicking the link below.</p>
             <p>We can't wait to share this moment with you.</p>
           </div>
 
