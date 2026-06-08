@@ -18,6 +18,7 @@ const App = () => {
   const [guestInfo, setGuestInfo] = useState({
     firstName: "",
     lastName: "",
+    role: "Guest",
   });
 
   const audioRef = useRef(null);
@@ -93,7 +94,10 @@ const App = () => {
               </div>
 
               <div id="invitation" className="page">
-                <Invitation />
+                <Invitation
+                  name={guestInfo.firstName.toUpperCase()}
+                  role={guestInfo.role}
+                />
               </div>
 
               <div className="page">
@@ -117,7 +121,7 @@ const App = () => {
               </div>
 
               <div className="page">
-                <Invitation />
+                <Invitation name={guestInfo.firstName.toUpperCase()} role={guestInfo.role} />
               </div>
 
               <div className="page">

@@ -3,9 +3,13 @@ import "./Intro.css";
 
 import introVideo from "../../assets/intro.mp4";
 
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbwnmOnke1huel2zgNmp8_IxXenAQlYIyHL0UHfM14PdI41vBHCAsAGR-aXTpyxuEuMW2g/exec";
+
 const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
   const [showModal, setShowModal] = useState(true);
   const [isLeaving, setIsLeaving] = useState(false);
+  const [isLoggingIn, setIsLoggingIn] = useState(false);
 
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
@@ -18,18 +22,38 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
       return;
     }
 
-    setGuestInfo({
-      firstName: firstName.trim(),
-      lastName: lastName.trim(),
-    });
+    setIsLoggingIn(true);
 
-    setSuccessLogin(true);
-
-    setShowModal(false);
     try {
-      await videoRef.current.play();
-    } catch (err) {
-      console.error(err);
+      const response = await fetch(
+        `${GOOGLE_SCRIPT_URL}?firstName=${encodeURIComponent(
+          firstName.trim()
+        )}&lastName=${encodeURIComponent(lastName.trim())}`
+      );
+
+      const result = await response.json();
+
+      setGuestInfo({
+        firstName: firstName.trim(),
+        lastName: lastName.trim(),
+        role: result.role || "Guest",
+      });
+
+      setSuccessLogin(true);
+
+      setShowModal(false);
+
+      try {
+        await videoRef.current.play();
+      } catch (err) {
+        console.error(err);
+      }
+    } catch (error) {
+      console.error(error);
+
+      alert(
+        "Unable to verify guest information. Please try again."
+      );
     }
   };
 
@@ -74,8 +98,12 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
               onChange={(e) => setLastName(e.target.value)}
             />
 
-            <button className="intro-button" onClick={handleEnter}>
-              Submit
+            <button
+              className="intro-button"
+              onClick={handleEnter}
+              disabled={isLoggingIn}
+            >
+              {!isLoggingIn ? "Submit" : "Please wait for a moment..."}
             </button>
           </div>
         </div>
