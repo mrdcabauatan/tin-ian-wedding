@@ -1,49 +1,65 @@
+import React, { memo, useMemo } from "react";
 import "./PetalOverlay.css";
 
-const PetalOverlay = ({ active }) => {
-  if (!active) return null;
+const PetalOverlay = () => {
+  const petalCount = useMemo(() => {
+    const width = window.innerWidth;
+
+    if (width <= 480) return 8;
+    if (width <= 768) return 10;
+    if (width <= 1024) return 15;
+
+    return 25;
+  }, []);
+
+  const petals = useMemo(
+    () =>
+      Array.from({ length: petalCount }, (_, index) => ({
+        id: index,
+        left: `${Math.random() * 100}%`,
+        delay: `${Math.random() * 20}s`,
+        duration: `${18 + Math.random() * 12}s`,
+        scale: 0.6 + Math.random() * 0.6,
+      })),
+    [petalCount],
+  );
 
   return (
-    <div className="petal-overlay">
-      {Array.from({ length: 30 }).map((_, i) => (
+    <div className="petal-overlay" aria-hidden="true">
+      {petals.map((petal) => (
         <div
-          key={i}
+          key={petal.id}
           className="petal"
           style={{
-            left: `${Math.random() * 100}%`,
-            animationDelay: `${Math.random() * 15}s`,
-            animationDuration: `${12 + Math.random() * 8}s`,
-            transform: `scale(${0.6 + Math.random() * 0.8})`,
+            left: petal.left,
+            animationDelay: petal.delay,
+            animationDuration: petal.duration,
+            transform: `scale(${petal.scale})`,
           }}
         >
-          <svg
-            viewBox="0 0 100 120"
-            xmlns="http://www.w3.org/2000/svg"
-          >
+          <svg viewBox="0 0 40 50" xmlns="http://www.w3.org/2000/svg">
             <defs>
               <linearGradient
-                id={`petalGradient-${i}`}
+                id={`petalGradient-${petal.id}`}
                 x1="0%"
                 y1="0%"
                 x2="100%"
                 y2="100%"
               >
-                <stop offset="0%" stopColor="#fff7f8" />
-                <stop offset="40%" stopColor="#ffd7e2" />
-                <stop offset="75%" stopColor="#f4b8ca" />
-                <stop offset="100%" stopColor="#dfa0b4" />
+                <stop offset="0%" stopColor="#fff8f8" />
+                <stop offset="35%" stopColor="#ffd6e0" />
+                <stop offset="75%" stopColor="#f7b6c6" />
+                <stop offset="100%" stopColor="#e89aae" />
               </linearGradient>
             </defs>
 
             <path
-              d="
-              M50 8
-              C85 20 95 60 70 95
-              C58 112 42 112 30 95
-              C5 60 15 20 50 8
-              Z
-            "
-              fill={`url(#petalGradient-${i})`}
+              d="M20 0
+                C35 5 40 20 35 35
+                C30 45 20 50 20 50
+                C20 50 10 45 5 35
+                C0 20 5 5 20 0Z"
+              fill={`url(#petalGradient-${petal.id})`}
             />
           </svg>
         </div>
@@ -52,4 +68,4 @@ const PetalOverlay = ({ active }) => {
   );
 };
 
-export default PetalOverlay;
+export default memo(PetalOverlay);

@@ -1,10 +1,8 @@
 .petal-overlay {
   position: fixed;
   inset: 0;
-
   pointer-events: none;
   overflow: hidden;
-
   z-index: 9998;
 }
 
@@ -12,70 +10,77 @@
   position: absolute;
   top: -120px;
 
-  width: 32px;
-  height: 40px;
+  width: 28px;
+  height: 34px;
 
-  opacity: 0.9;
+  opacity: 0.85;
 
-  animation: petalFall linear infinite;
+  /* GPU acceleration */
+  will-change: transform;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+
   transform-origin: center center;
 
-  filter:
-    drop-shadow(0 2px 4px rgba(255, 182, 193, 0.2))
-    drop-shadow(0 4px 10px rgba(255, 182, 193, 0.15));
+  animation: petalFall linear infinite;
 }
 
 .petal svg {
   width: 100%;
   height: 100%;
+  display: block;
 }
 
 @keyframes petalFall {
   0% {
     transform:
-      translateY(-100px)
-      translateX(0)
-      rotate(0deg)
-      rotateY(0deg);
+      translate3d(0, -100px, 0)
+      rotate(0deg);
 
     opacity: 0;
   }
 
   5% {
-    opacity: 0.9;
+    opacity: 0.85;
   }
 
-  90% {
+  25% {
     transform:
-      translateY(95vh)
-      translateX(-20px)
-      rotate(320deg)
-      rotateY(420deg);
-
-    opacity: 0.9;
+      translate3d(15px, 25vh, 0)
+      rotate(90deg);
   }
 
-  98% {
-    opacity: 0.9;
+  50% {
+    transform:
+      translate3d(-15px, 50vh, 0)
+      rotate(180deg);
+  }
+
+  75% {
+    transform:
+      translate3d(20px, 75vh, 0)
+      rotate(270deg);
+  }
+
+  95% {
+    opacity: 0.85;
   }
 
   100% {
     transform:
-      translateY(115vh)
-      translateX(30px)
-      rotate(360deg)
-      rotateY(480deg);
+      translate3d(-20px, 115vh, 0)
+      rotate(360deg);
 
     opacity: 0;
   }
 }
 
-/* Tablet */
+/* Large Tablets */
 
 @media (max-width: 1024px) {
   .petal {
-    width: 28px;
-    height: 35px;
+    width: 24px;
+    height: 30px;
   }
 }
 
@@ -83,16 +88,36 @@
 
 @media (max-width: 768px) {
   .petal {
-    width: 22px;
-    height: 28px;
+    width: 18px;
+    height: 22px;
+    opacity: 0.8;
   }
 }
 
-/* Small devices */
+/* Small Phones */
 
-@media (max-width: 400px) {
+@media (max-width: 480px) {
   .petal {
-    width: 18px;
-    height: 24px;
+    width: 14px;
+    height: 18px;
+    opacity: 0.75;
+  }
+}
+
+/* Very Small Devices */
+
+@media (max-width: 360px) {
+  .petal {
+    width: 12px;
+    height: 16px;
+  }
+}
+
+/* Accessibility */
+
+@media (prefers-reduced-motion: reduce) {
+  .petal {
+    animation: none;
+    display: none;
   }
 }

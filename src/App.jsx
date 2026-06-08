@@ -70,12 +70,7 @@ const App = () => {
             <Navbar setCurrentPage={changePage} />
           )}
 
-          {/* Desktop petals only */}
-          {!isMobileOrTablet() && (
-            <PetalOverlay
-              active={["invitation", "details", "rsvp"].includes(currentPage)}
-            />
-          )}
+          <PetalOverlay />
 
           {isMobileOrTablet() ? (
             /* MOBILE: normal scrolling */
@@ -121,7 +116,10 @@ const App = () => {
               </div>
 
               <div className="page">
-                <Invitation name={guestInfo.firstName.toUpperCase()} role={guestInfo.role} />
+                <Invitation
+                  name={guestInfo.firstName.toUpperCase()}
+                  role={guestInfo.role}
+                />
               </div>
 
               <div className="page">
