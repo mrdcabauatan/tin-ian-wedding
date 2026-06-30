@@ -49,6 +49,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
         console.error(err);
       }
     } catch (error) {
+      setIsLoggingIn(false);
       console.error(error);
 
       alert(

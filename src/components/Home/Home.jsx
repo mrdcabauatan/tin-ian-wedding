@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Home.css";
 
 function Home({ onEnterInvitation }) {
-  const weddingDate = new Date("2026-08-30T23:59:59");
+  const weddingDate = new Date("2026-09-26T00:00:00");
 
   const isMobile = window.innerWidth <= 1024;
 

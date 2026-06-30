@@ -3,6 +3,7 @@ import "./Details.css";
 export default function Details() {
   const churchMap = "https://maps.app.goo.gl/H1yGqPZ2eda8zH4BA";
   const receptionMap = "https://maps.app.goo.gl/pVBPfpwvsJGJJ21c8";
+  const colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
 
   return (
     <section className="details-section section-page" id="details">
@@ -80,10 +81,9 @@ export default function Details() {
             </p>
 
             <div className="color-palette">
-              <span className="palette color1"></span>
-              <span className="palette color2"></span>
-              <span className="palette color3"></span>
-              <span className="palette color4"></span>
+              {colors.map((color) => (
+                <span key={color} className={`palette ${color}`}></span>
+              ))}
             </div>
           </div>
         </div>

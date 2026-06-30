@@ -20,7 +20,7 @@ function RSVP({ guestInfo }) {
               </div>
 
               <h3>Date</h3>
-              <p>Insert Date</p>
+              <p>September 26, 2026</p>
             </div>
 
             <div className="rsvp-info-card">
@@ -61,7 +61,7 @@ function RSVP({ guestInfo }) {
           <div className="rsvp-deadline">
             <h4>
               RSVP Deadline:
-              <span> Insert Date</span>
+              <span> September 08, 2026</span>
             </h4>
 
             <p>

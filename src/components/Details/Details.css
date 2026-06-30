@@ -101,19 +101,27 @@
 }
 
 .color1 {
-  background: #cee0f4;
+  background: #22395B;
 }
 
 .color2 {
-  background: #a7c1e1;
+  background: #3F5F92;
 }
 
 .color3 {
-  background: #84a1c4;
+  background: #829CB7;
 }
 
 .color4 {
-  background: #607b9b;
+  background: #D392A6;
+}
+
+.color5 {
+  background: #D9C3AB;
+}
+
+.color6 {
+  background: #CCC8BD;
 }
 
 /* ===============================
