@@ -7,14 +7,14 @@ export const INVITATION_CONTENT = {
   },
 
   1: {
-    title: "BEST MAN",
+    title: "GROOMSMAN",
     subtitle: "My Right Hand and Greatest Supporter",
     message:
       "Your friendship, loyalty, and unwavering support have meant so much throughout our journey. We would be honored to have you stand beside us on our wedding day.",
   },
 
   2: {
-    title: "BRIDES MAID",
+    title: "BRIDESMAID",
     subtitle: "My Partner in Love and Laughter",
     message:
       "Your love, friendship, and countless shared memories have made life's journey more beautiful. We would be delighted to have you stand with us on this special day.",

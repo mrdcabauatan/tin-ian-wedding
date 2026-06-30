@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxtDBkfWPzEDE0e2IW6bb5gDZpBCtyI83FkaQ8c39Q4IHAVQz_kxrWj8lm61DE7Ds5GZg/exec";
+  "https://script.google.com/macros/s/AKfycbx40JHz6pNjVEOcF0_vM_NToUoOo4QQlt-ZyZEg6mdebwoNiKeV0WnK7lizkIPAYgpT4w/exec";
 
 function RsvpForm({ onClose, guestInfo }) {
   const [formData, setFormData] = useState({
