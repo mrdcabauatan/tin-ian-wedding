@@ -1,7 +1,7 @@
 import React, { memo, useMemo } from "react";
 import "./PetalOverlay.css";
 
-const PetalOverlay = () => {
+const PetalOverlay2 = () => {
   const petalCount = useMemo(() => {
     const width = window.innerWidth;
 
@@ -20,7 +20,6 @@ const PetalOverlay = () => {
         delay: `${Math.random() * 20}s`,
         duration: `${18 + Math.random() * 12}s`,
         scale: 0.6 + Math.random() * 0.6,
-        color: Math.random() > 0.5 ? "pink" : "blue",
       })),
     [petalCount],
   );
@@ -47,21 +46,10 @@ const PetalOverlay = () => {
                 x2="100%"
                 y2="100%"
               >
-                {petal.color === "pink" ? (
-                  <>
-                    <stop offset="0%" stopColor="#F7D6DF" />
-                    <stop offset="35%" stopColor="#E98CA8" />
-                    <stop offset="75%" stopColor="#C73E5C" />
-                    <stop offset="100%" stopColor="#A11D33" />
-                  </>
-                ) : (
-                  <>
-                    <stop offset="0%" stopColor="#7D9BB3" />
-                    <stop offset="35%" stopColor="#6887A2" />
-                    <stop offset="75%" stopColor="#54728F" />
-                    <stop offset="100%" stopColor="#415E7B" />
-                  </>
-                )}
+                <stop offset="0%" stopColor="#E8EDF7" />
+                <stop offset="35%" stopColor="#4A6FA5" />
+                <stop offset="75%" stopColor="#163172" />
+                <stop offset="100%" stopColor="#081C3D" />
               </linearGradient>
             </defs>
 
@@ -77,7 +65,8 @@ const PetalOverlay = () => {
         </div>
       ))}
     </div>
+    
   );
 };
 
-export default memo(PetalOverlay);
+export default memo(PetalOverlay2);

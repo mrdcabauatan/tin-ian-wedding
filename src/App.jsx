@@ -9,6 +9,9 @@ import Rsvp from "./components/Rsvp/Rsvp";
 import PetalOverlay from "./components/PetalOverlay/PetalOverlay";
 
 import bgMusic from "./assets/bgmusic.mp3";
+import PetalOverlay2 from "./components/PetalOverlay/PetalOverlay2";
+
+import { ROLE_MAP } from "./components/constants/invitation_roles";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
@@ -23,6 +26,8 @@ const App = () => {
 
   const audioRef = useRef(null);
 
+  const roleId = ROLE_MAP[guestInfo.role] ?? 0;
+
   const isMobileOrTablet = () => {
     return window.innerWidth <= 1024;
   };
@@ -33,7 +38,7 @@ const App = () => {
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
-    audioRef.current.volume = 0.5;
+    audioRef.current.volume = 0;
   }
 
   const startMusic = () => {
@@ -54,6 +59,8 @@ const App = () => {
     }, 1200);
   };
 
+  console.log(guestInfo)
+
   return (
     <div className="app-container">
       {showIntro && (
@@ -63,40 +70,40 @@ const App = () => {
           setSuccessLogin={setSuccessLogin}
         />
       )}
+
       {successLogin && (
         <div>
-          {/* Desktop navbar only */}
           {!isMobileOrTablet() && currentPage !== "home" && (
             <Navbar setCurrentPage={changePage} />
           )}
 
           <PetalOverlay />
+          <PetalOverlay2 />
 
           {isMobileOrTablet() ? (
-            /* MOBILE: normal scrolling */
             <div>
               <div className="page">
                 <Home
                   onEnterInvitation={() => {
-                    const invitationSection =
-                      document.getElementById("invitation");
-
-                    invitationSection?.scrollIntoView({
-                      behavior: "smooth",
-                    });
+                    document
+                      .getElementById("invitation")
+                      ?.scrollIntoView({ behavior: "smooth" });
                   }}
                 />
               </div>
 
               <div id="invitation" className="page">
                 <Invitation
-                  name={guestInfo.firstName.toUpperCase()}
-                  role={guestInfo.role}
+                  name={`${guestInfo.firstName.toUpperCase()} ${guestInfo.lastName.toUpperCase()}`}
+                  roleId={roleId}
                 />
               </div>
 
               <div className="page">
-                <Details />
+                <Details
+                  role={guestInfo.role}
+                  roleId={roleId}
+                />
               </div>
 
               <div className="page">
@@ -104,7 +111,6 @@ const App = () => {
               </div>
             </div>
           ) : (
-            /* DESKTOP: keep existing slider */
             <div
               className="page-slider"
               style={{
@@ -112,18 +118,25 @@ const App = () => {
               }}
             >
               <div className="page">
-                <Home onEnterInvitation={() => changePage("invitation")} />
-              </div>
-
-              <div className="page">
-                <Invitation
-                  name={guestInfo.firstName.toUpperCase()}
-                  role={guestInfo.role}
+                <Home
+                  onEnterInvitation={() =>
+                    changePage("invitation")
+                  }
                 />
               </div>
 
               <div className="page">
-                <Details />
+                <Invitation
+                  name={`${guestInfo.firstName.toUpperCase()} ${guestInfo.lastName.toUpperCase()}`}
+                  roleId={roleId}
+                />
+              </div>
+
+              <div className="page">
+                <Details
+                  role={guestInfo.role}
+                  roleId={roleId}
+                />
               </div>
 
               <div className="page">

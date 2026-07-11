@@ -1,19 +1,8 @@
 import "./Invitation.css";
-import { INVITATION_CONTENT } from "./constants/invitation_roles";
+import { INVITATION_CONTENT } from "../constants/invitation_roles";
 
-function Invitation({ name, role }) {
-  const roleMap = {
-    "Best Man": 1,
-    "Bridesmaid": 2,
-    "Principal Sponsor": 3,
-    "Flower Girl": 4,
-    "Ring Bearer": 5,
-  };
-
-  const content =
-    INVITATION_CONTENT[
-      roleMap[role] ?? 0
-    ];
+function Invitation({ name, roleId }) {
+  const content = INVITATION_CONTENT[roleId] ?? INVITATION_CONTENT[0];
 
   return (
     <section id="invitation" className="invitation-page section-page">
@@ -21,10 +10,12 @@ function Invitation({ name, role }) {
         <div className="invitation-monogram">
           <span>I</span>
           <div className="invitation-monogram-divider"></div>
-          <span>T</span>
+          <span>C</span>
         </div>
 
-        <h3 className="invite-title">HELLO {name}, YOU ARE INVITED</h3>
+        <h3 className="invite-title">
+          HELLO {name}, YOU ARE INVITED
+        </h3>
 
         <div className="heart-divider">
           <span></span>
@@ -37,7 +28,7 @@ function Invitation({ name, role }) {
         </p>
 
         <h1 className="couple-names">
-          Ian & Tin
+          Ian & Cristine
         </h1>
 
         <div className="line-divider"></div>
@@ -48,7 +39,7 @@ function Invitation({ name, role }) {
 
         <h2
           className={
-            roleMap[role]
+            roleId !== 0
               ? "participation-text"
               : "celebrate-text"
           }
@@ -56,9 +47,11 @@ function Invitation({ name, role }) {
           {content.title}
         </h2>
 
-        <h4 className="role-subtitle">
-          {content.subtitle}
-        </h4>
+        {content.subtitle && (
+          <h4 className="role-subtitle">
+            {content.subtitle}
+          </h4>
+        )}
 
         <div className="heart-divider bottom-divider">
           <span></span>
@@ -68,7 +61,7 @@ function Invitation({ name, role }) {
 
         <div className="signature">
           <p>WITH LOVE,</p>
-          <p>IAN & TIN</p>
+          <p>IAN & Cristine</p>
         </div>
       </div>
     </section>

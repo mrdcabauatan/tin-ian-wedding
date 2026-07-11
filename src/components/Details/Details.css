@@ -26,6 +26,9 @@
   width: 100%;
   min-width: 0;
   padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .details-title {
@@ -48,7 +51,10 @@
 
 .time-divider {
   width: 120px;
-  margin: 2rem auto;
+  height: 1px;
+  background: var(--accent-color);
+  margin-top: auto;
+  margin-bottom: 2rem;
 }
 
 .mini-divider,
@@ -62,6 +68,10 @@
   font-weight: 500;
   color: var(--primary-color);
   margin-bottom: 1rem;
+  min-height: 6rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .venue-address {
@@ -70,6 +80,11 @@
   line-height: 1.8;
   color: var(--primary-color);
   margin-bottom: 2rem;
+  min-height: 7rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
 }
 
 .venue-time {
@@ -77,6 +92,10 @@
   font-weight: 500;
   color: var(--primary-color);
   margin-bottom: 2rem;
+  min-height: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .dress-description {
@@ -87,17 +106,39 @@
   margin-bottom: 2rem;
 }
 
+.color-note {
+  font-size: 1.3rem;
+  font-weight: 500;
+  line-height: 1.8;
+  color: var(--primary-color);
+  margin-top: 2rem;
+  margin-bottom: 2rem;
+}
+
 .color-palette {
   display: flex;
   justify-content: center;
-  gap: 1rem;
+  align-items: center;
+  margin-top: 1.5rem;
 }
 
 .palette {
-  width: 45px;
-  height: 45px;
+  width: 62px;
+  height: 62px;
   border-radius: 50%;
-  border: 2px solid var(--accent-color);
+  border: none;
+  margin-left: -19px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.12);
+  transition: transform 0.3s ease;
+}
+
+.palette:first-child {
+  margin-left: 0;
+}
+
+.palette:hover {
+  transform: translateY(-6px) scale(1.08);
+  z-index: 10;
 }
 
 .color1 {
@@ -221,9 +262,9 @@
   }
 
   .map-button {
-    max-width: 280px;
-    font-size: 1rem;
-  }
+  width: 260px;
+  margin-top: auto;
+}
 }
 
 /* ===============================
@@ -253,8 +294,9 @@
   }
 
   .palette {
-    width: 40px;
-    height: 40px;
+    width: 50px;
+    height: 50px;
+    margin-left: -10px;
   }
 }
 

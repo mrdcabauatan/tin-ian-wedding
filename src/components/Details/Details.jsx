@@ -1,9 +1,27 @@
 import "./Details.css";
 
-export default function Details() {
-  const churchMap = "https://maps.app.goo.gl/H1yGqPZ2eda8zH4BA";
-  const receptionMap = "https://maps.app.goo.gl/pVBPfpwvsJGJJ21c8";
-  const colors = ["color1", "color2", "color3", "color4", "color5", "color6"];
+export default function Details({role}) {
+  const churchMap = "https://maps.app.goo.gl/cWckrgWAcih9MJMV7";
+  const receptionMap = "https://maps.app.goo.gl/NWqx7Bf5RXs2LDFCA";
+
+  const colors = [
+    "color1",
+    "color2",
+    "color3",
+    "color4",
+    "color5",
+    "color6",
+  ];
+
+  const roleMap = {
+    "Best Man": 1,
+    "Maid of Honor": 2,
+    "Bridesmaid": 3,
+    "Groomsman": 4,
+    "Principal Sponsor": 5,
+    "Flower Girl": 6,
+    "Ring Bearer": 7,
+  };
 
   return (
     <section className="details-section section-page" id="details">
@@ -17,17 +35,17 @@ export default function Details() {
 
             <div className="mini-divider"></div>
 
-            <h4 className="venue-name">Turtles Family KTV</h4>
+            <h4 className="venue-name">Our Lady of the Airways Parish</h4>
 
             <p className="venue-address">
-              Aguirre Ave. B.F. Homes
+              Chapel Road cor. Aquino Avenue,
               <br />
-              Parañaque, Metro Manila
+              NAIA Road, Pasay City, Metro Manila
             </p>
 
             <div className="time-divider"></div>
 
-            <p className="venue-time">3:00 PM</p>
+            <p className="venue-time">2:00 PM</p>
 
             <a
               href={churchMap}
@@ -45,12 +63,12 @@ export default function Details() {
 
             <div className="mini-divider"></div>
 
-            <h4 className="venue-name">Elorde Garden Restaurant</h4>
+            <h4 className="venue-name">Le Parc</h4>
 
             <p className="venue-address">
-              Elorde Compound Brgy, Dr Arcadio Santos Ave,
+              Epifanio de los Santos Ave,
               <br />
-              San Antonio, Parañaque, Metro Manila
+              Pasay City, Metro Manila
             </p>
 
             <div className="time-divider"></div>
@@ -73,7 +91,7 @@ export default function Details() {
 
             <div className="mini-divider"></div>
 
-            <h4 className="venue-name">Formal Attire</h4>
+            <h4 className="venue-name">Semi-Formal Attire</h4>
 
             <p className="dress-description">
               We would love to see our family and friends dressed in elegant and
@@ -85,6 +103,10 @@ export default function Details() {
                 <span key={color} className={`palette ${color}`}></span>
               ))}
             </div>
+
+            <p className="color-note">
+              Note: Please avoid wearing white and black.
+            </p>
           </div>
         </div>
       </div>

@@ -29,7 +29,7 @@ function RSVP({ guestInfo }) {
               </div>
 
               <h3>Time</h3>
-              <p>Insert Time</p>
+              <p>2:00 PM</p>
             </div>
 
             <div className="rsvp-info-card">
@@ -38,7 +38,7 @@ function RSVP({ guestInfo }) {
               </div>
 
               <h3>Location</h3>
-              <p>Your Venue</p>
+              <p>Pasay City, Metro Manila</p>
             </div>
           </div>
 
@@ -61,7 +61,7 @@ function RSVP({ guestInfo }) {
           <div className="rsvp-deadline">
             <h4>
               RSVP Deadline:
-              <span> September 08, 2026</span>
+              <span> August 23, 2026</span>
             </h4>
 
             <p>

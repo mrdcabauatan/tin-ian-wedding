@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import "./Home.css";
 
 function Home({ onEnterInvitation }) {
-  const weddingDate = new Date("2026-09-26T00:00:00");
+  const weddingDate = new Date("2026-09-26T02:00:00");
 
   const isMobile = window.innerWidth <= 1024;
 
@@ -49,7 +49,7 @@ function Home({ onEnterInvitation }) {
     <section id="home" className="hero">
       <div className="hero-content">
         <h1 className="title">
-          Ian <span>&</span> Tin
+          Ian <span>&</span> Cristine
         </h1>
         <div className="divider">
           <span></span>❤<span></span>

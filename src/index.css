@@ -83,22 +83,11 @@ body {
   position: relative;
   z-index: 1;
   width: 100%;
-  border: 1px solid var(--border);
+  border: none;
 }
 
 .section-container::before {
-  content: "";
-
-  position: absolute;
-
-  top: 20px;
-  left: 20px;
-  right: 20px;
-  bottom: 20px;
-
-  border: 1px solid var(--inner-border);
-
-  pointer-events: none;
+  content: none;
 }
 
 /* ==================================
