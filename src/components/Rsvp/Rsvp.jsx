@@ -4,8 +4,13 @@ import { createPortal } from "react-dom";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import RsvpForm from "./components/RsvpForm";
 
-function RSVP({ guestInfo }) {
+function RSVP({ guestInfo, setGuestInfo }) {
   const [showModal, setShowModal] = useState(false);
+
+  const isNotYetResponding =
+    guestInfo.attendance === "Not Yet Responding";
+  const isNotAttending =
+    guestInfo.attendance === "Not Attending";
 
   return (
     <>
@@ -75,10 +80,18 @@ function RSVP({ guestInfo }) {
 
             <ul>
               <li>Kindly respond before the RSVP deadline.</li>
-              <li>Please arrive at least 30 minutes before the ceremony.</li>
-              <li>Follow the dress code indicated on the attire page.</li>
-              <li>Only guests named on the invitation may attend.</li>
-              <li>Keep phones on silent mode during the ceremony.</li>
+              <li>Kindly note that guests are by name invitation only.</li>
+              <li>
+                We kindly ask that phones and cameras be put away and not used.
+              </li>
+              <li>
+                For the comfort and safety of all, we kindly request no pets and
+                no children.
+              </li>
+              <li>
+                Please take note to strictly follow the attire guide and color
+                palette.
+              </li>
             </ul>
           </div>
         </div>
@@ -95,19 +108,33 @@ function RSVP({ guestInfo }) {
                 ×
               </button>
 
-              <p>
-                We are very excited to celebrate our wedding day with our family
-                and friends. Please let us know whether you'll be able to join
-                us by submitting your RSVP below.
-              </p>
+              {isNotYetResponding || isNotAttending ? (
+                <>
+                  <p>
+                    We are very excited to celebrate our wedding day with our
+                    family and friends. Please let us know whether you'll be
+                    able to join us by submitting your RSVP below.
+                  </p>
 
-              <RsvpForm
-                guestInfo={guestInfo}
-                onClose={() => setShowModal(false)}
-              />
+                  <RsvpForm
+                    guestInfo={guestInfo}
+                    setGuestInfo={setGuestInfo}
+                    onClose={() => setShowModal(false)}
+                  />
+                </>
+              ) : (
+                <p>
+                  Thank you! Your RSVP has already been submitted. Your previous
+                  response was: <strong>{guestInfo.attendance}</strong>.
+                  <br />
+                  <br />
+                  If you need to update your RSVP, please contact Christine
+                  Ramos or Ian Jimenez, and they will be happy to assist you.
+                </p>
+              )}
             </div>
           </div>,
-          document.body,
+          document.body
         )}
     </>
   );

@@ -120,7 +120,7 @@ const App = () => {
               )}
 
               <div className="page">
-                <Rsvp guestInfo={guestInfo} />
+                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo}/>
               </div>
             </div>
           ) : (
@@ -152,7 +152,7 @@ const App = () => {
               )}
 
               <div className="page">
-                <Rsvp guestInfo={guestInfo} />
+                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo}/>
               </div>
             </div>
           )}

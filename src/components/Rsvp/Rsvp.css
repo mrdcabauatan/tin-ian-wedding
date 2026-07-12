@@ -13,6 +13,7 @@
 }
 
 .rsvp-title {
+  margin-top: 3rem;
   margin-bottom: 0.5rem;
   font-weight: 700;
 }
@@ -109,21 +110,37 @@
 .rsvp-reminders {
   margin-top: 2rem;
   color: var(--primary-color);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .rsvp-reminders h2 {
-  margin-bottom: 0.8rem;
+  margin-bottom: 1rem;
   font-family: "Great Vibes", cursive;
   letter-spacing: 0.25rem;
   font-size: 1.3rem;
 }
 
 .rsvp-reminders ul {
-  display: inline-block;
+  width: fit-content;
+  margin: 0 auto;
+  padding-left: 10rem;
+
   text-align: left;
-  line-height: 1.8;
-  font-size: 1.3rem;
+
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+
+  font-size: 1.1rem;
   font-weight: 500;
+  line-height: 1.8;
+}
+
+.rsvp-reminders li {
+  max-width: 760px;
 }
 
 .rsvp-modal-overlay {
@@ -379,11 +396,12 @@
   }
 
   .rsvp-reminders ul {
-    max-width: 18rem;
+    max-width: 20rem;
+    padding-left: 1.2rem;
+    margin: 0 auto;
 
+    transform: none;
     font-size: 1.05rem;
-
-    transform: translateX(0.8rem);
   }
 }
 
@@ -406,8 +424,8 @@
   }
 
   .rsvp-reminders ul {
-    max-width: 14rem;
-
+    max-width: 18rem;
+    padding-left: 1.1rem;
     font-size: 1rem;
   }
 }
