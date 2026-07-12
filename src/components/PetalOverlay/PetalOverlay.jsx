@@ -7,7 +7,7 @@ const PetalOverlay = () => {
 
     if (width <= 480) return 12;
     if (width <= 768) return 10;
-    if (width <= 1024) return 30;
+    if (width <= 1024) return 25;
 
     return 25;
   }, []);

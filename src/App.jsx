@@ -9,9 +9,9 @@ import Rsvp from "./components/Rsvp/Rsvp";
 import PetalOverlay from "./components/PetalOverlay/PetalOverlay";
 
 import bgMusic from "./assets/bgmusic.mp3";
-import PetalOverlay2 from "./components/PetalOverlay/PetalOverlay2";
 
 import { ROLE_MAP } from "./components/constants/invitation_roles";
+import Attire from "./components/Attire/Attire";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
@@ -32,7 +32,7 @@ const App = () => {
     return window.innerWidth <= 1024;
   };
 
-  const pages = ["home", "invitation", "details", "rsvp"];
+  const pages = ["home", "invitation", "attire", "details", "rsvp"];
   const currentIndex = pages.indexOf(currentPage);
 
   if (!audioRef.current) {
@@ -78,7 +78,6 @@ const App = () => {
           )}
 
           <PetalOverlay />
-          <PetalOverlay2 />
 
           {isMobileOrTablet() ? (
             <div>
@@ -100,10 +99,11 @@ const App = () => {
               </div>
 
               <div className="page">
-                <Details
-                  role={guestInfo.role}
-                  roleId={roleId}
-                />
+                <Attire roleId={roleId} />
+              </div>
+
+              <div className="page">
+                <Details />
               </div>
 
               <div className="page">
@@ -132,11 +132,12 @@ const App = () => {
                 />
               </div>
 
+               <div className="page">
+                <Attire roleId={roleId} />
+              </div>
+
               <div className="page">
-                <Details
-                  role={guestInfo.role}
-                  roleId={roleId}
-                />
+                <Details />
               </div>
 
               <div className="page">

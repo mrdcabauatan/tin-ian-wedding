@@ -1,6 +1,6 @@
 import "./Details.css";
 
-export default function Details({role}) {
+export default function Details() {
   const churchMap = "https://maps.app.goo.gl/cWckrgWAcih9MJMV7";
   const receptionMap = "https://maps.app.goo.gl/NWqx7Bf5RXs2LDFCA";
 
@@ -12,16 +12,6 @@ export default function Details({role}) {
     "color5",
     "color6",
   ];
-
-  const roleMap = {
-    "Best Man": 1,
-    "Maid of Honor": 2,
-    "Bridesmaid": 3,
-    "Groomsman": 4,
-    "Principal Sponsor": 5,
-    "Flower Girl": 6,
-    "Ring Bearer": 7,
-  };
 
   return (
     <section className="details-section section-page" id="details">
@@ -83,30 +73,6 @@ export default function Details({role}) {
             >
               📍 View on Google Maps
             </a>
-          </div>
-
-          {/* Dress Code */}
-          <div className="details-card">
-            <h3 className="details-heading">Dress Code</h3>
-
-            <div className="mini-divider"></div>
-
-            <h4 className="venue-name">Semi-Formal Attire</h4>
-
-            <p className="dress-description">
-              We would love to see our family and friends dressed in elegant and
-              timeless colors that complement our special day.
-            </p>
-
-            <div className="color-palette">
-              {colors.map((color) => (
-                <span key={color} className={`palette ${color}`}></span>
-              ))}
-            </div>
-
-            <p className="color-note">
-              Note: Please avoid wearing white and black.
-            </p>
           </div>
         </div>
       </div>
