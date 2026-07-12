@@ -4,24 +4,15 @@ export default function Details() {
   const churchMap = "https://maps.app.goo.gl/cWckrgWAcih9MJMV7";
   const receptionMap = "https://maps.app.goo.gl/NWqx7Bf5RXs2LDFCA";
 
-  const colors = [
-    "color1",
-    "color2",
-    "color3",
-    "color4",
-    "color5",
-    "color6",
-  ];
-
   return (
     <section className="details-section section-page" id="details">
       <div className="details-container section-container">
-        <h2 className="details-title section-title">Details</h2>
+        <h2 className="details-title section-title">Venue Details</h2>
 
         <div className="details-grid">
           {/* Church */}
           <div className="details-card">
-            <h3 className="details-heading">Church</h3>
+            <h3 className="details-heading">Church Ceremony</h3>
 
             <div className="mini-divider"></div>
 

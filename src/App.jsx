@@ -7,11 +7,11 @@ import Invitation from "./components/Invitation/Invitation";
 import Details from "./components/Details/Details";
 import Rsvp from "./components/Rsvp/Rsvp";
 import PetalOverlay from "./components/PetalOverlay/PetalOverlay";
+import Attire from "./components/Attire/Attire";
 
 import bgMusic from "./assets/bgmusic.mp3";
 
 import { ROLE_MAP } from "./components/constants/invitation_roles";
-import Attire from "./components/Attire/Attire";
 
 const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
@@ -22,17 +22,28 @@ const App = () => {
     firstName: "",
     lastName: "",
     role: "Guest",
+    attendance: "Not Yet Responding",
   });
 
   const audioRef = useRef(null);
 
   const roleId = ROLE_MAP[guestInfo.role] ?? 0;
 
+  const isAttending = guestInfo.attendance === "Attending";
+
   const isMobileOrTablet = () => {
     return window.innerWidth <= 1024;
   };
 
-  const pages = ["home", "invitation", "attire", "details", "rsvp"];
+  // Build pages dynamically
+  const pages = ["home", "invitation", "attire"];
+
+  if (isAttending) {
+    pages.push("details");
+  }
+
+  pages.push("rsvp");
+
   const currentIndex = pages.indexOf(currentPage);
 
   if (!audioRef.current) {
@@ -59,7 +70,7 @@ const App = () => {
     }, 1200);
   };
 
-  console.log(guestInfo)
+  console.log(guestInfo);
 
   return (
     <div className="app-container">
@@ -74,7 +85,7 @@ const App = () => {
       {successLogin && (
         <div>
           {!isMobileOrTablet() && currentPage !== "home" && (
-            <Navbar setCurrentPage={changePage} />
+            <Navbar setCurrentPage={changePage} isAttending={isAttending} />
           )}
 
           <PetalOverlay />
@@ -102,9 +113,11 @@ const App = () => {
                 <Attire roleId={roleId} />
               </div>
 
-              <div className="page">
-                <Details />
-              </div>
+              {isAttending && (
+                <div className="page">
+                  <Details />
+                </div>
+              )}
 
               <div className="page">
                 <Rsvp guestInfo={guestInfo} />
@@ -118,11 +131,7 @@ const App = () => {
               }}
             >
               <div className="page">
-                <Home
-                  onEnterInvitation={() =>
-                    changePage("invitation")
-                  }
-                />
+                <Home onEnterInvitation={() => changePage("invitation")} />
               </div>
 
               <div className="page">
@@ -132,13 +141,15 @@ const App = () => {
                 />
               </div>
 
-               <div className="page">
+              <div className="page">
                 <Attire roleId={roleId} />
               </div>
 
-              <div className="page">
-                <Details />
-              </div>
+              {isAttending && (
+                <div className="page">
+                  <Details />
+                </div>
+              )}
 
               <div className="page">
                 <Rsvp guestInfo={guestInfo} />

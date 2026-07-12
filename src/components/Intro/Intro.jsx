@@ -4,7 +4,7 @@ import "./Intro.css";
 import introVideo from "../../assets/intro.mp4";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbwnmOnke1huel2zgNmp8_IxXenAQlYIyHL0UHfM14PdI41vBHCAsAGR-aXTpyxuEuMW2g/exec";
+  "https://script.google.com/macros/s/AKfycbxD2QcVr3v0HxGujTUdw_-gquxde8jbeRbc6sSfWEcP8tR5tst2vOLAnFQTYdEEpLPZIQ/exec";
 
 const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
   const [showModal, setShowModal] = useState(true);
@@ -37,6 +37,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
         role: result.role || "Guest",
+        attendance: result.attendance || "Not Yet Responding",
       });
 
       setSuccessLogin(true);

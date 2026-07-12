@@ -51,7 +51,7 @@
 .rsvp-info-card p {
   color: var(--primary-color);
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 700;
   letter-spacing: 0.35rem;
 }
 
@@ -67,7 +67,7 @@
 .rsvp-link {
   display: inline-block;
   margin-bottom: 1rem;
-  color: var(--primary-color);
+  color: var(--accent-color);
   font-size: 3rem;
   font-weight: 500;
   text-decoration: none;
@@ -397,8 +397,8 @@
   }
 
   .rsvp-message {
-    max-width: 14rem;
-    font-size: 1rem;
+    max-width: 20rem;
+    font-size: 1.1rem;
   }
 
   .rsvp-link {
