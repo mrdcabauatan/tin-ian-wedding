@@ -4,6 +4,7 @@
 import semiFormalImg from "../../assets/attire/semi-formal.png";
 import pSponsorImg from "../../assets/attire/principal-sponsor.png";
 import secSponsorImg from "../../assets/attire/secondary-sponsor.png";
+import bestManImg from "../../assets/attire/bestman.png";
 import mHonorImage from "../../assets/attire/maid-of-honor.png";
 import barongImg from "../../assets/attire/barong.png";
 import bridesmaid from "../../assets/attire/dusty-blue.png";
@@ -34,10 +35,10 @@ export const INVITATION_CONTENT = {
     "Through every milestone, challenge, and celebration, you have been by my side with unwavering loyalty and friendship. Thank you for always believing in me and for being my right hand.",
 
   attire: {
-    heading: "Semi-Formal Attire",
-    image: semiFormalImg,
+    heading: "Coat & Chinese Collar Barong",
+    image: bestManImg,
     addGuide: "Gentlemen are kindly requested to wear black formal shoes.",
-    palette: [1,2,3,4,5,6],
+    palette: [6],
   },
 },
 
