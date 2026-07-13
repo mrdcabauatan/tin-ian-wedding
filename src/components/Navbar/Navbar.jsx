@@ -5,6 +5,7 @@ function Navbar({ setCurrentPage, isAttending }) {
     { label: "Home", page: "home" },
     { label: "Invitation", page: "invitation" },
     { label: "Attire Guide", page: "attire" },
+    { label: "Gallery", page: "gallery" },
 
     ...(isAttending
       ? [{ label: "Venue Details", page: "details" }]

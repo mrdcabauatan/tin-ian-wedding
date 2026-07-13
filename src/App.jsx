@@ -2,15 +2,14 @@ import { useState, useRef, useEffect } from "react";
 
 import Intro from "./components/Intro/Intro";
 import Navbar from "./components/Navbar/Navbar";
+import PetalOverlay from "./components/PetalOverlay/PetalOverlay";
 import Home from "./components/Home/Home";
 import Invitation from "./components/Invitation/Invitation";
+import Attire from "./components/Attire/Attire";
+import Gallery from "./components/Gallery/Gallery";
 import Details from "./components/Details/Details";
 import Rsvp from "./components/Rsvp/Rsvp";
-import PetalOverlay from "./components/PetalOverlay/PetalOverlay";
-import Attire from "./components/Attire/Attire";
-
 import bgMusic from "./assets/bgmusic.mp3";
-
 import { ROLE_MAP } from "./components/constants/invitation_roles";
 
 const App = () => {
@@ -37,7 +36,7 @@ const App = () => {
     return window.innerWidth <= 1024;
   };
 
-  const pages = ["home", "invitation", "attire"];
+  const pages = ["home", "invitation", "attire", "gallery"];
 
   if (isAttending) {
     pages.push("details");
@@ -112,17 +111,18 @@ const App = () => {
                 <Attire roleId={roleId} />
               </div>
 
+              <div className="page">
+                <Gallery />
+              </div>
+
               {isAttending && (
                 <div className="page">
-                  <Details guestInfo={guestInfo}/>
+                  <Details guestInfo={guestInfo} />
                 </div>
               )}
 
               <div className="page">
-                <Rsvp
-                  guestInfo={guestInfo}
-                  setGuestInfo={setGuestInfo}
-                />
+                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo} />
               </div>
             </div>
           ) : (
@@ -147,17 +147,18 @@ const App = () => {
                 <Attire roleId={roleId} />
               </div>
 
+              <div className="page">
+                <Gallery />
+              </div>
+
               {isAttending && (
                 <div className="page">
-                  <Details guestInfo={guestInfo}/>
+                  <Details guestInfo={guestInfo} />
                 </div>
               )}
 
               <div className="page">
-                <Rsvp
-                  guestInfo={guestInfo}
-                  setGuestInfo={setGuestInfo}
-                />
+                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo} />
               </div>
             </div>
           )}
