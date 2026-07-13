@@ -1,5 +1,6 @@
 import "./Invitation.css";
 import { INVITATION_CONTENT } from "../constants/invitation_roles";
+import monogram from "../../assets/monogram.png";
 
 function Invitation({ name, roleId }) {
   const content = INVITATION_CONTENT[roleId] ?? INVITATION_CONTENT[0];
@@ -7,10 +8,13 @@ function Invitation({ name, roleId }) {
   return (
     <section id="invitation" className="invitation-page section-page">
       <div className="invitation-container section-container">
+
         <div className="invitation-monogram">
-          <span>I</span>
-          <div className="invitation-monogram-divider"></div>
-          <span>C</span>
+          <img
+            src={monogram}
+            alt="Ian & Cristine Monogram"
+            className="monogram-image"
+          />
         </div>
 
         <h3 className="invite-title">

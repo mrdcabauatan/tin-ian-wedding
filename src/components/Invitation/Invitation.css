@@ -12,21 +12,22 @@
   animation: fadeIn 1.2s ease;
 }
 
+/* ===== Monogram Image ===== */
+
 .invitation-monogram {
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 1rem;
-  color: var(--primary-color);
-  font-family: "Cormorant Garamond", serif;
-  font-size: 4rem;
-  font-weight: 500;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
 }
 
-.invitation-monogram-divider {
-  width: 2px;
-  height: 60px;
-  background: var(--primary-color);
+.monogram-image {
+  width: 100px;
+  max-width: 25vw;
+  height: auto;
+  object-fit: contain;
+  user-select: none;
+  pointer-events: none;
+  filter: drop-shadow(0 6px 18px rgba(0, 0, 0, 0.15));
 }
 
 .invite-title {
@@ -73,7 +74,7 @@
   color: var(--primary-color);
   margin-top: 1rem;
   margin-bottom: 1rem;
-  text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
+  text-shadow: 0 4px 18px rgba(0,0,0,.2);
 }
 
 .line-divider {
@@ -87,12 +88,13 @@
   max-width: 850px;
 }
 
-.message p {
+.message p,
+.participation-text {
   font-size: 1.8rem;
   font-weight: 500;
   line-height: 1.7;
   color: var(--primary-color);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
 .celebrate-text {
@@ -102,24 +104,15 @@
   color: var(--primary-color);
   margin-top: 3rem;
   margin-bottom: 1rem;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 2px 10px rgba(0,0,0,.15);
 }
 
-.participation-text{
-  margin-top: 1rem;
-  font-size: 1.8rem;
-  font-weight: 500;
-  line-height: 1.7;
-  color: var(--primary-color);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
-}
-
-.role-subtitle{
+.role-subtitle {
   font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.7;
   color: var(--primary-color);
-  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
+  text-shadow: 0 2px 8px rgba(0,0,0,.15);
 }
 
 .bottom-divider {
@@ -132,17 +125,17 @@
 
 .signature p:first-child {
   font-family: "Playfair Display", serif;
-  font-size: 0.95rem;
+  font-size: .95rem;
   font-weight: 500;
-  letter-spacing: 0.4rem;
-  margin-bottom: 0.4rem;
+  letter-spacing: .4rem;
+  margin-bottom: .4rem;
 }
 
 .signature p:last-child {
   font-family: "Playfair Display", serif;
   font-size: 1.2rem;
   font-weight: 500;
-  letter-spacing: 0.3rem;
+  letter-spacing: .3rem;
 }
 
 @keyframes fadeIn {
@@ -150,126 +143,72 @@
     opacity: 0;
     transform: translateY(25px);
   }
-
   to {
     opacity: 1;
     transform: translateY(0);
   }
 }
 
-/* =========================
-   TABLETS
-========================= */
+/* TABLETS */
 
-@media (max-width: 1024px) {
-  .couple-names {
-    font-size: 5rem;
-  }
-
-  .message p {
-    font-size: 1.5rem;
-  }
+@media (max-width:1024px){
+  .couple-names{font-size:5rem;}
+  .message p,.participation-text{font-size:1.5rem;}
 }
 
-@media (max-width: 820px) {
-  .couple-names {
-    font-size: 4.5rem;
-  }
-
-  .line-divider {
-    width: 240px;
-  }
-
-  .celebrate-text {
-    font-size: 2rem;
-  }
-
-  .role-subtitle{
-    margin-bottom: 1rem;
-  }
+@media (max-width:820px){
+  .monogram-image{width:160px;}
+  .couple-names{font-size:4.5rem;}
+  .line-divider{width:240px;}
+  .celebrate-text{font-size:2rem;}
+  .role-subtitle{margin-bottom:1rem;}
 }
 
-/* =========================
-   MOBILE
-========================= */
+/* MOBILE */
 
-@media (max-width: 768px) {
-  .invitation-page {
-    min-height: 100vh;
-    height: auto;
-
-    padding: 1rem;
+@media (max-width:768px){
+  .invitation-page{
+    min-height:100vh;
+    height:auto;
+    padding:1rem;
   }
 
-  .invitation-container {
-    min-height: calc(100vh - 2rem);
-    height: auto;
-
-    padding: 2rem 1.5rem;
+  .invitation-container{
+    min-height:calc(100vh - 2rem);
+    height:auto;
+    padding:2rem 1.5rem;
   }
 
-  .couple-names {
-    font-size: 3.8rem;
-  }
-
-  .message p {
-    font-size: 1.2rem;
-  }
+  .monogram-image{width:140px;}
+  .couple-names{font-size:3.8rem;}
+  .message p,.participation-text{font-size:1.2rem;}
 }
 
-@media (max-width: 540px) {
-  .couple-names {
-    font-size: 3.2rem;
-  }
-
-  .celebrate-text {
-    font-size: 1.7rem;
-  }
-
-  .message p {
-    font-size: 1.1rem;
-  }
+@media (max-width:540px){
+  .monogram-image{width:120px;}
+  .couple-names{font-size:3.2rem;}
+  .celebrate-text{font-size:1.7rem;}
+  .message p,.participation-text{font-size:1.1rem;}
 }
 
-@media (max-width: 430px) {
-  .invitation-monogram {
-    font-size: 2.2rem;
-  }
-
-  .couple-names {
-    font-size: 2.8rem;
-  }
-
-  .invite-title {
-    font-size: 0.75rem;
-  }
+@media (max-width:430px){
+  .monogram-image{width:100px;}
+  .couple-names{font-size:2.8rem;}
+  .invite-title{font-size:.75rem;}
 }
 
-@media (max-width: 390px) {
-  .couple-names {
-    font-size: 2.5rem;
-  }
-
-  .message p {
-    font-size: 1rem;
-  }
+@media (max-width:390px){
+  .couple-names{font-size:2.5rem;}
+  .message p,.participation-text{font-size:1rem;}
 }
 
-@media (max-width: 375px) {
-  .couple-names {
-    font-size: 2.2rem;
-  }
-
-  .celebrate-text {
-    font-size: 1.4rem;
-  }
-
-  .line-divider {
-    width: 160px;
-  }
-
+@media (max-width:375px){
+  .monogram-image{width:80px;}
+  .couple-names{font-size:2.2rem;}
+  .celebrate-text{font-size:1.4rem;}
+  .line-divider{width:160px;}
   .heart-divider span:first-child,
-  .heart-divider span:last-child {
-    width: 40px;
+  .heart-divider span:last-child{
+    width:40px;
   }
 }

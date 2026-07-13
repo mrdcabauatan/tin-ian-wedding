@@ -21,15 +21,18 @@ const App = () => {
   const [guestInfo, setGuestInfo] = useState({
     firstName: "",
     lastName: "",
-    role: "Guest",
-    attendance: "Not Yet Responding",
+    role: "",
+    churchAttendance: "",
+    receptionAttendance: "",
   });
 
   const audioRef = useRef(null);
 
   const roleId = ROLE_MAP[guestInfo.role] ?? 0;
 
-  const isAttending = guestInfo.attendance === "Attending";
+  const isAttending =
+    guestInfo.churchAttendance === "Attending" ||
+    guestInfo.receptionAttendance === "Attending";
 
   const isMobileOrTablet = () => {
     return window.innerWidth <= 1024;
@@ -48,7 +51,7 @@ const App = () => {
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
-    audioRef.current.volume = 0.4;
+    audioRef.current.volume = 0;
   }
 
   const startMusic = () => {
@@ -72,19 +75,23 @@ const App = () => {
   console.log(guestInfo);
 
   useEffect(() => {
-  if (rsvpSubmitted && guestInfo.attendance === "Attending") {
-    setTimeout(() => {
-      const detailsSection = document.getElementById("details");
+    if (
+      rsvpSubmitted &&
+      (guestInfo.churchAttendance === "Attending" ||
+        guestInfo.receptionAttendance === "Attending")
+    ) {
+      setTimeout(() => {
+        const detailsSection = document.getElementById("details");
 
-      if (detailsSection) {
-        detailsSection.scrollIntoView({
-          behavior: "smooth",
-          block: "start",
-        });
-      }
-    }, 300);
-  }
-}, [rsvpSubmitted]);
+        if (detailsSection) {
+          detailsSection.scrollIntoView({
+            behavior: "smooth",
+            block: "start",
+          });
+        }
+      }, 300);
+    }
+  }, [rsvpSubmitted]);
 
   return (
     <div className="app-container">
@@ -134,7 +141,11 @@ const App = () => {
               )}
 
               <div className="page">
-                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo} isRsvpSubmitted={isRsvpSubmitted}/>
+                <Rsvp
+                  guestInfo={guestInfo}
+                  setGuestInfo={setGuestInfo}
+                  isRsvpSubmitted={isRsvpSubmitted}
+                />
               </div>
             </div>
           ) : (
@@ -166,7 +177,11 @@ const App = () => {
               )}
 
               <div className="page">
-                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo} isRsvpSubmitted={isRsvpSubmitted}/>
+                <Rsvp
+                  guestInfo={guestInfo}
+                  setGuestInfo={setGuestInfo}
+                  isRsvpSubmitted={isRsvpSubmitted}
+                />
               </div>
             </div>
           )}

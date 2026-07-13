@@ -4,7 +4,7 @@ import "./Intro.css";
 import introVideo from "../../assets/intro.mp4";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbxD2QcVr3v0HxGujTUdw_-gquxde8jbeRbc6sSfWEcP8tR5tst2vOLAnFQTYdEEpLPZIQ/exec";
+  "https://script.google.com/macros/s/AKfycbzasvCcVTZWqsru24USH1F48dXbNJDfN-5w-w4frEbNzQi9kAPUQ8gWyvo7mqarkJmSIg/exec";
 
 const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
   const [showModal, setShowModal] = useState(true);
@@ -27,8 +27,8 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
     try {
       const response = await fetch(
         `${GOOGLE_SCRIPT_URL}?firstName=${encodeURIComponent(
-          firstName.trim()
-        )}&lastName=${encodeURIComponent(lastName.trim())}`
+          firstName.trim(),
+        )}&lastName=${encodeURIComponent(lastName.trim())}`,
       );
 
       const result = await response.json();
@@ -37,7 +37,8 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
         firstName: firstName.trim(),
         lastName: lastName.trim(),
         role: result.role || "Guest",
-        attendance: result.attendance || "Not Yet Responding",
+        churchAttendance: result.churchAttendance || "Not Yet Responding",
+        receptionAttendance: result.receptionAttendance || "Not Yet Responding",
       });
 
       setSuccessLogin(true);
@@ -53,9 +54,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
       setIsLoggingIn(false);
       console.error(error);
 
-      alert(
-        "Unable to verify guest information. Please try again."
-      );
+      alert("Unable to verify guest information. Please try again.");
     }
   };
 
@@ -90,6 +89,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
               className="intro-input"
               value={firstName}
               onChange={(e) => setFirstName(e.target.value)}
+              disabled={isLoggingIn}
             />
 
             <input
@@ -98,6 +98,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
               className="intro-input"
               value={lastName}
               onChange={(e) => setLastName(e.target.value)}
+              disabled={isLoggingIn}
             />
 
             <button

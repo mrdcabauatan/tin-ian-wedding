@@ -6,11 +6,20 @@ import RsvpForm from "./components/RsvpForm";
 
 function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const [showModal, setShowModal] = useState(false);
+  const [isChurchAttending, setIsChurchAttending] =
+    useState(guestInfo.churchAttendance || "Not Yet Responding");
+  const [isReceptionAttending, setIsReceptionAttending] =
+    useState(guestInfo.receptionAttendance || "Not Yet Responding");
 
   const isNotYetResponding =
-    guestInfo.attendance === "Not Yet Responding";
+    guestInfo.churchAttendance === "Not Yet Responding" &&
+    guestInfo.receptionAttendance === "Not Yet Responding";
   const isNotAttending =
-    guestInfo.attendance === "Not Attending";
+    guestInfo.churchAttendance === "Not Attending" ||
+    guestInfo.receptionAttendance === "Not Attending";
+
+    console.log(isChurchAttending);
+    console.log(isReceptionAttending);
 
   return (
     <>
@@ -79,18 +88,17 @@ function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
             <h2>Important Reminders</h2>
 
             <ul>
-              <li>Kindly respond before the RSVP deadline.</li>
-              <li>Kindly note that guests are by name invitation only.</li>
+              <li>Kindly arrive 30 minutes before the ceremony.</li>
+              <li>Adhere to the dresscode.</li>
               <li>
-                We kindly ask that phones and cameras be put away and not used.
+                Refrain from using your phone during the ceremony
               </li>
               <li>
                 For the comfort and safety of all, we kindly request no pets and
                 no children.
               </li>
               <li>
-                Please take note to strictly follow the attire guide and color
-                palette.
+                Show respect to all guest.
               </li>
             </ul>
           </div>
@@ -121,12 +129,15 @@ function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
                     setGuestInfo={setGuestInfo}
                     onClose={() => setShowModal(false)}
                     isRsvpSubmitted={isRsvpSubmitted}
+                    isChurchAttending={isChurchAttending}
+                    isReceptionAttending={isReceptionAttending}
+                    setIsChurchAttending={setIsChurchAttending}
+                    setIsReceptionAttending={setIsReceptionAttending}
                   />
                 </>
               ) : (
                 <p>
-                  Thank you! Your RSVP has already been submitted. Your previous
-                  response was: <strong>{guestInfo.attendance}</strong>.
+                  Thank you! Your RSVP has already been submitted.
                   <br />
                   <br />
                   If you need to update your RSVP, please contact Christine
@@ -135,7 +146,7 @@ function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
               )}
             </div>
           </div>,
-          document.body
+          document.body,
         )}
     </>
   );

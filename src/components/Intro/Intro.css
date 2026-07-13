@@ -105,7 +105,7 @@
   border: none;
   border-radius: 12px;
   color: white;
-  background: #1f2a44;
+  background: var(--primary-color);
   font-size: 1rem;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -113,7 +113,7 @@
 
 .intro-button:not(:disabled):hover {
   transform: translateY(-2px);
-  background: #2f4156;
+  background: var(--primary-hover);
 }
 
 .intro-button:disabled {
