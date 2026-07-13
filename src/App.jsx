@@ -51,7 +51,7 @@ const App = () => {
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
-    audioRef.current.volume = 0;
+    audioRef.current.volume = 0.4;
   }
 
   const startMusic = () => {
@@ -71,8 +71,6 @@ const App = () => {
       setShowIntro(false);
     }, 1200);
   };
-
-  console.log(guestInfo);
 
   useEffect(() => {
     if (

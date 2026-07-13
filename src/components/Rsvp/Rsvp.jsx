@@ -18,9 +18,6 @@ function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
     guestInfo.churchAttendance === "Not Attending" ||
     guestInfo.receptionAttendance === "Not Attending";
 
-    console.log(isChurchAttending);
-    console.log(isReceptionAttending);
-
   return (
     <>
       <section id="rsvp" className="rsvp-page section-page">
