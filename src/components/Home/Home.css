@@ -22,7 +22,7 @@
   background-position: center 22%;
   background-size: cover;
   background-repeat: no-repeat;
-  filter: brightness(0.45) saturate(0.75);
+  filter: brightness(0.6);
   z-index: -2;
 }
 
@@ -30,7 +30,6 @@
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(0, 0, 0, 0.25);
   z-index: -1;
 }
 
@@ -55,30 +54,15 @@
 
 .title {
   font-family: "Pinyon Script", cursive;
-  font-size: clamp(7rem, 12vw, 11rem);
+  font-size: 13rem;
   font-weight: 300;
   line-height: 1;
-  margin-bottom: 10px;
+  margin-bottom: 1.5rem;
+  margin-top: 3rem
 }
 
 .title span {
   color: #5A86AD;
-}
-
-.divider {
-  margin: 20px 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 18px;
-  color: #5A86AD;
-  font-size: 1.1rem;
-}
-
-.divider span {
-  width: 110px;
-  height: 1px;
-  background: #5A86AD;
 }
 
 .home-subtitle {
@@ -260,12 +244,6 @@
   animation-delay: 0.3s;
 }
 
-.divider {
-  opacity: 0;
-  animation: fadeUp 1.2s ease forwards;
-  animation-delay: 0.5s;
-}
-
 .home-subtitle {
   opacity: 0;
   animation: fadeUp 1.2s ease forwards;
@@ -422,6 +400,7 @@
 
 @media (max-width: 390px) {
   .title {
+    margin-top: 3rem;
     font-size: 3.6rem;
   }
 
@@ -434,6 +413,7 @@
 
 @media (max-width: 375px) {
   .title {
+    margin-top: 2.5rem;
     font-size: 3.2rem;
   }
 
@@ -447,6 +427,7 @@
 
   .countdown {
     gap: 8px;
+    margin-top: 2rem;
   }
 
   .time-box {
@@ -456,5 +437,9 @@
 
   .time-box h3 {
     font-size: 1.5rem;
+  }
+  
+  .scroll-indicator {
+    margin-top: 2.5rem;
   }
 }
