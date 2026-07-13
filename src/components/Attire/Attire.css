@@ -170,255 +170,259 @@
 }
 
 /* ==========================================
-   LARGE TABLETS / SMALL LAPTOPS
-   (iPad Pro, Surface Pro, Nest Hub)
+   LARGE TABLETS
 ========================================== */
 
-@media (max-width:1100px){
+@media (max-width: 1024px) {
+  .attire-section {
+    min-height: calc(100vh - 4rem);
+    padding: 4rem 2.5rem;
+  }
 
-.attire-container{
-    max-width:850px;
-}
+  .attire-container {
+    max-width: 900px;
+  }
 
-.attire-showcase{
-    gap:4rem;
-}
+  .attire-heading {
+    font-size: 3rem;
+  }
 
-.attire-image img{
-    width:145px;
-}
+  .dress-description {
+    max-width: 800px;
+    font-size: 1.45rem;
+  }
 
-.palette{
-    width:56px;
-    height:56px;
-}
+  .attire-showcase {
+    gap: 4rem;
+  }
 
+  .attire-image img {
+    width: 165px;
+  }
+
+  .palette {
+    width: 60px;
+    height: 60px;
+  }
+
+  .attire-guidelines h4 {
+    font-size: 1.9rem;
+  }
+
+  .attire-guidelines ol {
+    max-width: 700px;
+    padding-left: 2rem;
+  }
+
+  .attire-guidelines li {
+    font-size: 1.25rem;
+    line-height: 1.9;
+  }
 }
 
 /* ==========================================
    TABLETS
-   (iPad Air, iPad Mini)
 ========================================== */
 
-@media (max-width:900px){
+@media (max-width: 820px) {
+  .attire-section {
+    min-height: calc(100vh - 4rem);
+    padding: 4rem 2rem;
+  }
 
-.attire-section{
-    padding:3rem 2rem;
-}
+  .attire-heading {
+    font-size: 2.8rem;
+  }
 
-.attire-heading{
-    font-size:2.2rem;
-}
+  .dress-description {
+    max-width: 650px;
+    font-size: 1.45rem;
+  }
 
-.dress-description{
-    max-width:42rem;
-    font-size:1.2rem;
-}
+  .attire-showcase {
+    gap: 3rem;
+  }
 
-.attire-showcase{
-    gap:3rem;
-}
+  .attire-image img {
+    width: 155px;
+  }
 
-.attire-image img{
-    width:140px;
-}
+  .palette {
+    width: 56px;
+    height: 56px;
+  }
 
-.palette{
-    width:54px;
-    height:54px;
-}
+  .attire-guidelines h4 {
+    font-size: 1.8rem;
+  }
 
-.attire-guidelines li{
-    font-size:1.1rem;
-}
+  .attire-guidelines ol {
+    max-width: 650px;
+    padding-left: 2rem;
+  }
 
+  .attire-guidelines li {
+    font-size: 1.25rem;
+    line-height: 1.9;
+  }
 }
 
 /* ==========================================
-   TABLETS & LARGE PHONES
+   MOBILE
 ========================================== */
 
-@media (max-width:768px){
+@media (max-width: 768px) {
+  .attire-section {
+    min-height: calc(100vh - 4rem);
+    padding: 3rem 1.5rem;
+  }
 
-.attire-section{
-    padding:3rem 1.5rem;
-    min-height:auto;
-}
+  .attire-heading {
+    font-size: 2.4rem;
+  }
 
-.attire-heading{
-    font-size:2rem;
-}
+  .mini-divider {
+    width: 8rem;
+  }
 
-.dress-description{
-    max-width:100%;
-    font-size:1rem;
-    line-height:1.7;
-    margin-bottom:0;
-}
+  .dress-description {
+    max-width: 100%;
+    font-size: 1.35rem;
+    line-height: 1.9;
+    margin-bottom: 0;
+  }
 
-/* Keep image LEFT and palette RIGHT */
-.attire-showcase{
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
-    gap:2rem;
-    margin:2rem auto;
-    flex-wrap:nowrap;
-}
+  /* Image LEFT, Palette RIGHT */
+  .attire-showcase {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: nowrap;
+    gap: 2rem;
+    margin: 2.5rem auto;
+  }
 
-.attire-image{
-    width:auto;
-    flex-shrink:0;
-}
+  .attire-image img {
+    width: 135px;
+  }
 
-.attire-image img{
-    width:120px;
-}
+  .palette {
+    width: 50px;
+    height: 50px;
+    margin-left: -12px;
+  }
 
-.color-palette{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:14px;
-}
+  .color-palette {
+    gap: 16px;
+  }
 
-.color-row{
-    display:flex;
-    align-items:center;
-}
+  .attire-guidelines {
+    margin-top: 2rem;
+  }
 
-.palette{
-    width:46px;
-    height:46px;
-    margin-left:-12px;
-}
+  .attire-guidelines h4 {
+    font-size: 1.8rem;
+  }
 
-.palette:first-child{
-    margin-left:0;
-}
+  .attire-guidelines ol {
+    width: 100%;
+    max-width: 500px;
+    padding-left: 1.8rem;
+  }
 
-.attire-guidelines{
-    margin-top:1rem;
-}
-
-.attire-guidelines h4{
-    font-size:1.1rem;
-}
-
-.attire-guidelines ol{
-    max-width:100%;
-    padding-left:2rem;
-}
-
-.attire-guidelines li{
-    font-size:1rem;
-    line-height:1.7;
-}
-
-}
-
-/* ==========================================
-   PHONES
-========================================== */
-
-@media (max-width:480px){
-
-.attire-section{
-    padding:2.5rem 1rem;
-}
-
-.attire-heading{
-    font-size:1.5rem;
-}
-
-.mini-divider{
-    width:7rem;
-}
-
-.dress-description{
-    font-size:1.1rem;
-    max-width:22rem;
-}
-
-.attire-showcase{
-    gap:1.2rem;
-}
-
-.attire-image img{
-    width:100px;
-}
-
-.palette{
-    width:40px;
-    height:40px;
-    margin-left:-10px;
-}
-
-.color-palette{
-    gap:12px;
-}
-
-.attire-guidelines h4{
-    font-size:1.2rem;
-}
-
-.attire-guidelines ol{
-    padding-left:1.5rem;
-}
-
-.attire-guidelines li{
-    font-size:1rem;
-}
-
+  .attire-guidelines li {
+    font-size: 1.2rem;
+    line-height: 1.9;
+  }
 }
 
 /* ==========================================
    SMALL PHONES
 ========================================== */
 
-@media (max-width:360px){
+@media (max-width: 480px) {
+  .attire-section {
+    padding: 2.5rem 1.25rem;
+  }
 
-.attire-section{
-    padding:2rem .8rem;
+  .attire-heading {
+    font-size: 2.1rem;
+  }
+
+  .mini-divider {
+    width: 7rem;
+  }
+
+  .dress-description {
+    max-width: 100%;
+    font-size: 1.25rem;
+  }
+
+  .attire-showcase {
+    gap: 1.5rem;
+  }
+
+  .attire-image img {
+    width: 115px;
+  }
+
+  .palette {
+    width: 44px;
+    height: 44px;
+    margin-left: -10px;
+  }
+
+  .color-palette {
+    gap: 14px;
+  }
+
+  .attire-guidelines h4 {
+    font-size: 1.6rem;
+  }
+
+  .attire-guidelines ol {
+    max-width: 100%;
+    padding-left: 1.6rem;
+  }
+
+  .attire-guidelines li {
+    font-size: 1.1rem;
+  }
 }
 
-.attire-heading{
-    font-size:1.5rem;
-}
+/* ==========================================
+   VERY SMALL PHONES
+========================================== */
 
-.dress-description{
-    font-size:.88rem;
-}
+@media (max-width: 375px) {
+  .attire-heading {
+    font-size: 1.9rem;
+  }
 
-.attire-showcase{
-    gap:.8rem;
-}
+  .dress-description {
+    font-size: 1.15rem;
+  }
 
-.attire-image img{
-    width:85px;
-}
+  .attire-showcase {
+    gap: 1rem;
+  }
 
-.palette{
-    width:34px;
-    height:34px;
-    margin-left:-8px;
-}
+  .attire-image img {
+    width: 100px;
+  }
 
-.color-palette{
-    gap:10px;
-}
+  .palette {
+    width: 40px;
+    height: 40px;
+    margin-left: -8px;
+  }
 
-.attire-guidelines h4{
-    font-size:.95rem;
-}
+  .attire-guidelines h4 {
+    font-size: 1.5rem;
+  }
 
-.attire-guidelines ol{
-    padding-left:1.2rem;
-}
-
-.attire-guidelines li{
-    font-size:.82rem;
-}
-
+  .attire-guidelines li {
+    font-size: 1.05rem;
+  }
 }

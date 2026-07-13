@@ -72,7 +72,7 @@ const App = () => {
   console.log(guestInfo);
 
   useEffect(() => {
-  if (rsvpSubmitted && guestInfo.attendance === "Attending" && isMobileOrTablet()) {
+  if (rsvpSubmitted && guestInfo.attendance === "Attending") {
     setTimeout(() => {
       const detailsSection = document.getElementById("details");
 
