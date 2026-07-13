@@ -1,15 +1,12 @@
 import "./Rsvp.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import RsvpForm from "./components/RsvpForm";
 
-function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
+function RSVP({ guestInfo, setGuestInfo }) {
   const [showModal, setShowModal] = useState(false);
-  const [isChurchAttending, setIsChurchAttending] =
-    useState(guestInfo.churchAttendance || "Not Yet Responding");
-  const [isReceptionAttending, setIsReceptionAttending] =
-    useState(guestInfo.receptionAttendance || "Not Yet Responding");
+  const [rsvpSubmitted, isRsvpSubmitted] = useState(false);
 
   const isNotYetResponding =
     guestInfo.churchAttendance === "Not Yet Responding" &&
@@ -17,6 +14,36 @@ function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const isNotAttending =
     guestInfo.churchAttendance === "Not Attending" ||
     guestInfo.receptionAttendance === "Not Attending";
+
+  useEffect(() => {
+    if (!rsvpSubmitted) return;
+
+    const isAttending =
+      guestInfo.churchAttendance === "Attending" ||
+      guestInfo.receptionAttendance === "Attending";
+
+    if (!isAttending) return;
+
+    const timer = setTimeout(() => {
+      const detailsSection = document.getElementById("details");
+
+      if (detailsSection) {
+        detailsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+
+      // Reset so future submissions can trigger this effect again
+      isRsvpSubmitted(false);
+    }, 300);
+
+    return () => clearTimeout(timer);
+  }, [
+    rsvpSubmitted,
+    guestInfo.churchAttendance,
+    guestInfo.receptionAttendance,
+  ]);
 
   return (
     <>
@@ -87,16 +114,12 @@ function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
             <ul>
               <li>Kindly arrive 30 minutes before the ceremony.</li>
               <li>Adhere to the dresscode.</li>
-              <li>
-                Refrain from using your phone during the ceremony
-              </li>
+              <li>Refrain from using your phone during the ceremony</li>
               <li>
                 For the comfort and safety of all, we kindly request no pets and
                 no children.
               </li>
-              <li>
-                Show respect to all guest.
-              </li>
+              <li>Show respect to all guest.</li>
             </ul>
           </div>
         </div>
@@ -126,10 +149,6 @@ function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
                     setGuestInfo={setGuestInfo}
                     onClose={() => setShowModal(false)}
                     isRsvpSubmitted={isRsvpSubmitted}
-                    isChurchAttending={isChurchAttending}
-                    isReceptionAttending={isReceptionAttending}
-                    setIsChurchAttending={setIsChurchAttending}
-                    setIsReceptionAttending={setIsReceptionAttending}
                   />
                 </>
               ) : (
@@ -138,7 +157,7 @@ function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
                   <br />
                   <br />
                   If you need to update your RSVP, please contact Christine
-                  Ramos or Ian Jimenez, and they will be happy to assist you.
+                  Ramos or Ian Jimenez and they will be happy to assist you.
                 </p>
               )}
             </div>

@@ -17,7 +17,6 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
   const [showIntro, setShowIntro] = useState(true);
   const [successLogin, setSuccessLogin] = useState(false);
-  const [rsvpSubmitted, isRsvpSubmitted] = useState(false);
   const [guestInfo, setGuestInfo] = useState({
     firstName: "",
     lastName: "",
@@ -72,25 +71,6 @@ const App = () => {
     }, 1200);
   };
 
-  useEffect(() => {
-    if (
-      rsvpSubmitted &&
-      (guestInfo.churchAttendance === "Attending" ||
-        guestInfo.receptionAttendance === "Attending")
-    ) {
-      setTimeout(() => {
-        const detailsSection = document.getElementById("details");
-
-        if (detailsSection) {
-          detailsSection.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-          });
-        }
-      }, 300);
-    }
-  }, [rsvpSubmitted]);
-
   return (
     <div className="app-container">
       {showIntro && (
@@ -134,7 +114,7 @@ const App = () => {
 
               {isAttending && (
                 <div className="page">
-                  <Details />
+                  <Details guestInfo={guestInfo}/>
                 </div>
               )}
 
@@ -142,7 +122,6 @@ const App = () => {
                 <Rsvp
                   guestInfo={guestInfo}
                   setGuestInfo={setGuestInfo}
-                  isRsvpSubmitted={isRsvpSubmitted}
                 />
               </div>
             </div>
@@ -170,7 +149,7 @@ const App = () => {
 
               {isAttending && (
                 <div className="page">
-                  <Details />
+                  <Details guestInfo={guestInfo}/>
                 </div>
               )}
 
@@ -178,7 +157,6 @@ const App = () => {
                 <Rsvp
                   guestInfo={guestInfo}
                   setGuestInfo={setGuestInfo}
-                  isRsvpSubmitted={isRsvpSubmitted}
                 />
               </div>
             </div>

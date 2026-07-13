@@ -8,10 +8,6 @@ function RsvpForm({
   guestInfo,
   setGuestInfo,
   isRsvpSubmitted,
-  isChurchAttending,
-  isReceptionAttending,
-  setIsChurchAttending,
-  setIsReceptionAttending,
 }) {
   const [formData, setFormData] = useState({
     churchAttendance: "",
@@ -33,10 +29,10 @@ function RsvpForm({
     e.preventDefault();
 
     try {
-      const updatedChurch = formData.churchAttendance || isChurchAttending;
+      const updatedChurch = formData.churchAttendance || guestInfo.churchAttendance;
 
       const updatedReception =
-        formData.receptionAttendance || isReceptionAttending;
+        formData.receptionAttendance || guestInfo.receptionAttendance;
 
       setLoading(true);
 
@@ -66,8 +62,6 @@ function RsvpForm({
 
       alert("Thank you for your RSVP!");
 
-      setIsChurchAttending(updatedChurch);
-      setIsReceptionAttending(updatedReception);
       isRsvpSubmitted(true);
 
       setFormData({
@@ -85,7 +79,7 @@ function RsvpForm({
 
   return (
     <form className="rsvp-form" onSubmit={handleSubmit}>
-      {isChurchAttending !== "Attending" ? (
+      {guestInfo.churchAttendance !== "Attending" ? (
         <div className="attendance-group">
           <h3>Church Ceremony</h3>
           <div className="attendance-options">
@@ -117,11 +111,11 @@ function RsvpForm({
       ) : (
         <p>
           You have already submitted your church attendance RSVP. Your previous
-          response was: {isChurchAttending}
+          response was: {guestInfo.churchAttendance}
         </p>
       )}
 
-      {isReceptionAttending !== "Attending" ? (
+      {guestInfo.receptionAttendance !== "Attending" ? (
         <div className="attendance-group">
           <h3>Reception</h3>
 
@@ -155,7 +149,7 @@ function RsvpForm({
       ) : (
         <p>
           You have already submitted your reception attendance RSVP. Your
-          previous response was: {isReceptionAttending}
+          previous response was: {guestInfo.receptionAttendance}
         </p>
       )}
 
