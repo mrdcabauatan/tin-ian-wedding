@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 import Intro from "./components/Intro/Intro";
 import Navbar from "./components/Navbar/Navbar";
@@ -17,7 +17,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
   const [showIntro, setShowIntro] = useState(true);
   const [successLogin, setSuccessLogin] = useState(false);
-
+  const [rsvpSubmitted, isRsvpSubmitted] = useState(false);
   const [guestInfo, setGuestInfo] = useState({
     firstName: "",
     lastName: "",
@@ -35,7 +35,6 @@ const App = () => {
     return window.innerWidth <= 1024;
   };
 
-  // Build pages dynamically
   const pages = ["home", "invitation", "attire"];
 
   if (isAttending) {
@@ -71,6 +70,21 @@ const App = () => {
   };
 
   console.log(guestInfo);
+
+  useEffect(() => {
+  if (rsvpSubmitted && guestInfo.attendance === "Attending" && isMobileOrTablet()) {
+    setTimeout(() => {
+      const detailsSection = document.getElementById("details");
+
+      if (detailsSection) {
+        detailsSection.scrollIntoView({
+          behavior: "smooth",
+          block: "start",
+        });
+      }
+    }, 300);
+  }
+}, [rsvpSubmitted]);
 
   return (
     <div className="app-container">
@@ -120,7 +134,7 @@ const App = () => {
               )}
 
               <div className="page">
-                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo}/>
+                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo} isRsvpSubmitted={isRsvpSubmitted}/>
               </div>
             </div>
           ) : (
@@ -152,7 +166,7 @@ const App = () => {
               )}
 
               <div className="page">
-                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo}/>
+                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo} isRsvpSubmitted={isRsvpSubmitted}/>
               </div>
             </div>
           )}

@@ -4,7 +4,7 @@ import { createPortal } from "react-dom";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import RsvpForm from "./components/RsvpForm";
 
-function RSVP({ guestInfo, setGuestInfo }) {
+function RSVP({ guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const [showModal, setShowModal] = useState(false);
 
   const isNotYetResponding =
@@ -120,6 +120,7 @@ function RSVP({ guestInfo, setGuestInfo }) {
                     guestInfo={guestInfo}
                     setGuestInfo={setGuestInfo}
                     onClose={() => setShowModal(false)}
+                    isRsvpSubmitted={isRsvpSubmitted}
                   />
                 </>
               ) : (

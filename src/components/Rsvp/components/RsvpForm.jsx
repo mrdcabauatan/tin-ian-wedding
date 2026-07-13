@@ -3,7 +3,7 @@ import { useState } from "react";
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbxD2QcVr3v0HxGujTUdw_-gquxde8jbeRbc6sSfWEcP8tR5tst2vOLAnFQTYdEEpLPZIQ/exec";
 
-function RsvpForm({ onClose, guestInfo, setGuestInfo }) {
+function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const [formData, setFormData] = useState({
     attendance: "",
   });
@@ -48,6 +48,7 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo }) {
       }));
 
       alert("Thank you for your RSVP!");
+      isRsvpSubmitted(true);
 
       setFormData({
         attendance: "",
