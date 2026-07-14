@@ -71,7 +71,7 @@ const App = () => {
 
       setTimeout(() => {
         setShowHome(true);
-      }, 800);
+      }, 1000);
     }, 1200);
   };
 
@@ -85,7 +85,7 @@ const App = () => {
         />
       )}
 
-      {successLogin && (
+      {successLogin && showHome && (
         <div>
           {!isMobileOrTablet() && currentPage !== "home" && (
             <Navbar setCurrentPage={changePage} isAttending={isAttending} />
@@ -96,15 +96,13 @@ const App = () => {
           {isMobileOrTablet() ? (
             <div>
               <div className="page">
-                {showHome && (
-                  <Home
-                    onEnterInvitation={() => {
-                      document
-                        .getElementById("invitation")
-                        ?.scrollIntoView({ behavior: "smooth" });
-                    }}
-                  />
-                )}
+                <Home
+                  onEnterInvitation={() => {
+                    document
+                      .getElementById("invitation")
+                      ?.scrollIntoView({ behavior: "smooth" });
+                  }}
+                />
               </div>
 
               <div id="invitation" className="page">
@@ -140,9 +138,7 @@ const App = () => {
               }}
             >
               <div className="page">
-                {showHome && (
-                  <Home onEnterInvitation={() => changePage("invitation")} />
-                )}
+                <Home onEnterInvitation={() => changePage("invitation")} />
               </div>
 
               <div className="page">
