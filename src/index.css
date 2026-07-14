@@ -114,18 +114,13 @@ body {
   display: inline-flex;
   justify-content: center;
   align-items: center;
-
   width: 100%;
   max-width: 260px;
   height: 55px;
-
   border-radius: 999px;
-
   text-decoration: none;
-
   color: white;
   background: var(--primary-color);
-
   transition: 0.3s ease;
 }
 

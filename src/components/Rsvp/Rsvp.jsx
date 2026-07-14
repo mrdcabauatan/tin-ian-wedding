@@ -34,7 +34,6 @@ function RSVP({ guestInfo, setGuestInfo }) {
         });
       }
 
-      // Reset so future submissions can trigger this effect again
       isRsvpSubmitted(false);
     }, 300);
 
@@ -113,7 +112,7 @@ function RSVP({ guestInfo, setGuestInfo }) {
 
             <ul>
               <li>Kindly arrive 30 minutes before the ceremony.</li>
-              <li>Kindly note that guests are by name invitation only. <br/> We appreciate your understanding that no plus ones can be accommodated</li>
+              <li>Kindly note that guests are by name invitation only and no plus ones can be accommodated</li>
               <li>Refrain from using your phone during the ceremony</li>
               <li>
                 For the comfort and safety of all, we kindly request no pets and
