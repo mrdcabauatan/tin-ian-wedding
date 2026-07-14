@@ -1,9 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Pinyon+Script&display=swap");
 
-/* ==========================
-   GALLERY
-========================== */
-
 .gallery-section{
     display:flex;
     justify-content:center;
@@ -170,16 +166,12 @@
 
 .gallery-quote{
     max-width:40rem;
-    font-size:1.3rem;
+    font-size:1.6rem;
     line-height:1.8;
     color:var(--primary-color);
     margin-top:1rem;
     font-weight: 500;
 }
-
-/* ==========================
-   FADE ANIMATION
-========================== */
 
 .fade-in{
     opacity:1;
@@ -247,89 +239,85 @@
 ========================== */
 
 @media (max-width:768px){
+    .gallery-section{
+        min-height:auto;
+        padding:3rem 1.5rem;
+    }
 
-.gallery-section{
-    min-height:auto;
-    padding:3rem 1.5rem;
-}
+    .gallery-wrapper{
+        gap:1rem;
+    }
 
-.gallery-wrapper{
-    gap:1rem;
-}
+    .gallery-carousel{
+        height:500px;
+    }
 
-.gallery-carousel{
-    height:500px;
-}
+    .center-image{
+        width:280px;
+        height:400px;
+    }
 
-.center-image{
-    width:280px;
-    height:400px;
-}
+    .left-image,
+    .right-image{
+        width:200px;
+        height:250px;
+        opacity:.6;
+    }
 
-.left-image,
-.right-image{
-    width:200px;
-    height:250px;
-    opacity:.6;
-}
+    .left-image{
+        left:-5px;
+    }
 
-.left-image{
-    left:-5px;
-}
+    .right-image{
+        right:-5px;
+    }
 
-.right-image{
-    right:-5px;
-}
+    .far-left,
+    .far-right{
+        display:none;
+    }
 
-.far-left,
-.far-right{
-    display:none;
-}
+    .gallery-arrow{
+        width:46px;
+        height:46px;
+    }
 
-.gallery-arrow{
-    width:46px;
-    height:46px;
-}
-
-.gallery-quote{
-    font-size:1rem;
-    max-width:22rem;
-}
-
+    .gallery-quote{
+        font-size:1.3rem;
+        max-width:22rem;
+    }
 }
 
 @media (max-width:480px){
+    .gallery-section{
+        padding:2.5rem 1rem;
+    }
 
-.gallery-section{
-    padding:2.5rem 1rem;
-}
+    .gallery-carousel{
+        height:300px;
+    }
 
-.gallery-carousel{
-    height:300px;
-}
+    .center-image{
+        width:210px;
+        height:280px;
+    }
 
-.center-image{
-    width:210px;
-    height:280px;
-}
+    .left-image,
+    .right-image{
+        width:90px;
+        height:220px;
+    }
 
-.left-image,
-.right-image{
-    width:90px;
-    height:220px;
-}
+    .gallery-arrow{
+        width:40px;
+        height:40px;
+    }
 
-.gallery-arrow{
-    width:40px;
-    height:40px;
-}
+    .gallery-title{
+        margin-bottom:1.5rem;
+    }
 
-.gallery-title{
-    margin-bottom:1.5rem;
-}
-
-.gallery-quote{
-    font-size:.95rem;
-}
-
+    .gallery-quote{
+        font-size:1.1rem;
+    }
 }

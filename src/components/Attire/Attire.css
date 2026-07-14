@@ -20,7 +20,7 @@
 }
 
 .attire-title {
-    margin-top: 2rem;
+    margin-top: 3rem;
     font-weight: 700;
 }
 
@@ -39,17 +39,13 @@
 }
 
 .dress-description{
-    max-width: 50rem;
-    font-size: 1.3rem;
+    max-width: 60rem;
+    font-size: 1.6rem;
     font-weight: 500;
     line-height: 1.8;
     color:var(--primary-color);
     margin-bottom: -1.2rem;
 }
-
-/* ===========================
-   IMAGE + COLOR PALETTE
-=========================== */
 
 .attire-showcase{
     display:flex;
@@ -106,10 +102,6 @@
     z-index:2;
 }
 
-/* ===========================
-   GUIDELINES
-=========================== */
-
 .attire-guidelines{
     display:flex;
     flex-direction:column;
@@ -119,16 +111,16 @@
 }
 
 .attire-guidelines h4{
-    margin-bottom:1rem;
+    margin-bottom: 1rem;
     font-family: "Great Vibes", cursive;
     letter-spacing: 0.25rem;
-    font-size: 1.3rem;
+    font-size: 1.6rem;
 }
 
 .attire-guidelines ol{
     display:inline-block;
     text-align:left;
-    max-width: 35rem;
+    max-width: 40rem;
     padding-left:4rem;
     margin:0;
 }
@@ -136,14 +128,10 @@
 .attire-guidelines li{
     color:var(--primary-color);
     line-height: 1.8;
-    font-size: 1.2rem;
+    font-size: 1.4rem;
     font-weight: 500;
     margin-bottom:.45rem;
 }
-
-/* ===========================
-   COLOR PALETTE
-=========================== */
 
 .color1{
     background:#22395B;
@@ -169,256 +157,257 @@
     background:#CCC8BD;
 }
 
-/* ==========================================
-   LARGE TABLETS / SMALL LAPTOPS
-   (iPad Pro, Surface Pro, Nest Hub)
-========================================== */
+/* =========================
+   Large Desktop
+========================= */
+@media (min-width:1600px){
 
-@media (max-width:1100px){
-
-.attire-container{
-    max-width:850px;
-}
-
-.attire-showcase{
-    gap:4rem;
-}
-
-.attire-image img{
-    width:145px;
-}
-
-.palette{
-    width:56px;
-    height:56px;
-}
+    .attire-container{
+        max-width:1000px;
+    }
 
 }
 
-/* ==========================================
-   TABLETS
-   (iPad Air, iPad Mini)
-========================================== */
+/* =========================
+   Laptop
+========================= */
+@media (max-width:1599px){
 
-@media (max-width:900px){
-
-.attire-section{
-    padding:3rem 2rem;
-}
-
-.attire-heading{
-    font-size:2.2rem;
-}
-
-.dress-description{
-    max-width:42rem;
-    font-size:1.2rem;
-}
-
-.attire-showcase{
-    gap:3rem;
-}
-
-.attire-image img{
-    width:140px;
-}
-
-.palette{
-    width:54px;
-    height:54px;
-}
-
-.attire-guidelines li{
-    font-size:1.1rem;
-}
+    .dress-description{
+        max-width:56rem;
+    }
 
 }
 
-/* ==========================================
-   TABLETS & LARGE PHONES
-========================================== */
+/* =========================
+   Small Laptop
+========================= */
+@media (max-width:1365px){
 
-@media (max-width:768px){
-
-.attire-section{
-    padding:3rem 1.5rem;
-    min-height:auto;
-}
-
-.attire-heading{
-    font-size:2rem;
-}
-
-.dress-description{
-    max-width:100%;
-    font-size:1rem;
-    line-height:1.7;
-    margin-bottom:0;
-}
-
-/* Keep image LEFT and palette RIGHT */
-.attire-showcase{
-    display:flex;
-    flex-direction:row;
-    justify-content:center;
-    align-items:center;
-    gap:2rem;
-    margin:2rem auto;
-    flex-wrap:nowrap;
-}
-
-.attire-image{
-    width:auto;
-    flex-shrink:0;
-}
-
-.attire-image img{
-    width:120px;
-}
-
-.color-palette{
-    display:flex;
-    flex-direction:column;
-    align-items:flex-start;
-    gap:14px;
-}
-
-.color-row{
-    display:flex;
-    align-items:center;
-}
-
-.palette{
-    width:46px;
-    height:46px;
-    margin-left:-12px;
-}
-
-.palette:first-child{
-    margin-left:0;
-}
-
-.attire-guidelines{
-    margin-top:1rem;
-}
-
-.attire-guidelines h4{
-    font-size:1.1rem;
-}
-
-.attire-guidelines ol{
-    max-width:100%;
-    padding-left:2rem;
-}
-
-.attire-guidelines li{
-    font-size:1rem;
-    line-height:1.7;
-}
+    .attire-showcase{
+        gap:4rem;
+    }
 
 }
 
-/* ==========================================
-   PHONES
-========================================== */
+/* =========================
+   Tablet Landscape
+========================= */
+@media (max-width:1199px){
 
-@media (max-width:480px){
+    .attire-heading{
+        font-size:2.4rem;
+    }
 
-.attire-section{
-    padding:2.5rem 1rem;
-}
+    .dress-description{
+        font-size:1.5rem;
+    }
 
-.attire-heading{
-    font-size:1.5rem;
-}
+    .attire-guidelines h4{
+        font-size:1.7rem;
+    }
 
-.mini-divider{
-    width:7rem;
-}
-
-.dress-description{
-    font-size:1rem;
-    max-width:22rem;
-}
-
-.attire-showcase{
-    gap:1.2rem;
-}
-
-.attire-image img{
-    width:100px;
-}
-
-.palette{
-    width:40px;
-    height:40px;
-    margin-left:-10px;
-}
-
-.color-palette{
-    gap:12px;
-}
-
-.attire-guidelines h4{
-    font-size:1.2rem;
-}
-
-.attire-guidelines ol{
-    padding-left:1.5rem;
-}
-
-.attire-guidelines li{
-    font-size:1rem;
-}
+    .attire-guidelines li{
+        font-size:1.45rem;
+    }
 
 }
 
-/* ==========================================
-   SMALL PHONES
-========================================== */
+/* =========================
+   Tablet Portrait
+========================= */
+@media (max-width:991px){
 
-@media (max-width:360px){
+    .attire-section{
+        padding:2rem 1.5rem;
+    }
 
-.attire-section{
-    padding:2rem .8rem;
+    .attire-title{
+        margin-top:2rem;
+    }
+
+    .attire-heading{
+        font-size:2.7rem;
+    }
+
+    .dress-description{
+        font-size:1.45rem;
+        line-height:1.7;
+        margin-bottom:0;
+    }
+
+    .attire-showcase{
+        gap:3rem;
+        margin:2rem auto;
+    }
+
+    .attire-image{
+        width:170px;
+    }
+
+    .attire-image img{
+        width:145px;
+    }
+
+    .palette{
+        width:56px;
+        height:56px;
+    }
+
+    .attire-guidelines h4{
+        font-size:1.8rem;
+    }
+
+    .attire-guidelines li{
+        font-size:1.4rem;
+        line-height:1.7;
+    }
+
 }
 
-.attire-heading{
-    font-size:1.5rem;
+/* =========================
+   Large Phones
+========================= */
+@media (max-width:767px){
+
+    .attire-section{
+        padding:2rem 1.25rem;
+    }
+
+    .attire-title{
+        margin-top:1rem;
+    }
+
+    .attire-heading{
+        font-size:2.5rem;
+    }
+
+    .dress-description{
+        font-size:1.3rem;
+        line-height:1.65;
+    }
+
+    .attire-showcase{
+        gap:2rem;
+    }
+
+    .attire-image{
+        width:155px;
+    }
+
+    .attire-image img{
+        width:130px;
+    }
+
+    .palette{
+        width:52px;
+        height:52px;
+    }
+
+    .attire-guidelines h4{
+        font-size:1.7rem;
+    }
+
+    .attire-guidelines ol{
+        max-width:36rem;
+        padding-left:2.8rem;
+    }
+
+    .attire-guidelines li{
+        font-size:1.3rem;
+    }
+
 }
 
-.dress-description{
-    font-size:.88rem;
+/* =========================
+   Phones
+========================= */
+@media (max-width:575px){
+
+    .attire-heading{
+        font-size:2.3rem;
+    }
+
+    .dress-description{
+        font-size:1.2rem;
+    }
+
+    .attire-showcase{
+        gap:1.5rem;
+    }
+
+    .attire-image{
+        width:140px;
+    }
+
+    .attire-image img{
+        width:118px;
+    }
+
+    .palette{
+        width:48px;
+        height:48px;
+        margin-left:-14px;
+    }
+
+    .attire-guidelines h4{
+        font-size:1.55rem;
+    }
+
+    .attire-guidelines ol{
+        padding-left:2.3rem;
+    }
+
+    .attire-guidelines li{
+        font-size:1.18rem;
+        line-height:1.65;
+    }
+
 }
 
-.attire-showcase{
-    gap:.8rem;
-}
+/* =========================
+   Small Phones
+========================= */
+@media (max-width:479px){
 
-.attire-image img{
-    width:85px;
-}
+    .attire-heading{
+        font-size:2.1rem;
+    }
 
-.palette{
-    width:34px;
-    height:34px;
-    margin-left:-8px;
-}
+    .dress-description{
+        max-width: 20rem;
+        font-size:1.1rem;
+        line-height:1.6;
+    }
 
-.color-palette{
-    gap:10px;
-}
+    .attire-showcase{
+        gap:1.25rem;
+    }
 
-.attire-guidelines h4{
-    font-size:.95rem;
-}
+    .attire-image{
+        width:125px;
+    }
 
-.attire-guidelines ol{
-    padding-left:1.2rem;
-}
+    .attire-image img{
+        width:105px;
+    }
 
-.attire-guidelines li{
-    font-size:.82rem;
-}
+    .palette{
+        width:44px;
+        height:44px;
+    }
+
+    .attire-guidelines h4{
+        font-size:1.45rem;
+    }
+
+    .attire-guidelines ol{
+        padding-left:2rem;
+    }
+
+    .attire-guidelines li{
+        font-size:1.08rem;
+        line-height:1.6;
+    }
 
 }
