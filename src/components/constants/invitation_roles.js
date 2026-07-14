@@ -35,7 +35,7 @@ export const INVITATION_CONTENT = {
     "Through every milestone, challenge, and celebration, you have been by my side with unwavering loyalty and friendship. Thank you for always believing in me and for being my right hand.",
 
   attire: {
-    heading: "Coat & Chinese Collar Barong",
+    heading: "Coat Chinese Collar Barong",
     image: bestManImg,
     addGuide: "Gentlemen are kindly requested to wear black formal shoes.",
     palette: [6],
