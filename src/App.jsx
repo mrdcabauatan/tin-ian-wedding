@@ -16,6 +16,7 @@ const App = () => {
   const [currentPage, setCurrentPage] = useState("home");
   const [showIntro, setShowIntro] = useState(true);
   const [successLogin, setSuccessLogin] = useState(false);
+  const [showHome, setShowHome] = useState(false);
   const [guestInfo, setGuestInfo] = useState({
     firstName: "",
     lastName: "",
@@ -67,6 +68,10 @@ const App = () => {
 
     setTimeout(() => {
       setShowIntro(false);
+
+      setTimeout(() => {
+        setShowHome(true);
+      }, 800);
     }, 1200);
   };
 
@@ -91,13 +96,15 @@ const App = () => {
           {isMobileOrTablet() ? (
             <div>
               <div className="page">
-                <Home
-                  onEnterInvitation={() => {
-                    document
-                      .getElementById("invitation")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                />
+                {showHome && (
+                  <Home
+                    onEnterInvitation={() => {
+                      document
+                        .getElementById("invitation")
+                        ?.scrollIntoView({ behavior: "smooth" });
+                    }}
+                  />
+                )}
               </div>
 
               <div id="invitation" className="page">
@@ -133,7 +140,9 @@ const App = () => {
               }}
             >
               <div className="page">
-                <Home onEnterInvitation={() => changePage("invitation")} />
+                {showHome && (
+                  <Home onEnterInvitation={() => changePage("invitation")} />
+                )}
               </div>
 
               <div className="page">
