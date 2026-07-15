@@ -345,6 +345,10 @@
     font-size:3.8rem;
   }
 
+  .message {
+    max-width: 50rem;
+  }
+
   .message p{
     font-size:1.2rem;
   }

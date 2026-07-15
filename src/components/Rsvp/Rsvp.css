@@ -1,9 +1,6 @@
-.rsvp-page {
-  overflow: hidden;
-}
-
 .rsvp-container {
   height: calc(100vh - 4rem);
+  height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -13,7 +10,7 @@
 }
 
 .rsvp-title {
-  margin-top: 3rem;
+  margin-top: 1rem;
   font-weight: 700;
 }
 

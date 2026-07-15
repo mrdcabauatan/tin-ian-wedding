@@ -119,6 +119,7 @@ function RSVP({ guestInfo, setGuestInfo }) {
                 no children.
               </li>
               <li>Adhere to the dresscode.</li>
+              <li>Church parking is limited, so we kindly encourage carpooling.</li>
               <li>Show respect to all guest.</li>
             </ul>
           </div>
