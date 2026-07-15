@@ -112,14 +112,19 @@ function RSVP({ guestInfo, setGuestInfo }) {
 
             <ul>
               <li>Kindly arrive 30 minutes before the ceremony.</li>
-              <li>Kindly note that guests are by name invitation only and no plus ones can be accommodated</li>
+              <li>
+                Kindly note that guests are by name invitation only and no plus
+                ones can be accommodated
+              </li>
               <li>Refrain from using your phone during the ceremony</li>
               <li>
                 For the comfort and safety of all, we kindly request no pets and
                 no children.
               </li>
               <li>Adhere to the dresscode.</li>
-              <li>Church parking is limited, so we kindly encourage carpooling.</li>
+              <li>
+                Church parking is limited, so we kindly encourage carpooling.
+              </li>
               <li>Show respect to all guest.</li>
             </ul>
           </div>

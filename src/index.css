@@ -157,12 +157,10 @@ body {
   height: 100vh;
 
   transition:
-    transform 2.5s cubic-bezier(
-      0.22,
+    transform 2.5s cubic-bezier(0.22,
       1,
       0.36,
-      1
-    );
+      1);
 
   will-change: transform;
 
@@ -199,6 +197,7 @@ body {
 }
 
 @media (max-width: 1024px) {
+
   html,
   body,
   #root {

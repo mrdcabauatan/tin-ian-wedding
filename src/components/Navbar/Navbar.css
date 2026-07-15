@@ -3,20 +3,13 @@
   top: 20px;
   left: 50%;
   transform: translateX(-50%);
-
   z-index: 9999;
-
   background: rgba(255, 255, 255, 0.88);
   backdrop-filter: blur(12px);
-
   padding: 12px 30px;
-
   border-radius: 50px;
-
   border: 1px solid rgba(138, 164, 191, 0.2);
-
   box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
-
   transition: all 0.3s ease;
 }
 
@@ -24,28 +17,20 @@
   display: flex;
   align-items: center;
   justify-content: center;
-
   gap: 30px;
-
   list-style: none;
-
   margin: 0;
   padding: 0;
 }
 
 .nav-links a {
   text-decoration: none;
-
   color: #4e6885;
-
   font-size: 13px;
   font-weight: 500;
-
   letter-spacing: 2px;
   text-transform: uppercase;
-
   white-space: nowrap;
-
   transition: all 0.3s ease;
 }
 
@@ -99,14 +84,10 @@
 @media (max-width: 768px) {
   .navbar {
     top: 10px;
-
     width: 96%;
-
     padding: 10px;
-
     overflow-x: auto;
     overflow-y: hidden;
-
     scrollbar-width: none;
     -ms-overflow-style: none;
   }
@@ -118,9 +99,7 @@
   .nav-links {
     width: max-content;
     min-width: 100%;
-
     justify-content: center;
-
     gap: 12px;
   }
 

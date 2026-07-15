@@ -1,60 +1,56 @@
 @import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500&family=Pinyon+Script&display=swap");
 
-.gallery-section{
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    min-height:100vh;
-    padding:2rem;
+.gallery-section {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 2rem;
 }
 
-.gallery-container{
-    width:100%;
-    max-width:1300px;
-    margin:auto;
-    text-align:center;
+.gallery-container {
+    width: 100%;
+    max-width: 1300px;
+    margin: auto;
+    text-align: center;
 }
 
-.gallery-content{
-    display:flex;
-    flex-direction:column;
-    align-items:center;
+.gallery-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
-.gallery-title{
-    margin-top:2rem;
-    margin-bottom:2rem;
+.gallery-title {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
     font-weight: 700;
 }
 
-.gallery-wrapper{
-    width:100%;
-    display:flex;
-    justify-content:center;
-    align-items:center;
-    gap:2rem;
+.gallery-wrapper {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 2rem;
 }
 
-.gallery-carousel{
+.gallery-carousel {
     position: relative;
     width: 100%;
     max-width: 760px;
     height: 480px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     overflow: visible;
 }
 
-.gallery-image{
-    position:absolute;
-    object-fit:cover;
-
-    border-radius:24px;
-    border:3px solid rgba(184,155,94,.75);
-
+.gallery-image {
+    position: absolute;
+    object-fit: cover;
+    border-radius: 24px;
+    border: 3px solid rgba(184, 155, 94, .75);
     transition:
         transform .55s ease,
         opacity .35s ease,
@@ -62,134 +58,122 @@
         box-shadow .45s ease;
 }
 
-.center-image{
-    width:500px;
-    height:520px;
-    z-index:10;
-    transform:scale(1);
+.center-image {
+    width: 500px;
+    height: 520px;
+    z-index: 10;
+    transform: scale(1);
     box-shadow:
-        0 25px 55px rgba(0,0,0,.28);
+        0 25px 55px rgba(0, 0, 0, .28);
 }
 
 .left-image,
-.right-image{
-    width:220px;
-    height:370px;
-    z-index:5;
-    opacity:.88;
-    filter:brightness(.96);
+.right-image {
+    width: 220px;
+    height: 370px;
+    z-index: 5;
+    opacity: .88;
+    filter: brightness(.96);
 }
 
-.left-image{
-    left:20px;
-    transform:translateX(0) scale(.92);
+.left-image {
+    left: 20px;
+    transform: translateX(0) scale(.92);
 }
 
-.right-image{
-    right:20px;
-    transform:translateX(0) scale(.92);
+.right-image {
+    right: 20px;
+    transform: translateX(0) scale(.92);
 }
 
 .far-left,
-.far-right{
-    width:170px;
-    height:290px;
-    z-index:3;
-     opacity:.55;
-    filter:brightness(.88);
+.far-right {
+    width: 170px;
+    height: 290px;
+    z-index: 3;
+    opacity: .55;
+    filter: brightness(.88);
 }
 
-.far-left{
-    left:-60px;
-    transform:scale(.82);
+.far-left {
+    left: -60px;
+    transform: scale(.82);
 }
 
-.far-right{
-    right:-60px;
-    transform:scale(.82);
+.far-right {
+    right: -60px;
+    transform: scale(.82);
 }
 
 .gallery-arrow {
-  width: 70px;
-  height: 70px;
-
-  border: none;
-  border-radius: 50%;
-
-  background: rgba(255,255,255,.85);
-
-  color: var(--primary-color);
-
-  display: flex;
-  justify-content: center;
-  align-items: center;
-
-  cursor: pointer;
-
-  transition: .3s;
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, .85);
+    color: var(--primary-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: .3s;
 }
 
 .gallery-arrow:hover {
-  transform: scale(1.08);
-
-  background: white;
+    transform: scale(1.08);
+    background: white;
 }
 
 .gallery-dots {
-  display: flex;
-  gap: .8rem;
-
-  margin-top: 2rem;
+    display: flex;
+    gap: .8rem;
+    margin-top: 2rem;
 }
 
 .dot {
-  width: 12px;
-  height: 12px;
-
-  border: none;
-  border-radius: 50%;
-
-  background: #b8c8d8;
-
-  cursor: pointer;
-
-  transition: .3s;
+    width: 12px;
+    height: 12px;
+    border: none;
+    border-radius: 50%;
+    background: #b8c8d8;
+    cursor: pointer;
+    transition: .3s;
 }
 
 .dot.active {
-  width: 16px;
-  height: 16px;
-
-  background: var(--primary-color);
+    width: 16px;
+    height: 16px;
+    background: var(--primary-color);
 }
 
-.gallery-quote{
-    max-width:40rem;
-    font-size:1.6rem;
-    line-height:1.8;
-    color:var(--primary-color);
-    margin-top:1rem;
+.gallery-quote {
+    max-width: 40rem;
+    font-size: 1.6rem;
+    line-height: 1.8;
+    color: var(--primary-color);
+    margin-top: 1rem;
     font-weight: 500;
 }
 
-.fade-in{
-    opacity:1;
-    animation:fadeIn 1s ease;
+.fade-in {
+    opacity: 1;
+    animation: fadeIn 1s ease;
 }
 
-.fade-out{
-    opacity:0;
-    animation:fadeIn 2s ease;
+.fade-out {
+    opacity: 0;
+    animation: fadeIn 2s ease;
 }
 
-@keyframes fadeIn{
-    from{
-        opacity:0;
-        transform:scale(.96);
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: scale(.96);
     }
-    to{
-        opacity:1;
-        transform:scale(1);
+
+    to {
+        opacity: 1;
+        transform: scale(1);
     }
 }
 
@@ -197,37 +181,37 @@
    TABLET
 ========================== */
 
-@media (max-width:900px){
-    .gallery-section{
-        padding:3rem 2rem;
+@media (max-width:900px) {
+    .gallery-section {
+        padding: 3rem 2rem;
     }
 
-    .gallery-carousel{
-        height:600px;
+    .gallery-carousel {
+        height: 600px;
     }
 
-    .center-image{
-        width:400px;
-        height:550px;
+    .center-image {
+        width: 400px;
+        height: 550px;
     }
 
     .left-image,
-    .right-image{
-        width:180px;
-        height:480px;
+    .right-image {
+        width: 180px;
+        height: 480px;
     }
 
-    .left-image{
-        left:10px;
+    .left-image {
+        left: 10px;
     }
 
-    .right-image{
-        right:10px;
+    .right-image {
+        right: 10px;
     }
 
     .far-left,
-    .far-right{
-        display:none;
+    .far-right {
+        display: none;
     }
 }
 
@@ -235,86 +219,86 @@
    MOBILE
 ========================== */
 
-@media (max-width:768px){
-    .gallery-section{
-        min-height:auto;
-        padding:3rem 1.5rem;
+@media (max-width:768px) {
+    .gallery-section {
+        min-height: auto;
+        padding: 3rem 1.5rem;
     }
 
-    .gallery-wrapper{
-        gap:1rem;
+    .gallery-wrapper {
+        gap: 1rem;
     }
 
-    .gallery-carousel{
-        height:500px;
+    .gallery-carousel {
+        height: 500px;
     }
 
-    .center-image{
-        width:280px;
-        height:400px;
+    .center-image {
+        width: 280px;
+        height: 400px;
     }
 
     .left-image,
-    .right-image{
-        width:200px;
-        height:250px;
-        opacity:.6;
+    .right-image {
+        width: 200px;
+        height: 250px;
+        opacity: .6;
     }
 
-    .left-image{
-        left:-5px;
+    .left-image {
+        left: -5px;
     }
 
-    .right-image{
-        right:-5px;
+    .right-image {
+        right: -5px;
     }
 
     .far-left,
-    .far-right{
-        display:none;
+    .far-right {
+        display: none;
     }
 
-    .gallery-arrow{
-        width:46px;
-        height:46px;
+    .gallery-arrow {
+        width: 46px;
+        height: 46px;
     }
 
-    .gallery-quote{
-        font-size:1.3rem;
-        max-width:22rem;
+    .gallery-quote {
+        font-size: 1.3rem;
+        max-width: 22rem;
     }
 }
 
-@media (max-width:480px){
-    .gallery-section{
-        padding:2.5rem 1rem;
+@media (max-width:480px) {
+    .gallery-section {
+        padding: 2.5rem 1rem;
     }
 
-    .gallery-carousel{
-        height:300px;
+    .gallery-carousel {
+        height: 300px;
     }
 
-    .center-image{
-        width:210px;
-        height:280px;
+    .center-image {
+        width: 210px;
+        height: 280px;
     }
 
     .left-image,
-    .right-image{
-        width:90px;
-        height:220px;
+    .right-image {
+        width: 90px;
+        height: 220px;
     }
 
-    .gallery-arrow{
-        width:40px;
-        height:40px;
+    .gallery-arrow {
+        width: 40px;
+        height: 40px;
     }
 
-    .gallery-title{
-        margin-bottom:1.5rem;
+    .gallery-title {
+        margin-bottom: 1.5rem;
     }
 
-    .gallery-quote{
-        font-size:1.1rem;
+    .gallery-quote {
+        font-size: 1.1rem;
     }
 }

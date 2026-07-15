@@ -3,12 +3,7 @@ import { useState } from "react";
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbzasvCcVTZWqsru24USH1F48dXbNJDfN-5w-w4frEbNzQi9kAPUQ8gWyvo7mqarkJmSIg/exec";
 
-function RsvpForm({
-  onClose,
-  guestInfo,
-  setGuestInfo,
-  isRsvpSubmitted,
-}) {
+function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const [formData, setFormData] = useState({
     churchAttendance: "",
     receptionAttendance: "",
@@ -29,7 +24,8 @@ function RsvpForm({
     e.preventDefault();
 
     try {
-      const updatedChurch = formData.churchAttendance || guestInfo.churchAttendance;
+      const updatedChurch =
+        formData.churchAttendance || guestInfo.churchAttendance;
 
       const updatedReception =
         formData.receptionAttendance || guestInfo.receptionAttendance;

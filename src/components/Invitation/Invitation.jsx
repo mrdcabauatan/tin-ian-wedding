@@ -8,7 +8,6 @@ function Invitation({ name, roleId }) {
   return (
     <section id="invitation" className="invitation-page section-page">
       <div className="invitation-container section-container">
-
         <div className="invitation-monogram">
           <img
             src={monogram}
@@ -17,11 +16,8 @@ function Invitation({ name, roleId }) {
           />
         </div>
 
-        <h3 className="invite-title">
-          HELLO {name}, YOU ARE INVITED
-        </h3>
+        <h3 className="invite-title">HELLO {name}, YOU ARE INVITED</h3>
 
-        {/* Elegant Divider */}
         <div className="ornament-divider">
           <span className="line"></span>
 
@@ -42,12 +38,7 @@ function Invitation({ name, roleId }) {
               strokeLinecap="round"
             />
 
-            <circle
-              cx="60"
-              cy="20"
-              r="2.5"
-              fill="currentColor"
-            />
+            <circle cx="60" cy="20" r="2.5" fill="currentColor" />
 
             <path
               d="M10 20
@@ -65,13 +56,9 @@ function Invitation({ name, roleId }) {
           <span className="line"></span>
         </div>
 
-        <p className="subtitle">
-          TO CELEBRATE THE WEDDING OF
-        </p>
+        <p className="subtitle">TO CELEBRATE THE WEDDING OF</p>
 
-        <h1 className="couple-names">
-          Ian & Cristine
-        </h1>
+        <h1 className="couple-names">Ian & Cristine</h1>
 
         <div className="line-divider"></div>
 
@@ -79,23 +66,14 @@ function Invitation({ name, roleId }) {
           <p>{content.message}</p>
         </div>
 
-        <h2
-          className={
-            roleId !== 0
-              ? "participation-text"
-              : "celebrate-text"
-          }
-        >
+        <h2 className={roleId !== 0 ? "participation-text" : "celebrate-text"}>
           {content.title}
         </h2>
 
         {content.subtitle && (
-          <h4 className="role-subtitle">
-            {content.subtitle}
-          </h4>
+          <h4 className="role-subtitle">{content.subtitle}</h4>
         )}
 
-        {/* Bottom Elegant Divider */}
         <div className="ornament-divider">
           <span className="line"></span>
 
@@ -116,12 +94,7 @@ function Invitation({ name, roleId }) {
               strokeLinecap="round"
             />
 
-            <circle
-              cx="60"
-              cy="20"
-              r="2.5"
-              fill="currentColor"
-            />
+            <circle cx="60" cy="20" r="2.5" fill="currentColor" />
 
             <path
               d="M10 20
@@ -143,7 +116,6 @@ function Invitation({ name, roleId }) {
           <p>WITH LOVE,</p>
           <p>IAN & Cristine</p>
         </div>
-
       </div>
     </section>
   );

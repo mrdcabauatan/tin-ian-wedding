@@ -6,13 +6,13 @@ const photos = Object.entries(
   import.meta.glob("../../assets/gallery/*.{png,jpg,jpeg,webp,avif}", {
     eager: true,
     import: "default",
-  })
+  }),
 )
   .sort(([a], [b]) =>
     a.localeCompare(b, undefined, {
       numeric: true,
       sensitivity: "base",
-    })
+    }),
   )
   .map(([, image]) => image);
 
@@ -59,14 +59,10 @@ export default function Gallery() {
   return (
     <section className="gallery-section section-page" id="gallery">
       <div className="gallery-container section-container">
-        <h2 className="gallery-title section-title">
-          Our Love Story
-        </h2>
+        <h2 className="gallery-title section-title">Our Love Story</h2>
 
         <div className="gallery-content">
-
           <div className="gallery-wrapper">
-
             <button
               className="gallery-arrow"
               onClick={previous}
@@ -76,7 +72,6 @@ export default function Gallery() {
             </button>
 
             <div className="gallery-carousel">
-
               <img
                 src={photos[getIndex(-2)]}
                 className="gallery-image far-left"
@@ -108,7 +103,6 @@ export default function Gallery() {
                 className="gallery-image far-right"
                 alt=""
               />
-
             </div>
 
             <button
@@ -118,7 +112,6 @@ export default function Gallery() {
             >
               <ChevronRight size={32} />
             </button>
-
           </div>
 
           <div className="gallery-dots">
@@ -143,7 +136,6 @@ export default function Gallery() {
           <p className="gallery-quote">
             "Every love story is beautiful, but ours is our favorite."
           </p>
-
         </div>
       </div>
     </section>

@@ -12,7 +12,6 @@ export default function Details({ guestInfo }) {
         <div className="details-grid">
           {guestInfo.churchAttendance === "Attending" && (
             <>
-              {/* Church */}
               <div className="details-card">
                 <h3 className="details-heading">Church Ceremony</h3>
 
@@ -44,7 +43,6 @@ export default function Details({ guestInfo }) {
 
           {guestInfo.receptionAttendance === "Attending" && (
             <>
-              {/* Reception */}
               <div className="details-card">
                 <h3 className="details-heading">Reception</h3>
 

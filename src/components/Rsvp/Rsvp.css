@@ -307,11 +307,11 @@
 /* =========================
    Large Desktop
 ========================= */
-@media (min-width:1600px){
+@media (min-width:1600px) {
 
-  .rsvp-container{
-    max-width:1800px;
-    margin:auto;
+  .rsvp-container {
+    max-width: 1800px;
+    margin: auto;
   }
 
 }
@@ -319,10 +319,10 @@
 /* =========================
    Laptop
 ========================= */
-@media (max-width:1599px){
+@media (max-width:1599px) {
 
-  .rsvp-container{
-    padding:3rem;
+  .rsvp-container {
+    padding: 3rem;
   }
 
 }
@@ -330,10 +330,10 @@
 /* =========================
    Small Laptop
 ========================= */
-@media (max-width:1365px){
+@media (max-width:1365px) {
 
-  .rsvp-info{
-    max-width:850px;
+  .rsvp-info {
+    max-width: 850px;
   }
 
 }
@@ -341,30 +341,30 @@
 /* =========================
    Tablet Landscape
 ========================= */
-@media (max-width:1199px){
+@media (max-width:1199px) {
 
-  .rsvp-message{
-    font-size:1.2rem;
+  .rsvp-message {
+    font-size: 1.2rem;
   }
 
-  .rsvp-link{
-    font-size:2.8rem;
+  .rsvp-link {
+    font-size: 2.8rem;
   }
 
-  .rsvp-info-card h3{
-    font-size:1.5rem;
+  .rsvp-info-card h3 {
+    font-size: 1.5rem;
   }
 
-  .rsvp-info-card p{
-    font-size:1.2rem;
+  .rsvp-info-card p {
+    font-size: 1.2rem;
   }
 
-  .rsvp-reminders h2{
-    font-size:1.7rem;
+  .rsvp-reminders h2 {
+    font-size: 1.7rem;
   }
 
-  .rsvp-reminders ul{
-    font-size:1.2rem;
+  .rsvp-reminders ul {
+    font-size: 1.2rem;
   }
 
 }
@@ -372,59 +372,59 @@
 /* =========================
    Tablet Portrait
 ========================= */
-@media (max-width:991px){
+@media (max-width:991px) {
 
-  .rsvp-container{
-    height:auto;
-    min-height:calc(100vh - 4rem);
-    padding:2rem 1.5rem;
+  .rsvp-container {
+    height: auto;
+    min-height: calc(100vh - 4rem);
+    padding: 2rem 1.5rem;
   }
 
-  .rsvp-title{
-    margin-top:2rem;
+  .rsvp-title {
+    margin-top: 2rem;
   }
 
-  .rsvp-info{
-    grid-template-columns:repeat(3,1fr);
-    gap:1rem;
+  .rsvp-info {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1rem;
   }
 
-  .rsvp-icon{
-    width:42px;
-    height:42px;
+  .rsvp-icon {
+    width: 42px;
+    height: 42px;
   }
 
-  .rsvp-info-card h3{
-    font-size:1.6rem;
+  .rsvp-info-card h3 {
+    font-size: 1.6rem;
   }
 
-  .rsvp-info-card p{
-    font-size:1.25rem;
-    letter-spacing:.2rem;
+  .rsvp-info-card p {
+    font-size: 1.25rem;
+    letter-spacing: .2rem;
   }
 
-  .rsvp-message{
-    max-width:42rem;
-    font-size:1.3rem;
-    line-height:1.7;
+  .rsvp-message {
+    max-width: 42rem;
+    font-size: 1.3rem;
+    line-height: 1.7;
   }
 
-  .rsvp-link{
-    font-size:2.8rem;
+  .rsvp-link {
+    font-size: 2.8rem;
   }
 
-  .rsvp-deadline{
-    font-size:1.2rem;
+  .rsvp-deadline {
+    font-size: 1.2rem;
   }
 
-  .rsvp-reminders h2{
-    font-size:1.8rem;
+  .rsvp-reminders h2 {
+    font-size: 1.8rem;
   }
 
-  .rsvp-reminders ul{
-    padding-left:4rem;
-    font-size:1.3rem;
-    line-height:1.6;
+  .rsvp-reminders ul {
+    padding-left: 4rem;
+    font-size: 1.3rem;
+    line-height: 1.6;
   }
 
 }
@@ -432,60 +432,60 @@
 /* =========================
    Large Phones
 ========================= */
-@media (max-width:767px){
+@media (max-width:767px) {
 
-  .rsvp-container{
-    padding:2rem 1.25rem;
+  .rsvp-container {
+    padding: 2rem 1.25rem;
   }
 
-  .rsvp-title{
-    margin-top:1rem;
-  }
-
-  .rsvp-info{
-    grid-template-columns:1fr;
-    gap:1.25rem;
-  }
-
-  .rsvp-info-card{
-    padding:.5rem;
-  }
-
-  .rsvp-icon{
-    width:40px;
-    height:40px;
-  }
-
-  .rsvp-info-card h3{
-    font-size:1.5rem;
-  }
-
-  .rsvp-info-card p{
-    font-size:1.2rem;
-  }
-
-  .rsvp-message{
+  .rsvp-title {
     margin-top: 1rem;
-    font-size:1.2rem;
-    line-height:1.65;
   }
 
-  .rsvp-link{
-    font-size:2.5rem;
+  .rsvp-info {
+    grid-template-columns: 1fr;
+    gap: 1.25rem;
   }
 
-  .rsvp-deadline{
-    font-size:1.1rem;
+  .rsvp-info-card {
+    padding: .5rem;
   }
 
-  .rsvp-reminders h2{
-    font-size:1.7rem;
+  .rsvp-icon {
+    width: 40px;
+    height: 40px;
   }
 
-  .rsvp-reminders ul{
-    padding-left:2rem;
-    font-size:1.2rem;
-    line-height:1.6;
+  .rsvp-info-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .rsvp-info-card p {
+    font-size: 1.2rem;
+  }
+
+  .rsvp-message {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    line-height: 1.65;
+  }
+
+  .rsvp-link {
+    font-size: 2.5rem;
+  }
+
+  .rsvp-deadline {
+    font-size: 1.1rem;
+  }
+
+  .rsvp-reminders h2 {
+    font-size: 1.7rem;
+  }
+
+  .rsvp-reminders ul {
+    padding-left: 2rem;
+    font-size: 1.2rem;
+    line-height: 1.6;
   }
 
 }
@@ -493,47 +493,47 @@
 /* =========================
    Phones
 ========================= */
-@media (max-width:575px){
+@media (max-width:575px) {
 
-  .rsvp-message{
-    font-size:1.15rem;
+  .rsvp-message {
+    font-size: 1.15rem;
   }
 
-  .rsvp-link{
-    font-size:2.2rem;
+  .rsvp-link {
+    font-size: 2.2rem;
   }
 
-  .rsvp-info-card h3{
-    font-size:1.35rem;
+  .rsvp-info-card h3 {
+    font-size: 1.35rem;
   }
 
-  .rsvp-info-card p{
-    font-size:1.1rem;
-    letter-spacing:.12rem;
+  .rsvp-info-card p {
+    font-size: 1.1rem;
+    letter-spacing: .12rem;
   }
 
-  .rsvp-reminders h2{
-    font-size:1.55rem;
+  .rsvp-reminders h2 {
+    font-size: 1.55rem;
   }
 
-  .rsvp-reminders ul{
-    font-size:1.15rem;
+  .rsvp-reminders ul {
+    font-size: 1.15rem;
   }
 
-  .rsvp-modal{
-    padding:2rem 1.5rem;
+  .rsvp-modal {
+    padding: 2rem 1.5rem;
   }
 
-  .rsvp-modal h2{
-    font-size:2.4rem;
+  .rsvp-modal h2 {
+    font-size: 2.4rem;
   }
 
-  .rsvp-modal p{
-    font-size:1.2rem;
+  .rsvp-modal p {
+    font-size: 1.2rem;
   }
 
-  .attendance-group h3{
-    font-size:1.2rem;
+  .attendance-group h3 {
+    font-size: 1.2rem;
   }
 
 }
@@ -541,69 +541,69 @@
 /* =========================
    Small Phones
 ========================= */
-@media (max-width:479px){
+@media (max-width:479px) {
 
-  .rsvp-message{
-    font-size:1.08rem;
-    line-height:1.6;
+  .rsvp-message {
+    font-size: 1.08rem;
+    line-height: 1.6;
   }
 
-  .rsvp-link{
-    font-size:2rem;
+  .rsvp-link {
+    font-size: 2rem;
   }
 
-  .rsvp-info-card h3{
-    font-size:1.25rem;
-    letter-spacing:.2rem;
+  .rsvp-info-card h3 {
+    font-size: 1.25rem;
+    letter-spacing: .2rem;
   }
 
-  .rsvp-info-card p{
-    font-size:1rem;
+  .rsvp-info-card p {
+    font-size: 1rem;
   }
 
-  .rsvp-deadline{
-    font-size:1rem;
+  .rsvp-deadline {
+    font-size: 1rem;
   }
 
-  .rsvp-reminders h2{
-    font-size:1.45rem;
+  .rsvp-reminders h2 {
+    font-size: 1.45rem;
   }
 
-  .rsvp-reminders ul{
-    padding-left:1.5rem;
-    font-size:1.08rem;
-    line-height:1.55;
-    gap:.7rem;
+  .rsvp-reminders ul {
+    padding-left: 1.5rem;
+    font-size: 1.08rem;
+    line-height: 1.55;
+    gap: .7rem;
   }
 
-  .rsvp-modal{
-    padding:1.5rem 1.2rem;
+  .rsvp-modal {
+    padding: 1.5rem 1.2rem;
   }
 
-  .rsvp-modal h2{
-    font-size:2.2rem;
+  .rsvp-modal h2 {
+    font-size: 2.2rem;
   }
 
-  .rsvp-modal p{
-    font-size:1.1rem;
-    line-height:1.65;
+  .rsvp-modal p {
+    font-size: 1.1rem;
+    line-height: 1.65;
   }
 
-  .attendance-group{
-    padding:1.2rem;
+  .attendance-group {
+    padding: 1.2rem;
   }
 
-  .attendance-group h3{
-    font-size:1.1rem;
+  .attendance-group h3 {
+    font-size: 1.1rem;
   }
 
-  .attendance-options label{
-    font-size:1rem;
-    padding:.8rem;
+  .attendance-options label {
+    font-size: 1rem;
+    padding: .8rem;
   }
 
-  .submit-rsvp-btn{
-    font-size:.95rem;
+  .submit-rsvp-btn {
+    font-size: .95rem;
   }
 
 }

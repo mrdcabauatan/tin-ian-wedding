@@ -3,14 +3,11 @@
 .hero {
   position: relative;
   isolation: isolate;
-
   min-height: 100vh;
   width: 100%;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   overflow: hidden;
 }
 
@@ -44,10 +41,8 @@
   max-width: 1200px;
   padding: 0 20px;
   color: white;
-
   opacity: 0;
   transform: translateY(40px);
-
   animation: heroFadeIn 1.8s ease forwards;
   animation-delay: 0.2s;
 }
@@ -148,15 +143,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   cursor: pointer;
-
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease,
     border-color 0.35s ease;
-    border-color: #d8e4f0;
-
+  border-color: #d8e4f0;
   box-shadow:
     0 0 10px rgba(216, 228, 240, 0.8),
     0 0 20px rgba(191, 208, 226, 0.6),
@@ -179,15 +171,12 @@
   display: flex;
   justify-content: center;
   align-items: center;
-
   cursor: pointer;
-
   transition:
     transform 0.35s ease,
     box-shadow 0.35s ease,
     border-color 0.35s ease;
-    border-color: #d8e4f0;
-
+  border-color: #d8e4f0;
   box-shadow:
     0 0 10px rgba(216, 228, 240, 0.8),
     0 0 20px rgba(191, 208, 226, 0.6),
@@ -198,8 +187,8 @@
   animation: bounceMobile 2s infinite;
 }
 
-
 @keyframes bounce {
+
   0%,
   100% {
     transform: translateX(-4px);
@@ -211,6 +200,7 @@
 }
 
 @keyframes bounceMobile {
+
   0%,
   100% {
     transform: translateY(-4px);
@@ -220,11 +210,6 @@
     transform: translateY(8px);
   }
 }
-
-
-/* ========================================
-   HOME FADE IN ANIMATION
-======================================== */
 
 @keyframes heroFadeIn {
   from {
@@ -438,7 +423,7 @@
   .time-box h3 {
     font-size: 1.5rem;
   }
-  
+
   .scroll-indicator {
     margin-top: 2.5rem;
   }

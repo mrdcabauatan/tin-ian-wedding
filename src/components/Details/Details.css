@@ -93,10 +93,10 @@
 /* =========================
    Large Desktop
 ========================= */
-@media (min-width:1600px){
+@media (min-width:1600px) {
 
-  .details-container{
-    max-width:1800px;
+  .details-container {
+    max-width: 1800px;
   }
 
 }
@@ -104,10 +104,10 @@
 /* =========================
    Laptop
 ========================= */
-@media (max-width:1599px){
+@media (max-width:1599px) {
 
-  .details-container{
-    padding:3.5rem;
+  .details-container {
+    padding: 3.5rem;
   }
 
 }
@@ -115,14 +115,14 @@
 /* =========================
    Small Laptop
 ========================= */
-@media (max-width:1365px){
+@media (max-width:1365px) {
 
-  .details-container{
-    padding:3rem;
+  .details-container {
+    padding: 3rem;
   }
 
-  .details-grid{
-    gap:2rem;
+  .details-grid {
+    gap: 2rem;
   }
 
 }
@@ -130,23 +130,23 @@
 /* =========================
    Tablet Landscape
 ========================= */
-@media (max-width:1199px){
+@media (max-width:1199px) {
 
-  .details-heading{
-    font-size:2.3rem;
+  .details-heading {
+    font-size: 2.3rem;
   }
 
-  .venue-name{
-    font-size:2.6rem;
+  .venue-name {
+    font-size: 2.6rem;
   }
 
-  .venue-address{
-    font-size:1.5rem;
-    line-height:1.7;
+  .venue-address {
+    font-size: 1.5rem;
+    line-height: 1.7;
   }
 
-  .venue-time{
-    font-size:1.9rem;
+  .venue-time {
+    font-size: 1.9rem;
   }
 
 }
@@ -154,41 +154,41 @@
 /* =========================
    Tablet Portrait
 ========================= */
-@media (max-width:991px){
+@media (max-width:991px) {
 
-  .details-container{
-    padding:2rem 1.5rem;
+  .details-container {
+    padding: 2rem 1.5rem;
   }
 
-  .details-title{
-    margin-bottom:2rem;
+  .details-title {
+    margin-bottom: 2rem;
   }
 
-  .details-grid{
-    grid-template-columns:1fr;
-    gap:2rem;
+  .details-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
   }
 
-  .details-card{
-    max-width:600px;
-    padding:1.5rem;
+  .details-card {
+    max-width: 600px;
+    padding: 1.5rem;
   }
 
-  .details-heading{
-    font-size:2.6rem;
+  .details-heading {
+    font-size: 2.6rem;
   }
 
-  .venue-name{
-    font-size:2.7rem;
+  .venue-name {
+    font-size: 2.7rem;
   }
 
-  .venue-address{
-    font-size:1.45rem;
-    line-height:1.7;
+  .venue-address {
+    font-size: 1.45rem;
+    line-height: 1.7;
   }
 
-  .venue-time{
-    font-size:2rem;
+  .venue-time {
+    font-size: 2rem;
   }
 
 }
@@ -196,36 +196,36 @@
 /* =========================
    Large Phones
 ========================= */
-@media (max-width:767px){
+@media (max-width:767px) {
 
-  .details-container{
-    padding:2rem 1.25rem;
+  .details-container {
+    padding: 2rem 1.25rem;
   }
 
-  .details-grid{
-    gap:1.75rem;
+  .details-grid {
+    gap: 1.75rem;
   }
 
-  .details-card{
-    padding:1.25rem;
+  .details-card {
+    padding: 1.25rem;
   }
 
-  .details-heading{
-    font-size:2.4rem;
-    letter-spacing:.2rem;
+  .details-heading {
+    font-size: 2.4rem;
+    letter-spacing: .2rem;
   }
 
-  .venue-name{
-    font-size:2.4rem;
+  .venue-name {
+    font-size: 2.4rem;
   }
 
-  .venue-address{
-    font-size:1.3rem;
-    line-height:1.65;
+  .venue-address {
+    font-size: 1.3rem;
+    line-height: 1.65;
   }
 
-  .venue-time{
-    font-size:1.8rem;
+  .venue-time {
+    font-size: 1.8rem;
   }
 
 }
@@ -233,26 +233,26 @@
 /* =========================
    Phones
 ========================= */
-@media (max-width:575px){
+@media (max-width:575px) {
 
-  .details-heading{
-    font-size:2.2rem;
+  .details-heading {
+    font-size: 2.2rem;
   }
 
-  .venue-name{
-    font-size:2.2rem;
+  .venue-name {
+    font-size: 2.2rem;
   }
 
-  .venue-address{
-    font-size:1.2rem;
+  .venue-address {
+    font-size: 1.2rem;
   }
 
-  .venue-time{
-    font-size:1.7rem;
+  .venue-time {
+    font-size: 1.7rem;
   }
 
-  .details-card{
-    padding:1rem;
+  .details-card {
+    padding: 1rem;
   }
 
 }
@@ -260,32 +260,32 @@
 /* =========================
    Small Phones
 ========================= */
-@media (max-width:479px){
+@media (max-width:479px) {
 
-  .details-heading{
-    font-size:2rem;
-    letter-spacing:.15rem;
+  .details-heading {
+    font-size: 2rem;
+    letter-spacing: .15rem;
   }
 
-  .venue-name{
-    font-size:2rem;
+  .venue-name {
+    font-size: 2rem;
   }
 
-  .venue-address{
-    font-size:1.1rem;
-    line-height:1.6;
+  .venue-address {
+    font-size: 1.1rem;
+    line-height: 1.6;
   }
 
-  .venue-time{
-    font-size:1.6rem;
+  .venue-time {
+    font-size: 1.6rem;
   }
 
-  .mini-divider{
-    width:70px;
+  .mini-divider {
+    width: 70px;
   }
 
-  .time-divider{
-    width:100px;
+  .time-divider {
+    width: 100px;
   }
 
 }

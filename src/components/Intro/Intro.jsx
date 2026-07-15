@@ -63,6 +63,14 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
     onFinish();
   };
 
+  const handleNameChange = (setter) => (e) => {
+    const value = e.target.value;
+
+    if (/^[A-Za-z\s]*$/.test(value)) {
+      setter(value);
+    }
+  };
+
   return (
     <div className={`intro ${isLeaving ? "intro-leave" : ""}`}>
       <video
@@ -88,7 +96,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
               placeholder="First Name"
               className="intro-input"
               value={firstName}
-              onChange={(e) => setFirstName(e.target.value)}
+              onChange={handleNameChange(setFirstName)}
               disabled={isLoggingIn}
             />
 
@@ -97,7 +105,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
               placeholder="Last Name"
               className="intro-input"
               value={lastName}
-              onChange={(e) => setLastName(e.target.value)}
+              onChange={handleNameChange(setLastName)}
               disabled={isLoggingIn}
             />
 

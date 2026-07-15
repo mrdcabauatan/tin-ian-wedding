@@ -75,8 +75,6 @@ const App = () => {
     }, 1200);
   };
 
-  console.log(guestInfo);
-
   return (
     <div className="app-container">
       {showIntro && (

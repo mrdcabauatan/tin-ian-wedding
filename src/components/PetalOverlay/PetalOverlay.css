@@ -9,19 +9,13 @@
 .petal {
   position: absolute;
   top: -120px;
-
   width: 28px;
   height: 34px;
-
   opacity: 0.85;
-
-  /* GPU acceleration */
   will-change: transform;
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-
   transform-origin: center center;
-
   animation: petalFall linear infinite;
 }
 
@@ -34,8 +28,7 @@
 @keyframes petalFall {
   0% {
     transform:
-      translate3d(0, -100px, 0)
-      rotate(0deg);
+      translate3d(0, -100px, 0) rotate(0deg);
 
     opacity: 0;
   }
@@ -46,20 +39,17 @@
 
   25% {
     transform:
-      translate3d(15px, 25vh, 0)
-      rotate(90deg);
+      translate3d(15px, 25vh, 0) rotate(90deg);
   }
 
   50% {
     transform:
-      translate3d(-15px, 50vh, 0)
-      rotate(180deg);
+      translate3d(-15px, 50vh, 0) rotate(180deg);
   }
 
   75% {
     transform:
-      translate3d(20px, 75vh, 0)
-      rotate(270deg);
+      translate3d(20px, 75vh, 0) rotate(270deg);
   }
 
   95% {
@@ -68,8 +58,7 @@
 
   100% {
     transform:
-      translate3d(-20px, 115vh, 0)
-      rotate(360deg);
+      translate3d(-20px, 115vh, 0) rotate(360deg);
 
     opacity: 0;
   }
