@@ -58,7 +58,7 @@
   max-width: 600px;
   margin: 0 auto 1rem;
   color: var(--primary-color);
-  font-size: 1.6rem;
+  font-size: 1.3rem;
   font-weight: 500;
   line-height: 1.8;
 }
@@ -347,7 +347,7 @@
 @media (max-width:1199px){
 
   .rsvp-message{
-    font-size:1.5rem;
+    font-size:1.2rem;
   }
 
   .rsvp-link{
@@ -408,7 +408,7 @@
 
   .rsvp-message{
     max-width:42rem;
-    font-size:1.45rem;
+    font-size:1.3rem;
     line-height:1.7;
   }
 
@@ -469,7 +469,7 @@
 
   .rsvp-message{
     margin-top: 1rem;
-    font-size:1.3rem;
+    font-size:1.2rem;
     line-height:1.65;
   }
 
@@ -499,7 +499,7 @@
 @media (max-width:575px){
 
   .rsvp-message{
-    font-size:1.2rem;
+    font-size:1.15rem;
   }
 
   .rsvp-link{
@@ -547,7 +547,7 @@
 @media (max-width:479px){
 
   .rsvp-message{
-    font-size:1.1rem;
+    font-size:1.08rem;
     line-height:1.6;
   }
 

@@ -71,9 +71,11 @@ const App = () => {
 
       setTimeout(() => {
         setShowHome(true);
-      }, 1000);
+      }, 500);
     }, 1200);
   };
+
+  console.log(guestInfo);
 
   return (
     <div className="app-container">
