@@ -7,6 +7,7 @@ import barongImg from "../../assets/attire/barong.png";
 import bridesmaid from "../../assets/attire/dusty-blue.png";
 import flowerGirlImg from "../../assets/attire/flower-girl.png";
 import barongChildImg from "../../assets/attire/barong-child.png";
+import motherImg from "../../assets/attire/mother.png";
 
 export const INVITATION_CONTENT = {
   // Guest
@@ -242,7 +243,7 @@ export const INVITATION_CONTENT = {
 
     attire: {
       heading: "Filipiniana Gown",
-      image: mHonorImage,
+      image: motherImg,
       addGuide: "Kindly avoid wearing white or black.",
       palette: [5],
     },
@@ -272,7 +273,7 @@ export const INVITATION_CONTENT = {
 
     attire: {
       heading: "Filipiniana Gown",
-      image: mHonorImage,
+      image: motherImg,
       addGuide: "Kindly avoid wearing white or black.",
       palette: [5],
     },
