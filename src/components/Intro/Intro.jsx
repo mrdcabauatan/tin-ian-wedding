@@ -4,7 +4,7 @@ import "./Intro.css";
 import introVideo from "../../assets/intro.mp4";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzasvCcVTZWqsru24USH1F48dXbNJDfN-5w-w4frEbNzQi9kAPUQ8gWyvo7mqarkJmSIg/exec";
+  "https://script.google.com/macros/s/AKfycbzt3Us6DmiI-VpNA3Me-OL7br-9rf7WKGVL1nhNseVZK7hWDIAUAe6O2cIhKqD3E9LCsQ/exec";
 
 const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
   const [showModal, setShowModal] = useState(true);
@@ -33,13 +33,28 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
 
       const result = await response.json();
 
+      if (!result.exists) {
+        setIsLoggingIn(false);
+        alert("Sorry, your name is not on the guest list.");
+        return;
+      }
+
       setGuestInfo({
-        firstName: firstName.trim(),
-        lastName: lastName.trim(),
-        role: result.role || "Guest",
-        churchAttendance: result.churchAttendance || "Not Yet Responding",
-        receptionAttendance: result.receptionAttendance || "Not Yet Responding",
+        firstName: result.firstName,
+        lastName: result.lastName,
+        role: result.role,
+        churchAttendance: result.churchAttendance,
+        receptionAttendance: result.receptionAttendance,
       });
+
+      setSuccessLogin(true);
+      setShowModal(false);
+
+      try {
+        await videoRef.current.play();
+      } catch (err) {
+        console.error(err);
+      }
 
       setSuccessLogin(true);
 

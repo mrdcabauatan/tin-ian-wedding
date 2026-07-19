@@ -7,13 +7,10 @@
 :root {
   --primary-color: #1f2a44;
   --primary-hover: #2f4156;
-
   --accent-color: #b89b5e;
   --home-accent: #5a86ad;
-
   --dusty-blue: #d8e4f0;
   --dusty-blue-light: #eef4fb;
-
   --border: rgba(255, 255, 255, 0.45);
   --inner-border: rgba(255, 255, 255, 0.18);
 }
