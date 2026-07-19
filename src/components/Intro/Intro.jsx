@@ -35,7 +35,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
 
       if (!result.exists) {
         setIsLoggingIn(false);
-        alert("Sorry, your name is not on the guest list.");
+        alert("Sorry, your name is not on the guest list. Please contact Ian Jimenez or Cristine Ramos for further assistance.");
         return;
       }
 
