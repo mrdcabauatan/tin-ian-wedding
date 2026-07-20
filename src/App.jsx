@@ -24,6 +24,8 @@ const App = () => {
     churchAttendance: "",
     receptionAttendance: "",
     companion: 0,
+    group: "",
+    companionNames: []
   });
 
   const audioRef = useRef(null);

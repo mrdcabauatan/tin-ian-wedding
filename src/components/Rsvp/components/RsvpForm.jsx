@@ -1,23 +1,38 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyq8WmChAGi7z7YwDTUBmxjIrnDNsineYgztyigU_u0vazh0huSpWuUFsEDxM_WsimwAQ/exec";
+  "https://script.google.com/macros/s/AKfycbzoCO1acqnIjr36e9mzj8VBH5rQ_8DO04pzJQU3k2smtQz-AazKEqvWJ7APHWqqzffjCA/exec";
 
 function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const [formData, setFormData] = useState({
     churchAttendance: "",
     receptionAttendance: "",
+    companions: guestInfo.companionNames?.length
+      ? guestInfo.companionNames
+      : Array.from({ length: Number(guestInfo.companion || 0) }, () => ""),
   });
 
   const [loading, setLoading] = useState(false);
 
-  const handleChange = (e) => {
+  const handleRadioButtonChange = (e) => {
     const { name, value } = e.target;
 
     setFormData((prev) => ({
       ...prev,
       [name]: value,
     }));
+  };
+
+  const handleCompanionChange = (index, value) => {
+    setFormData((prev) => {
+      const companions = [...prev.companions];
+      companions[index] = value;
+
+      return {
+        ...prev,
+        companions,
+      };
+    });
   };
 
   const handleSubmit = async (e) => {
@@ -42,6 +57,8 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
           churchAttendance: updatedChurch,
           receptionAttendance: updatedReception,
           companion: guestInfo.companion,
+          companionNames: formData.companions,
+          group: guestInfo.group,
         }),
       );
 
@@ -55,24 +72,40 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
         churchAttendance: formData.churchAttendance || prev.churchAttendance,
         receptionAttendance:
           formData.receptionAttendance || prev.receptionAttendance,
+        companionNames: [...formData.companions],
       }));
 
       alert("Thank you for your RSVP!");
 
       isRsvpSubmitted(true);
 
-      setFormData({
-        churchAttendance: "",
-        receptionAttendance: "",
-      });
+      // setFormData({
+      //   churchAttendance: "",
+      //   receptionAttendance: "",
+      //   companions: Array.from(
+      //     { length: Number(guestInfo.companion || 0) },
+      //     () => "",
+      //   ),
+      // });
 
       onClose();
     } catch (error) {
+      console.log(error);
       alert("Unable to submit RSVP.");
     } finally {
       setLoading(false);
     }
   };
+
+  useEffect(() => {
+    setFormData({
+      churchAttendance: "",
+      receptionAttendance: "",
+      companions: guestInfo.companionNames?.length
+        ? [...guestInfo.companionNames]
+        : Array.from({ length: Number(guestInfo.companion || 0) }, () => ""),
+    });
+  }, [guestInfo]);
 
   return (
     <form className="rsvp-form" onSubmit={handleSubmit}>
@@ -86,7 +119,7 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
                 name="churchAttendance"
                 value="Attending"
                 checked={formData.churchAttendance === "Attending"}
-                onChange={handleChange}
+                onChange={handleRadioButtonChange}
                 disabled={loading}
                 required
               />
@@ -99,7 +132,7 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
                 value="Not Attending"
                 checked={formData.churchAttendance === "Not Attending"}
                 disabled={loading}
-                onChange={handleChange}
+                onChange={handleRadioButtonChange}
               />
               Sorry, I can't make it
             </label>
@@ -123,7 +156,7 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
                 name="receptionAttendance"
                 value="Attending"
                 checked={formData.receptionAttendance === "Attending"}
-                onChange={handleChange}
+                onChange={handleRadioButtonChange}
                 disabled={loading}
                 required
               />
@@ -136,7 +169,7 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
                 name="receptionAttendance"
                 value="Not Attending"
                 checked={formData.receptionAttendance === "Not Attending"}
-                onChange={handleChange}
+                onChange={handleRadioButtonChange}
                 disabled={loading}
               />
               Sorry, I can't make it
@@ -148,6 +181,36 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
           You have already submitted your reception attendance RSVP. Your
           previous response was: {guestInfo.receptionAttendance}
         </p>
+      )}
+
+      {Number(guestInfo.companion) > 0 && (
+        <div className="attendance-group">
+          <h3>
+            Please enter the full name
+            {Number(guestInfo.companion) > 1 ? "s" : ""} of your companion
+            {Number(guestInfo.companion) > 1 ? "s" : ""}
+          </h3>
+
+          <div className="companion-inputs">
+            {formData.companions.map((name, index) => (
+              <div className="companion-field" key={index}>
+                <label htmlFor={`companion-${index}`}>
+                  Companion {index + 1}
+                </label>
+
+                <input
+                  id={`companion-${index}`}
+                  type="text"
+                  value={name}
+                  disabled={loading}
+                  placeholder={`Enter companion ${index + 1}'s full name`}
+                  onChange={(e) => handleCompanionChange(index, e.target.value)}
+                  required
+                />
+              </div>
+            ))}
+          </div>
+        </div>
       )}
 
       <button type="submit" className="submit-rsvp-btn" disabled={loading}>

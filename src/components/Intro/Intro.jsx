@@ -4,7 +4,7 @@ import "./Intro.css";
 import introVideo from "../../assets/intro.mp4";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyq8WmChAGi7z7YwDTUBmxjIrnDNsineYgztyigU_u0vazh0huSpWuUFsEDxM_WsimwAQ/exec";
+  "https://script.google.com/macros/s/AKfycbzoCO1acqnIjr36e9mzj8VBH5rQ_8DO04pzJQU3k2smtQz-AazKEqvWJ7APHWqqzffjCA/exec";
 
 const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
   const [showModal, setShowModal] = useState(true);
@@ -48,6 +48,8 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
         churchAttendance: result.churchAttendance,
         receptionAttendance: result.receptionAttendance,
         companion: result.companion,
+        group: result.group,
+        companionNames: result.companionNames || []
       });
 
       setSuccessLogin(true);
