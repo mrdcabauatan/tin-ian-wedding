@@ -98,7 +98,7 @@ function RSVP({ guestInfo, setGuestInfo }) {
           <div className="rsvp-deadline">
             <h4>
               RSVP Deadline:
-              <span> August 23, 2026</span>
+              <span> August 26, 2026</span>
             </h4>
 
             <p>
@@ -162,7 +162,7 @@ function RSVP({ guestInfo, setGuestInfo }) {
                   Thank you! Your RSVP has already been submitted.
                   <br />
                   <br />
-                  If you need to update your RSVP, please contact Christine
+                  If you need to update your RSVP, please contact Cristine
                   Ramos or Ian Jimenez and they will be happy to assist you.
                 </p>
               )}
