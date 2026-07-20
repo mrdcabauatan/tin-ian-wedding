@@ -71,7 +71,7 @@ const App = () => {
 
     setTimeout(() => {
       setShowIntro(false);
-      console.log(guestInfo);
+      
       setTimeout(() => {
         setShowHome(true);
       }, 500);

@@ -24,9 +24,15 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   };
 
   const handleCompanionChange = (index, value) => {
+    let sanitizedValue = value.replace(/[^A-Za-z\s]/g, "");
+
+    sanitizedValue = sanitizedValue.replace(/\b\w/g, (char) =>
+      char.toUpperCase(),
+    );
+
     setFormData((prev) => {
       const companions = [...prev.companions];
-      companions[index] = value;
+      companions[index] = sanitizedValue;
 
       return {
         ...prev,
@@ -78,15 +84,6 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
       alert("Thank you for your RSVP!");
 
       isRsvpSubmitted(true);
-
-      // setFormData({
-      //   churchAttendance: "",
-      //   receptionAttendance: "",
-      //   companions: Array.from(
-      //     { length: Number(guestInfo.companion || 0) },
-      //     () => "",
-      //   ),
-      // });
 
       onClose();
     } catch (error) {
@@ -203,7 +200,7 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
                   type="text"
                   value={name}
                   disabled={loading}
-                  placeholder={`Enter companion ${index + 1}'s full name`}
+                  placeholder={`Enter first and last name`}
                   onChange={(e) => handleCompanionChange(index, e.target.value)}
                   required
                 />
