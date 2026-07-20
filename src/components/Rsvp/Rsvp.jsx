@@ -3,6 +3,7 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import RsvpForm from "./components/RsvpForm";
+import RsvpNiRyan from "./components/RsvpNiRyan";
 
 function RSVP({ guestInfo, setGuestInfo }) {
   const [showModal, setShowModal] = useState(false);
@@ -14,6 +15,9 @@ function RSVP({ guestInfo, setGuestInfo }) {
   const isNotAttending =
     guestInfo.churchAttendance === "Not Attending" ||
     guestInfo.receptionAttendance === "Not Attending";
+
+  const addPrank =
+    guestInfo.firstName === "Ryan" && guestInfo.lastName === "Santos";
 
   useEffect(() => {
     if (!rsvpSubmitted) return;
@@ -150,20 +154,29 @@ function RSVP({ guestInfo, setGuestInfo }) {
                     able to join us by submitting your RSVP below.
                   </p>
 
-                  <RsvpForm
-                    guestInfo={guestInfo}
-                    setGuestInfo={setGuestInfo}
-                    onClose={() => setShowModal(false)}
-                    isRsvpSubmitted={isRsvpSubmitted}
-                  />
+                  {addPrank ? (
+                    <RsvpNiRyan
+                      guestInfo={guestInfo}
+                      setGuestInfo={setGuestInfo}
+                      onClose={() => setShowModal(false)}
+                      isRsvpSubmitted={isRsvpSubmitted}
+                    />
+                  ) : (
+                    <RsvpForm
+                      guestInfo={guestInfo}
+                      setGuestInfo={setGuestInfo}
+                      onClose={() => setShowModal(false)}
+                      isRsvpSubmitted={isRsvpSubmitted}
+                    />
+                  )}
                 </>
               ) : (
                 <p>
                   Thank you! Your RSVP has already been submitted.
                   <br />
                   <br />
-                  If you need to update your RSVP, please contact Cristine
-                  Ramos or Ian Jimenez and they will be happy to assist you.
+                  If you need to update your RSVP, please contact Cristine Ramos
+                  or Ian Jimenez and they will be happy to assist you.
                 </p>
               )}
             </div>
