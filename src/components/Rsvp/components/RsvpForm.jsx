@@ -1,7 +1,7 @@
 import { useState } from "react";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzt3Us6DmiI-VpNA3Me-OL7br-9rf7WKGVL1nhNseVZK7hWDIAUAe6O2cIhKqD3E9LCsQ/exec";
+  "https://script.google.com/macros/s/AKfycbyq8WmChAGi7z7YwDTUBmxjIrnDNsineYgztyigU_u0vazh0huSpWuUFsEDxM_WsimwAQ/exec";
 
 function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const [formData, setFormData] = useState({
@@ -41,6 +41,7 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
           lastName: guestInfo.lastName,
           churchAttendance: updatedChurch,
           receptionAttendance: updatedReception,
+          companion: guestInfo.companion,
         }),
       );
 

@@ -4,7 +4,7 @@ import "./Intro.css";
 import introVideo from "../../assets/intro.mp4";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzt3Us6DmiI-VpNA3Me-OL7br-9rf7WKGVL1nhNseVZK7hWDIAUAe6O2cIhKqD3E9LCsQ/exec";
+  "https://script.google.com/macros/s/AKfycbyq8WmChAGi7z7YwDTUBmxjIrnDNsineYgztyigU_u0vazh0huSpWuUFsEDxM_WsimwAQ/exec";
 
 const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
   const [showModal, setShowModal] = useState(true);
@@ -35,7 +35,9 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
 
       if (!result.exists) {
         setIsLoggingIn(false);
-        alert("Sorry, your name is not on the guest list. Please contact Ian Jimenez or Cristine Ramos for further assistance.");
+        alert(
+          "Sorry, your name is not on the guest list. Please contact Ian Jimenez or Cristine Ramos for further assistance.",
+        );
         return;
       }
 
@@ -45,6 +47,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
         role: result.role,
         churchAttendance: result.churchAttendance,
         receptionAttendance: result.receptionAttendance,
+        companion: result.companion,
       });
 
       setSuccessLogin(true);

@@ -23,6 +23,7 @@ const App = () => {
     role: "",
     churchAttendance: "",
     receptionAttendance: "",
+    companion: 0,
   });
 
   const audioRef = useRef(null);
@@ -68,7 +69,7 @@ const App = () => {
 
     setTimeout(() => {
       setShowIntro(false);
-
+      console.log(guestInfo);
       setTimeout(() => {
         setShowHome(true);
       }, 500);
