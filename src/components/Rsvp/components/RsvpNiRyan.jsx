@@ -17,6 +17,7 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const formRef = useRef(null);
   const buttonRef = useRef(null);
 
+  const [buttonWidth, setButtonWidth] = useState(220);
   const [buttonPosition, setButtonPosition] = useState({
     left: null,
     top: null,
@@ -54,7 +55,6 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const moveButton = (e) => {
     if (!formRef.current || !buttonRef.current || loading) return;
 
-    // Prevent the tap from becoming a click on mobile
     if (e?.type === "touchstart") {
       e.preventDefault();
     }
@@ -69,19 +69,34 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
 
     let left, top;
 
-    // Ensure the button jumps a noticeable distance
     do {
       left = Math.random() * maxLeft;
-      top = Math.random() * maxTop;
+
+      const behavior = Math.random();
+
+      if (behavior < 0.4) {
+        // 40% chance - jump to the top
+        top = Math.random() * 80;
+      } else if (behavior < 0.8) {
+        // 40% chance - jump to the bottom
+        top = maxTop - Math.random() * 80;
+      } else {
+        // 20% chance - anywhere
+        top = Math.random() * maxTop;
+      }
     } while (
       buttonPosition.left !== null &&
       Math.abs(left - buttonPosition.left) < 120 &&
       Math.abs(top - buttonPosition.top) < 120
     );
 
+    // Random width (60px - 220px)
+    setButtonWidth(Math.floor(Math.random() * 161) + 60);
+
     setButtonPosition({ left, top });
 
-    setRotation(prev => prev + (Math.random() * 720 - 360));
+    // Random accumulated rotation
+    setRotation((prev) => prev + (Math.random() * 720 - 360));
   };
 
   useEffect(() => {
@@ -97,6 +112,7 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   return (
     <form
       ref={formRef}
+      onSubmit={moveButton}
       className="rsvp-form"
       style={{
         position: "relative",
@@ -221,12 +237,15 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
           top: buttonPosition.top === null ? "auto" : `${buttonPosition.top}px`,
           bottom: buttonPosition.top === null ? "20px" : "auto",
 
+          width: `${buttonWidth}px`,
+
           transform:
             buttonPosition.left === null
               ? `translateX(-50%) rotate(${rotation}deg)`
               : `rotate(${rotation}deg)`,
 
-          transition: "left .25s ease, top .25s ease, transform .25s ease",
+          transition:
+            "left .05s linear, top .05s linear, width .05s linear, transform .05s linear",
 
           zIndex: 999,
         }}
