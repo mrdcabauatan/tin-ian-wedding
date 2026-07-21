@@ -5,6 +5,13 @@ import monogram from "../../assets/monogram.png";
 function Invitation({ name, roleId }) {
   const content = INVITATION_CONTENT[roleId] ?? INVITATION_CONTENT[0];
 
+  const customMessage =
+    "Through every chapter of life, you have shared an unbreakable bond as brothers, always supporting, encouraging, and looking out for one another. Thank you for being someone Ian has always been able to count on. Having you beside us as his Best Man on our wedding day is a privilege and a memory we will cherish forever";
+
+  const customSubtitle = "Built by Blood, Strengthened by Friendship";
+
+  const openCustom = name === "CESAR III JIMENEZ";
+
   return (
     <section id="invitation" className="invitation-page section-page">
       <div className="invitation-container section-container">
@@ -63,7 +70,7 @@ function Invitation({ name, roleId }) {
         <div className="line-divider"></div>
 
         <div className="message">
-          <p>{content.message}</p>
+          <p>{openCustom ? customMessage : content.message}</p>
         </div>
 
         <h2 className={roleId !== 0 ? "participation-text" : "celebrate-text"}>
@@ -71,7 +78,9 @@ function Invitation({ name, roleId }) {
         </h2>
 
         {content.subtitle && (
-          <h4 className="role-subtitle">{content.subtitle}</h4>
+          <h4 className="role-subtitle">
+            {openCustom ? customSubtitle : content.subtitle}
+          </h4>
         )}
 
         <div className="ornament-divider">

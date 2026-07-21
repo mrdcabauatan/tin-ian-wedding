@@ -4,7 +4,6 @@ import { createPortal } from "react-dom";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import RsvpForm from "./components/RsvpForm";
 import RsvpNiRyan from "./components/RsvpNiRyan";
-import { use } from "react";
 
 function RSVP({ guestInfo, setGuestInfo }) {
   const [showModal, setShowModal] = useState(false);
