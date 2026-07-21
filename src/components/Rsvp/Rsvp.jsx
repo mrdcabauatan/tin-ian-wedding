@@ -24,6 +24,9 @@ function RSVP({ guestInfo, setGuestInfo }) {
     guestInfo.firstName === "Ryan" &&
     guestInfo.lastName === "Santos";
 
+  const RSVP_DEADLINE = new Date("2026-08-26T23:59:59");
+  const isRsvpClosed = new Date() > RSVP_DEADLINE;
+
   useEffect(() => {
     if (!rsvpSubmitted) return;
 
@@ -97,20 +100,39 @@ function RSVP({ guestInfo, setGuestInfo }) {
           </div>
 
           <div className="rsvp-message">
-            <p>Please confirm your attendance by clicking the link below.</p>
-            <p>We can't wait to share this moment with you.</p>
+            {isRsvpClosed ? (
+              <>
+                <p>Thank you for your interest in celebrating with us</p>
+                <p>
+                  The RSVP deadline has already passed. If you still wish to
+                  join us, please contact Cristine Ramos or Ian Jimenez for
+                  further assistance.
+                </p>
+              </>
+            ) : (
+              <>
+                <p>
+                  Please confirm your attendance by clicking the link below.
+                </p>
+                <p>We can't wait to share this moment with you.</p>
+              </>
+            )}
           </div>
 
-          <a
-            href="#"
-            className="rsvp-link"
-            onClick={(e) => {
-              e.preventDefault();
-              setShowModal(true);
-            }}
-          >
-            RSVP Now
-          </a>
+          {isRsvpClosed ? (
+            <span className="rsvp-link disabled">RSVP Closed</span>
+          ) : (
+            <a
+              href="#"
+              className="rsvp-link"
+              onClick={(e) => {
+                e.preventDefault();
+                setShowModal(true);
+              }}
+            >
+              RSVP Now
+            </a>
+          )}
 
           <div className="rsvp-deadline">
             <h4>
