@@ -3,7 +3,7 @@ import { useState, useEffect, useRef } from "react";
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbyAFVpGcWDb42UQkbLy0J_kBblqg3iyJP_BtOUvyUxiHJEGhvDPViAafMFH1LnQ33jK5w/exec";
 
-function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted, submitClick, setSubmitClick }) {
+function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted, moveButtonCount, setMoveButtonCount }) {
   const [formData, setFormData] = useState({
     churchAttendance: "",
     receptionAttendance: "",
@@ -59,11 +59,11 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted, submitC
       e.preventDefault();
     }
 
+    setMoveButtonCount((prev) => prev + 1);
+
     const form = formRef.current;
     const button = buttonRef.current;
-
     const padding = 20;
-
     const maxLeft = form.clientWidth - button.offsetWidth - padding;
     const maxTop = form.clientHeight - button.offsetHeight - padding;
 
@@ -71,17 +71,13 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted, submitC
 
     do {
       left = Math.random() * maxLeft;
-
       const behavior = Math.random();
 
       if (behavior < 0.4) {
-        // 40% chance - jump to the top
         top = Math.random() * 80;
       } else if (behavior < 0.8) {
-        // 40% chance - jump to the bottom
         top = maxTop - Math.random() * 80;
       } else {
-        // 20% chance - anywhere
         top = Math.random() * maxTop;
       }
     } while (
@@ -90,17 +86,14 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted, submitC
       Math.abs(top - buttonPosition.top) < 120
     );
 
-    // Random width (60px - 220px)
     setButtonWidth(Math.floor(Math.random() * 161) + 60);
-
     setButtonPosition({ left, top });
-
-    // Random accumulated rotation
     setRotation((prev) => prev + (Math.random() * 720 - 360));
   };
 
   const handleSubmit = () => {
-    setSubmitClick(submitClick++);
+    setMoveButtonCount((prev) => prev + 1);
+    console.log(moveButtonCount);
   }
 
   useEffect(() => {
@@ -248,8 +241,7 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted, submitC
               ? `translateX(-50%) rotate(${rotation}deg)`
               : `rotate(${rotation}deg)`,
 
-          transition:
-            "left .05s linear, top .05s linear, width .05s linear, transform .05s linear",
+          transition: "left .1s ease-out, top .1s ease-out, width .1s ease-out, transform .1s ease-out",
 
           zIndex: 999,
         }}

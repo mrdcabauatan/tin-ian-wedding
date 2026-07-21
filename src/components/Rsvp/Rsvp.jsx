@@ -9,7 +9,8 @@ import { use } from "react";
 function RSVP({ guestInfo, setGuestInfo }) {
   const [showModal, setShowModal] = useState(false);
   const [rsvpSubmitted, isRsvpSubmitted] = useState(false);
-  const [submitClick, setSubmitClick] = useState(0);
+  const [disablePrank, setDisablePrank] = useState(false);
+  const [moveButtonCount, setMoveButtonCount] = useState(0);
 
   const isNotYetResponding =
     guestInfo.churchAttendance === "Not Yet Responding" &&
@@ -18,8 +19,10 @@ function RSVP({ guestInfo, setGuestInfo }) {
     guestInfo.churchAttendance === "Not Attending" ||
     guestInfo.receptionAttendance === "Not Attending";
 
-  let addPrank =
-    guestInfo.firstName === "Ryan" && guestInfo.lastName === "Santos";
+  const openPrank =
+    !disablePrank &&
+    guestInfo.firstName === "Ryan" &&
+    guestInfo.lastName === "Santos";
 
   useEffect(() => {
     if (!rsvpSubmitted) return;
@@ -51,10 +54,12 @@ function RSVP({ guestInfo, setGuestInfo }) {
   ]);
 
   useEffect(() => {
-    if (submitClick >= 5) {
-      addPrank = false;
+    console.log(moveButtonCount);
+    if (moveButtonCount >= 20) {
+      setDisablePrank(true);
+      setShowModal(false);
     }
-  }, [submitClick]);
+  }, [moveButtonCount]);
 
   return (
     <>
@@ -162,12 +167,14 @@ function RSVP({ guestInfo, setGuestInfo }) {
                     able to join us by submitting your RSVP below.
                   </p>
 
-                  {addPrank ? (
+                  {openPrank ? (
                     <RsvpNiRyan
                       guestInfo={guestInfo}
                       setGuestInfo={setGuestInfo}
                       onClose={() => setShowModal(false)}
                       isRsvpSubmitted={isRsvpSubmitted}
+                      moveButtonCount={moveButtonCount}
+                      setMoveButtonCount={setMoveButtonCount}
                     />
                   ) : (
                     <RsvpForm
