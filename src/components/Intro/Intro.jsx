@@ -4,7 +4,7 @@ import "./Intro.css";
 import introVideo from "../../assets/intro.mp4";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzoCO1acqnIjr36e9mzj8VBH5rQ_8DO04pzJQU3k2smtQz-AazKEqvWJ7APHWqqzffjCA/exec";
+  "https://script.google.com/macros/s/AKfycbyAFVpGcWDb42UQkbLy0J_kBblqg3iyJP_BtOUvyUxiHJEGhvDPViAafMFH1LnQ33jK5w/exec";
 
 const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
   const [showModal, setShowModal] = useState(true);

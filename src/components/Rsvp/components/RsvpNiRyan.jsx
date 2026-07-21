@@ -1,9 +1,9 @@
 import { useState, useEffect, useRef } from "react";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbzoCO1acqnIjr36e9mzj8VBH5rQ_8DO04pzJQU3k2smtQz-AazKEqvWJ7APHWqqzffjCA/exec";
+  "https://script.google.com/macros/s/AKfycbyAFVpGcWDb42UQkbLy0J_kBblqg3iyJP_BtOUvyUxiHJEGhvDPViAafMFH1LnQ33jK5w/exec";
 
-function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
+function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted, submitClick, setSubmitClick }) {
   const [formData, setFormData] = useState({
     churchAttendance: "",
     receptionAttendance: "",
@@ -99,6 +99,10 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
     setRotation((prev) => prev + (Math.random() * 720 - 360));
   };
 
+  const handleSubmit = () => {
+    setSubmitClick(submitClick++);
+  }
+
   useEffect(() => {
     setFormData({
       churchAttendance: "",
@@ -112,7 +116,7 @@ function RsvpNiRyan({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   return (
     <form
       ref={formRef}
-      onSubmit={moveButton}
+      onSubmit={handleSubmit}
       className="rsvp-form"
       style={{
         position: "relative",

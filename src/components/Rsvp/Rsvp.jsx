@@ -4,10 +4,12 @@ import { createPortal } from "react-dom";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import RsvpForm from "./components/RsvpForm";
 import RsvpNiRyan from "./components/RsvpNiRyan";
+import { use } from "react";
 
 function RSVP({ guestInfo, setGuestInfo }) {
   const [showModal, setShowModal] = useState(false);
   const [rsvpSubmitted, isRsvpSubmitted] = useState(false);
+  const [submitClick, setSubmitClick] = useState(0);
 
   const isNotYetResponding =
     guestInfo.churchAttendance === "Not Yet Responding" &&
@@ -16,7 +18,7 @@ function RSVP({ guestInfo, setGuestInfo }) {
     guestInfo.churchAttendance === "Not Attending" ||
     guestInfo.receptionAttendance === "Not Attending";
 
-  const addPrank =
+  let addPrank =
     guestInfo.firstName === "Ryan" && guestInfo.lastName === "Santos";
 
   useEffect(() => {
@@ -47,6 +49,12 @@ function RSVP({ guestInfo, setGuestInfo }) {
     guestInfo.churchAttendance,
     guestInfo.receptionAttendance,
   ]);
+
+  useEffect(() => {
+    if (submitClick >= 5) {
+      addPrank = false;
+    }
+  }, [submitClick]);
 
   return (
     <>
