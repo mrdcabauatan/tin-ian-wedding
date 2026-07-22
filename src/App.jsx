@@ -6,6 +6,7 @@ import PetalOverlay from "./components/PetalOverlay/PetalOverlay";
 import Home from "./components/Home/Home";
 import Invitation from "./components/Invitation/Invitation";
 import Attire from "./components/Attire/Attire";
+import GiftRegistry from "./components/GiftRegistry/GiftRegistry";
 import Gallery from "./components/Gallery/Gallery";
 import Details from "./components/Details/Details";
 import Rsvp from "./components/Rsvp/Rsvp";
@@ -25,7 +26,7 @@ const App = () => {
     receptionAttendance: "",
     companion: 0,
     group: "",
-    companionNames: []
+    companionNames: [],
   });
 
   const audioRef = useRef(null);
@@ -40,7 +41,7 @@ const App = () => {
     return window.innerWidth <= 1024;
   };
 
-  const pages = ["home", "invitation", "attire", "gallery"];
+  const pages = ["home", "invitation", "attire", "gallery", "gift"];
 
   if (isAttending) {
     pages.push("details");
@@ -71,7 +72,7 @@ const App = () => {
 
     setTimeout(() => {
       setShowIntro(false);
-      
+
       setTimeout(() => {
         setShowHome(true);
       }, 500);
@@ -123,6 +124,10 @@ const App = () => {
                 <Gallery />
               </div>
 
+              <div className="page">
+                <GiftRegistry />
+              </div>
+
               {isAttending && (
                 <div className="page">
                   <Details guestInfo={guestInfo} />
@@ -157,6 +162,10 @@ const App = () => {
 
               <div className="page">
                 <Gallery />
+              </div>
+
+              <div className="page">
+                <GiftRegistry />
               </div>
 
               {isAttending && (
