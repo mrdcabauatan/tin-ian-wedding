@@ -1,9 +1,43 @@
 import "./GiftRegistry.css";
+import { useState } from "react";
+import emailjs from "@emailjs/browser";
 
-import qr1 from "../../assets/qr/bdo.jpg";
-import qr2 from "../../assets/qr/maya.jpg";
+export default function GiftRegistry({ guestInfo }) {
+  const [message, setMessage] = useState("");
+  const [loading, setLoading] = useState(false);
 
-export default function GiftRegistry() {
+  const sendWish = async (e) => {
+    e.preventDefault();
+
+    if (!message.trim()) {
+      alert("Please enter your message.");
+      return;
+    }
+
+    setLoading(true);
+
+    try {
+      await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          name: guestInfo.firstName + " " + guestInfo.lastName,
+          message: message,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+      );
+
+      alert("Thank you for sending your wonderful wishes! ❤️");
+
+      setMessage("");
+    } catch (error) {
+      console.error(error);
+      alert("Unable to send your message. Please try again.");
+    }
+
+    setLoading(false);
+  };
+
   return (
     <section className="gift-section section-page" id="gift">
       <div className="gift-container section-container">
@@ -19,22 +53,31 @@ export default function GiftRegistry() {
             receive. If you would like to honor us with a gift, a monetary
             blessing would be deeply appreciated as we begin our journey
             together. Every gift, prayer, and kind thought is sincerely
-            appreciated. <br />
+            appreciated.
+            <br />
             Thank you for your love and support.
           </p>
 
-          <div className="gift-cards">
-            <div className="gift-card">
-              <img src={qr1} alt="BPI QR" className="gift-qr" />
-            </div>
+          <div className="wish-card">
+            <h3 className="wish-title">Leave a Wedding Wish</h3>
 
-            <div className="gift-card">
-              <img src={qr2} alt="Maya QR" className="gift-qr" />
-            </div>
-          </div>
+            <p className="wish-subtitle">
+              We'd love to read your heartfelt message and blessings.
+            </p>
 
-          <div className="gift-footer">
-            <h4>Thank You</h4>
+            <form onSubmit={sendWish}>
+              <textarea
+                className="wish-textarea"
+                placeholder="Write your message here..."
+                value={message}
+                maxLength={1000}
+                onChange={(e) => setMessage(e.target.value)}
+              />
+
+              <button className="wish-button" disabled={loading}>
+                {loading ? "Sending..." : "💌 Send"}
+              </button>
+            </form>
           </div>
         </div>
       </div>

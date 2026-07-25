@@ -125,7 +125,7 @@ const App = () => {
               </div>
 
               <div className="page">
-                <GiftRegistry />
+                <GiftRegistry guestInfo={guestInfo}/>
               </div>
 
               {isAttending && (
@@ -165,7 +165,7 @@ const App = () => {
               </div>
 
               <div className="page">
-                <GiftRegistry />
+                <GiftRegistry guestInfo={guestInfo}/>
               </div>
 
               {isAttending && (

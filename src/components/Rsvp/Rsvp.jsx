@@ -3,13 +3,10 @@ import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
 import { CalendarDays, Clock3, MapPin } from "lucide-react";
 import RsvpForm from "./components/RsvpForm";
-import RsvpNiRyan from "./components/RsvpNiRyan";
 
 function RSVP({ guestInfo, setGuestInfo }) {
   const [showModal, setShowModal] = useState(false);
   const [rsvpSubmitted, isRsvpSubmitted] = useState(false);
-  const [disablePrank, setDisablePrank] = useState(false);
-  const [moveButtonCount, setMoveButtonCount] = useState(0);
 
   const isNotYetResponding =
     guestInfo.churchAttendance === "Not Yet Responding" &&
@@ -17,11 +14,6 @@ function RSVP({ guestInfo, setGuestInfo }) {
   const isNotAttending =
     guestInfo.churchAttendance === "Not Attending" ||
     guestInfo.receptionAttendance === "Not Attending";
-
-  const openPrank =
-    !disablePrank &&
-    guestInfo.firstName === "Ryan" &&
-    guestInfo.lastName === "Santos";
 
   const RSVP_DEADLINE = new Date("2026-08-26T23:59:59");
   const isRsvpClosed = new Date() > RSVP_DEADLINE;
@@ -54,14 +46,6 @@ function RSVP({ guestInfo, setGuestInfo }) {
     guestInfo.churchAttendance,
     guestInfo.receptionAttendance,
   ]);
-
-  useEffect(() => {
-    console.log(moveButtonCount);
-    if (moveButtonCount >= 20) {
-      setDisablePrank(true);
-      setShowModal(false);
-    }
-  }, [moveButtonCount]);
 
   return (
     <>
@@ -188,23 +172,12 @@ function RSVP({ guestInfo, setGuestInfo }) {
                     able to join us by submitting your RSVP below.
                   </p>
 
-                  {openPrank ? (
-                    <RsvpNiRyan
-                      guestInfo={guestInfo}
-                      setGuestInfo={setGuestInfo}
-                      onClose={() => setShowModal(false)}
-                      isRsvpSubmitted={isRsvpSubmitted}
-                      moveButtonCount={moveButtonCount}
-                      setMoveButtonCount={setMoveButtonCount}
-                    />
-                  ) : (
-                    <RsvpForm
-                      guestInfo={guestInfo}
-                      setGuestInfo={setGuestInfo}
-                      onClose={() => setShowModal(false)}
-                      isRsvpSubmitted={isRsvpSubmitted}
-                    />
-                  )}
+                  <RsvpForm
+                    guestInfo={guestInfo}
+                    setGuestInfo={setGuestInfo}
+                    onClose={() => setShowModal(false)}
+                    isRsvpSubmitted={isRsvpSubmitted}
+                  />
                 </>
               ) : (
                 <p>

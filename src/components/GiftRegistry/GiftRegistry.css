@@ -39,50 +39,96 @@
     line-height: 1.8;
     font-weight: 500;
     color: var(--primary-color);
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
 }
 
-.gift-cards {
+.wish-card {
     width: 100%;
-    display: flex;
-    justify-content: center;
-    gap: 3rem;
-    margin-bottom: 2.5rem;
-}
-
-.gift-card {
-    width: 300px;
+    max-width: 850rem;
+    padding: 2rem;
     background: rgba(255, 255, 255, .72);
     backdrop-filter: blur(10px);
-    border: 2px solid rgba(205, 181, 118, .55);
-    border-radius: 22px;
-    padding: 1rem;
-    box-shadow: 0 12px 35px rgba(0, 0, 0, .12);
+    border-radius: 24px;
+    box-shadow: 0 15px 35px rgba(0, 0, 0, .08);
+}
+
+.wish-title {
+    font-family: "Great Vibes", cursive;
+    font-size: 2.3rem;
+    color: var(--primary-color);
+    margin-bottom: .5rem;
+}
+
+.wish-subtitle {
+    color: var(--primary-color);
+    margin-bottom: 2rem;
+    font-size: 1.3rem;
+}
+
+.wish-textarea {
+    width: 100%;
+    border: 1px solid rgba(0, 0, 0, .15);
+    border-radius: 14px;
+    padding: 16px;
+    margin-bottom: 1rem;
+    background: rgba(255, 255, 255, .95);
+    font-size: 1.3rem;
+    transition: .3s;
+    font-family: inherit;
+}
+
+.wish-textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 10px rgba(0, 0, 0, .08);
+}
+
+.wish-textarea {
+    min-height: 180px;
+    resize: vertical;
+}
+
+.wish-button {
+    margin-top: .5rem;
+    width: 50%;
+    padding: 16px;
+    border: none;
+    border-radius: 12px;
+    background: var(--primary-color);
+    color: white;
+    font-size: 1.3rem;
+    cursor: pointer;
     transition: .3s;
 }
 
-.gift-card:hover {
-    transform: translateY(-6px);
+.wish-button:hover {
+    transform: translateY(-2px);
+    opacity: .95;
 }
 
-.gift-qr {
-    width: 250px;
-    height: 280px;
-    object-fit: contain;
-    border-radius: 12px;
-    background: white;
-    padding: .5rem;
+.wish-button:disabled {
+    cursor: not-allowed;
+    opacity: .7;
 }
 
-.gift-footer {
-    max-width: 38rem;
-}
+@media (max-width:767px) {
 
-.gift-footer h4 {
-    font-family: "Great Vibes", cursive;
-    font-size: 2rem;
-    color: var(--primary-color);
-    margin-bottom: .8rem;
+    .wish-card {
+        padding: 1.5rem;
+    }
+
+    .wish-title {
+        font-size: 2rem;
+    }
+
+    .wish-subtitle {
+        font-size: 1rem;
+    }
+
+    .wish-input,
+    .wish-textarea {
+        font-size: .95rem;
+    }
 }
 
 /* =========================
@@ -108,17 +154,6 @@
 }
 
 /* =========================
-   Small Laptop
-========================= */
-@media (max-width:1365px) {
-
-    .gift-cards {
-        gap: 2.5rem;
-    }
-
-}
-
-/* =========================
    Tablet Landscape
 ========================= */
 @media (max-width:1199px) {
@@ -129,15 +164,6 @@
 
     .gift-description {
         font-size: 1.5rem;
-    }
-
-    .gift-card {
-        width: 280px;
-    }
-
-    .gift-qr {
-        width: 230px;
-        height: 260px;
     }
 
 }
@@ -164,20 +190,6 @@
         line-height: 1.7;
         max-width: 40rem;
     }
-
-    .gift-cards {
-        gap: 2rem;
-    }
-
-    .gift-card {
-        width: 260px;
-    }
-
-    .gift-qr {
-        width: 210px;
-        height: 240px;
-    }
-
 }
 
 /* =========================
@@ -202,26 +214,6 @@
         line-height: 1.65;
         max-width: 28rem;
     }
-
-    .gift-cards {
-        flex-direction: column;
-        align-items: center;
-        gap: 1.75rem;
-    }
-
-    .gift-card {
-        width: min(320px, 100%);
-    }
-
-    .gift-qr {
-        width: 220px;
-        height: 240px;
-    }
-
-    .gift-footer h4 {
-        font-size: 1.8rem;
-    }
-
 }
 
 /* =========================
@@ -239,21 +231,6 @@
         max-width: 22rem;
     }
 
-    .gift-card {
-        width: 100%;
-        max-width: 290px;
-        padding: .9rem;
-    }
-
-    .gift-qr {
-        width: 200px;
-        height: 220px;
-    }
-
-    .gift-footer h4 {
-        font-size: 1.6rem;
-    }
-
 }
 
 /* =========================
@@ -269,20 +246,6 @@
         max-width: 20rem;
         font-size: 1.1rem;
         line-height: 1.6;
-    }
-
-    .gift-card {
-        max-width: 260px;
-        padding: .8rem;
-    }
-
-    .gift-qr {
-        width: 180px;
-        height: 200px;
-    }
-
-    .gift-footer h4 {
-        font-size: 1.45rem;
     }
 
 }
