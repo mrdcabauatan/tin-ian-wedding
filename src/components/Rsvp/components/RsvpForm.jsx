@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 
 const GOOGLE_SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbyAFVpGcWDb42UQkbLy0J_kBblqg3iyJP_BtOUvyUxiHJEGhvDPViAafMFH1LnQ33jK5w/exec";
+  "https://script.google.com/macros/s/AKfycbzNPvoqSaQ5IzZN4QC0HJRqHN_AMGaC_LYqXPLznZtHiLUVfNvEsLvAU-l6VrhmFDF8yw/exec";
 
 function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
   const [formData, setFormData] = useState({
@@ -58,6 +58,7 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
       payload.append(
         "payload",
         JSON.stringify({
+          action: "rsvp",
           firstName: guestInfo.firstName,
           lastName: guestInfo.lastName,
           churchAttendance: updatedChurch,

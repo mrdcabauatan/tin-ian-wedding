@@ -1,8 +1,10 @@
 import "./GiftRegistry.css";
 import { useState } from "react";
-import emailjs from "@emailjs/browser";
 
-export default function GiftRegistry({ guestInfo }) {
+const GOOGLE_SCRIPT_URL =
+  "https://script.google.com/macros/s/AKfycbzNPvoqSaQ5IzZN4QC0HJRqHN_AMGaC_LYqXPLznZtHiLUVfNvEsLvAU-l6VrhmFDF8yw/exec";
+
+function GiftRegistry({ guestInfo }) {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -17,15 +19,21 @@ export default function GiftRegistry({ guestInfo }) {
     setLoading(true);
 
     try {
-      await emailjs.send(
-        import.meta.env.VITE_EMAILJS_SERVICE_ID,
-        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
-        {
+      const payload = new URLSearchParams();
+
+      payload.append(
+        "payload",
+        JSON.stringify({
+          action: "message",
           name: guestInfo.firstName + " " + guestInfo.lastName,
           message: message,
-        },
-        import.meta.env.VITE_EMAILJS_PUBLIC_KEY,
+        }),
       );
+
+      await fetch(GOOGLE_SCRIPT_URL, {
+        method: "POST",
+        body: payload,
+      });
 
       alert("Thank you for sending your wonderful wishes! ❤️");
 
@@ -84,3 +92,5 @@ export default function GiftRegistry({ guestInfo }) {
     </section>
   );
 }
+
+export default GiftRegistry;
