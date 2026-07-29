@@ -4,7 +4,7 @@ import { useState } from "react";
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbzNPvoqSaQ5IzZN4QC0HJRqHN_AMGaC_LYqXPLznZtHiLUVfNvEsLvAU-l6VrhmFDF8yw/exec";
 
-function GiftRegistry({ guestInfo }) {
+function GiftRegistry({ guestInfo, showAlert }) {
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
@@ -12,7 +12,10 @@ function GiftRegistry({ guestInfo }) {
     e.preventDefault();
 
     if (!message.trim()) {
-      alert("Please enter your message.");
+      showAlert({
+        title: "Wedding Wishes",
+        message: "Please enter your message before sending.",
+      });
       return;
     }
 
@@ -35,12 +38,18 @@ function GiftRegistry({ guestInfo }) {
         body: payload,
       });
 
-      alert("Thank you for sending your wonderful wishes! ❤️");
+      showAlert({
+        title: "Wedding Wishes",
+        message:
+          "Thank you for your heartfelt wishes! ❤️ Your message means so much to us.",
+      });
 
       setMessage("");
     } catch (error) {
-      console.error(error);
-      alert("Unable to send your message. Please try again.");
+      showAlert({
+        title: "Wedding Wishes",
+        message: "Unable to send your message. Please try again.",
+      });
     }
 
     setLoading(false);

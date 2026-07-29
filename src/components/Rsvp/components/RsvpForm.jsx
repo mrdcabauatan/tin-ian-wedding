@@ -3,7 +3,13 @@ import { useState, useEffect } from "react";
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbzNPvoqSaQ5IzZN4QC0HJRqHN_AMGaC_LYqXPLznZtHiLUVfNvEsLvAU-l6VrhmFDF8yw/exec";
 
-function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
+function RsvpForm({
+  onClose,
+  guestInfo,
+  setGuestInfo,
+  isRsvpSubmitted,
+  showAlert,
+}) {
   const [formData, setFormData] = useState({
     churchAttendance: "",
     receptionAttendance: "",
@@ -82,14 +88,23 @@ function RsvpForm({ onClose, guestInfo, setGuestInfo, isRsvpSubmitted }) {
         companionNames: [...formData.companions],
       }));
 
-      alert("Thank you for your RSVP!");
+      showAlert({
+        title: "RSVP Received",
+        message:
+          "Thank you for your RSVP! We look forward to celebrating this special day with you.",
+      });
 
       isRsvpSubmitted(true);
 
       onClose();
     } catch (error) {
       console.log(error);
-      alert("Unable to submit RSVP.");
+
+      showAlert({
+        title: "RSVP Submission Failed",
+        message:
+          "We're sorry but we couldn't submit your RSVP. Please try again in a moment.",
+      });
     } finally {
       setLoading(false);
     }

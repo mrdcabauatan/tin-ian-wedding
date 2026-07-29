@@ -11,9 +11,12 @@ import Gallery from "./components/Gallery/Gallery";
 import Details from "./components/Details/Details";
 import Rsvp from "./components/Rsvp/Rsvp";
 import bgMusic from "./assets/bgmusic.mp3";
+import AlertModal from "./components/AlertModal/AlertModal";
+import useAlert from "./hooks/useAlert";
 import { ROLE_MAP } from "./components/constants/invitation_roles";
 
 const App = () => {
+  const { alert, showAlert, closeAlert } = useAlert();
   const [currentPage, setCurrentPage] = useState("home");
   const [showIntro, setShowIntro] = useState(true);
   const [successLogin, setSuccessLogin] = useState(false);
@@ -86,6 +89,7 @@ const App = () => {
           onFinish={handleIntroFinish}
           setGuestInfo={setGuestInfo}
           setSuccessLogin={setSuccessLogin}
+          showAlert={showAlert}
         />
       )}
 
@@ -125,7 +129,7 @@ const App = () => {
               </div>
 
               <div className="page">
-                <GiftRegistry guestInfo={guestInfo}/>
+                <GiftRegistry guestInfo={guestInfo} showAlert={showAlert} />
               </div>
 
               {isAttending && (
@@ -135,7 +139,11 @@ const App = () => {
               )}
 
               <div className="page">
-                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo} />
+                <Rsvp
+                  guestInfo={guestInfo}
+                  setGuestInfo={setGuestInfo}
+                  showAlert={showAlert}
+                />
               </div>
             </div>
           ) : (
@@ -165,7 +173,7 @@ const App = () => {
               </div>
 
               <div className="page">
-                <GiftRegistry guestInfo={guestInfo}/>
+                <GiftRegistry guestInfo={guestInfo} showAlert={showAlert} />
               </div>
 
               {isAttending && (
@@ -175,12 +183,30 @@ const App = () => {
               )}
 
               <div className="page">
-                <Rsvp guestInfo={guestInfo} setGuestInfo={setGuestInfo} />
+                <Rsvp
+                  guestInfo={guestInfo}
+                  setGuestInfo={setGuestInfo}
+                  showAlert={showAlert}
+                />
               </div>
             </div>
           )}
         </div>
       )}
+
+      <AlertModal
+        open={alert.open}
+        title={alert.title}
+        message={alert.message}
+        confirmText={alert.confirmText}
+        cancelText={alert.cancelText}
+        showCancel={alert.showCancel}
+        onConfirm={() => {
+          alert.onConfirm?.();
+          closeAlert();
+        }}
+        onCancel={closeAlert}
+      />
     </div>
   );
 };

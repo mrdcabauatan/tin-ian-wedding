@@ -1,12 +1,11 @@
 import { useState, useRef } from "react";
 import "./Intro.css";
-
 import introVideo from "../../assets/intro.mp4";
 
 const GOOGLE_SCRIPT_URL =
   "https://script.google.com/macros/s/AKfycbzNPvoqSaQ5IzZN4QC0HJRqHN_AMGaC_LYqXPLznZtHiLUVfNvEsLvAU-l6VrhmFDF8yw/exec";
 
-const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
+const Intro = ({ onFinish, setGuestInfo, setSuccessLogin, showAlert }) => {
   const [showModal, setShowModal] = useState(true);
   const [isLeaving, setIsLeaving] = useState(false);
   const [isLoggingIn, setIsLoggingIn] = useState(false);
@@ -18,7 +17,10 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
 
   const handleEnter = async () => {
     if (!firstName.trim() || !lastName.trim()) {
-      alert("Please enter your first name and last name.");
+      showAlert({
+        title: "Guest Verification",
+        message: "Please enter your first name and last name.",
+      });
       return;
     }
 
@@ -35,9 +37,11 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
 
       if (!result.exists) {
         setIsLoggingIn(false);
-        alert(
-          "Sorry, your name is not on the guest list. Please contact Ian Jimenez or Cristine Ramos for further assistance.",
-        );
+        showAlert({
+          title: "Guest Not Found",
+          message:
+            "Sorry, your name is not on the guest list. Please contact Ian Jimenez or Cristine Ramos for further assistance.",
+        });
         return;
       }
 
@@ -49,7 +53,7 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
         receptionAttendance: result.receptionAttendance,
         companion: result.companion,
         group: result.group,
-        companionNames: result.companionNames || []
+        companionNames: result.companionNames || [],
       });
 
       setSuccessLogin(true);
@@ -74,7 +78,10 @@ const Intro = ({ onFinish, setGuestInfo, setSuccessLogin }) => {
       setIsLoggingIn(false);
       console.error(error);
 
-      alert("Unable to verify guest information. Please try again.");
+      showAlert({
+        title: "Guest Verification",
+        message: "Unable to verify guest information. Please try again.",
+      });
     }
   };
 
