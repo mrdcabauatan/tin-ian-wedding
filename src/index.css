@@ -1,7 +1,7 @@
-@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600");
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500;600&display=swap");
 
 /* ==================================
-   GLOBAL VARIABLES
+GLOBAL VARIABLES
 ================================== */
 
 :root {
@@ -11,12 +11,10 @@
   --home-accent: #5a86ad;
   --dusty-blue: #d8e4f0;
   --dusty-blue-light: #eef4fb;
-  --border: rgba(255, 255, 255, 0.45);
-  --inner-border: rgba(255, 255, 255, 0.18);
 }
 
 /* ==================================
-   RESET
+RESET
 ================================== */
 
 * {
@@ -38,7 +36,7 @@ input[type="button"],
 }
 
 /* ==================================
-   ROOT
+ROOT
 ================================== */
 
 html,
@@ -46,32 +44,35 @@ body,
 #root {
   width: 100%;
   max-width: 100%;
-  height: 100%;
-  background: #000;
+  min-height: 100%;
+  margin: 0;
+  padding: 0;
   overflow-x: hidden;
 }
 
+/* ==================================
+BACKGROUND
+================================== */
+
 body {
-  overflow: hidden;
+  background-color: #000;
+  background-image: url("./assets/commonBg.png");
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 /* ==================================
-   SHARED SECTION LAYOUT
+SHARED SECTION LAYOUT
 ================================== */
 
 .section-page {
   width: 100%;
   min-height: 100vh;
-
-  background-image: url("./assets/commonBg.png");
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-
   display: flex;
   justify-content: center;
   align-items: center;
-
   position: relative;
   padding: 2rem;
 }
@@ -88,23 +89,20 @@ body {
 }
 
 /* ==================================
-   SHARED TITLES
+SHARED TITLES
 ================================== */
 
 .section-title {
   font-family: "Great Vibes", cursive;
   font-size: clamp(3rem, 6vw, 5rem);
   font-weight: 400;
-
   color: var(--primary-color);
-
   letter-spacing: 0.25rem;
-
   text-shadow: 0 4px 18px rgba(0, 0, 0, 0.2);
 }
 
 /* ==================================
-   SHARED BUTTON
+SHARED BUTTON
 ================================== */
 
 .primary-button {
@@ -127,7 +125,7 @@ body {
 }
 
 /* ==================================
-   APP
+APP
 ================================== */
 
 .app-container {
@@ -135,6 +133,7 @@ body {
   height: 100vh;
   overflow: hidden;
   position: relative;
+  background: transparent;
 }
 
 .home-fade {
@@ -152,15 +151,8 @@ body {
   display: flex;
   width: 500vw;
   height: 100vh;
-
-  transition:
-    transform 2.5s cubic-bezier(0.22,
-      1,
-      0.36,
-      1);
-
+  transition: transform 2.5s cubic-bezier(0.22, 1, 0.36, 1);
   will-change: transform;
-
   backface-visibility: hidden;
   transform-style: preserve-3d;
 }
@@ -169,14 +161,12 @@ body {
   width: 100%;
   height: 100vh;
   flex-shrink: 0;
-
   overflow-x: hidden;
   overflow-y: auto;
-
   -webkit-overflow-scrolling: touch;
-
   scrollbar-width: none;
   -ms-overflow-style: none;
+  background: transparent;
 }
 
 .page::-webkit-scrollbar {
@@ -184,7 +174,7 @@ body {
 }
 
 /* ==================================
-   RESPONSIVE
+RESPONSIVE
 ================================== */
 
 @media (min-width: 1025px) {
@@ -194,22 +184,26 @@ body {
 }
 
 @media (max-width: 1024px) {
-
   html,
   body,
   #root {
+    width: 100%;
+    min-height: 100%;
     overflow-x: hidden;
-  }
-
-  body {
     overflow-y: auto;
   }
 
-  .app-container {
+  body {
+    background-attachment: scroll;
+    background-size: auto 100%;
+    background-position: center top;
+    background-repeat: repeat-y;
+  }
+
+  .app-container,
+  .website {
     width: 100%;
     min-height: 100vh;
-    height: auto;
-
     overflow-x: hidden;
     overflow-y: visible;
   }
@@ -217,20 +211,7 @@ body {
   .page {
     width: 100%;
     min-height: 100vh;
-    height: auto;
-
-    overflow-x: hidden;
-    overflow-y: visible;
-  }
-
-  .page-slider {
-    display: block;
-
-    width: 100%;
-    height: auto;
-
-    transform: none !important;
-    transition: none !important;
+    overflow: visible;
   }
 }
 
@@ -239,7 +220,6 @@ body {
     width: 100%;
     min-height: 100%;
     height: auto;
-
     overflow-x: hidden;
     overflow-y: visible;
   }

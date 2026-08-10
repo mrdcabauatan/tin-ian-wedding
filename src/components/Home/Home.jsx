@@ -4,8 +4,6 @@ import "./Home.css";
 function Home({ onEnterInvitation }) {
   const weddingDate = new Date("2026-09-26T14:00:00");
 
-  const isMobile = window.innerWidth <= 1024;
-
   const calculateTimeLeft = () => {
     const difference = weddingDate - new Date();
 
@@ -91,8 +89,8 @@ function Home({ onEnterInvitation }) {
           onClick={onEnterInvitation}
           style={{ cursor: "pointer" }}
         >
-          <div className={isMobile ? "mouse-mobile" : "mouse"}>
-            <span>{isMobile ? "↓" : "→"}</span>
+          <div className={"mouse"}>
+            <span>↓</span>
           </div>
         </div>
       </div>

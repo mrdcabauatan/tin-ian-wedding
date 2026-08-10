@@ -17,10 +17,11 @@ import { ROLE_MAP } from "./components/constants/invitation_roles";
 
 const App = () => {
   const { alert, showAlert, closeAlert } = useAlert();
-  const [currentPage, setCurrentPage] = useState("home");
+  const [showNavbar, setShowNavbar] = useState(false);
   const [showIntro, setShowIntro] = useState(true);
   const [successLogin, setSuccessLogin] = useState(false);
   const [showHome, setShowHome] = useState(false);
+
   const [guestInfo, setGuestInfo] = useState({
     firstName: "",
     lastName: "",
@@ -40,20 +41,6 @@ const App = () => {
     guestInfo.churchAttendance === "Attending" ||
     guestInfo.receptionAttendance === "Attending";
 
-  const isMobileOrTablet = () => {
-    return window.innerWidth <= 1024;
-  };
-
-  const pages = ["home", "invitation", "attire", "gallery", "gift"];
-
-  if (isAttending) {
-    pages.push("details");
-  }
-
-  pages.push("rsvp");
-
-  const currentIndex = pages.indexOf(currentPage);
-
   if (!audioRef.current) {
     audioRef.current = new Audio(bgMusic);
     audioRef.current.loop = true;
@@ -66,8 +53,15 @@ const App = () => {
     }
   };
 
-  const changePage = (page) => {
-    setCurrentPage(page);
+  const scrollToSection = (id) => {
+    const section = document.getElementById(id);
+
+    if (section) {
+      section.scrollIntoView({
+        behavior: "smooth",
+        block: "start",
+      });
+    }
   };
 
   const handleIntroFinish = () => {
@@ -82,6 +76,8 @@ const App = () => {
     }, 1200);
   };
 
+  const isMobileOrTablet = window.innerWidth <= 1024;
+
   return (
     <div className="app-container">
       {showIntro && (
@@ -94,103 +90,60 @@ const App = () => {
       )}
 
       {successLogin && showHome && (
-        <div>
-          {!isMobileOrTablet() && currentPage !== "home" && (
-            <Navbar setCurrentPage={changePage} isAttending={isAttending} />
+        <div className="website">
+          {showNavbar && (
+            <Navbar
+              scrollToSection={scrollToSection}
+              isAttending={isAttending}
+              setShowNavbar={setShowNavbar}
+            />
           )}
 
           <PetalOverlay />
 
-          {isMobileOrTablet() ? (
-            <div>
-              <div className="page">
-                <Home
-                  onEnterInvitation={() => {
-                    document
-                      .getElementById("invitation")
-                      ?.scrollIntoView({ behavior: "smooth" });
-                  }}
-                />
-              </div>
-
-              <div id="invitation" className="page">
-                <Invitation
-                  name={`${guestInfo.firstName.toUpperCase()} ${guestInfo.lastName.toUpperCase()}`}
-                  roleId={roleId}
-                />
-              </div>
-
-              <div className="page">
-                <Attire roleId={roleId} />
-              </div>
-
-              <div className="page">
-                <Gallery />
-              </div>
-
-              <div className="page">
-                <GiftRegistry guestInfo={guestInfo} showAlert={showAlert} />
-              </div>
-
-              {isAttending && (
-                <div className="page">
-                  <Details guestInfo={guestInfo} />
-                </div>
-              )}
-
-              <div className="page">
-                <Rsvp
-                  guestInfo={guestInfo}
-                  setGuestInfo={setGuestInfo}
-                  showAlert={showAlert}
-                />
-              </div>
-            </div>
-          ) : (
-            <div
-              className="page-slider"
-              style={{
-                transform: `translateX(-${currentIndex * 100}vw)`,
+          <section id="home" className="page">
+            <Home
+              onEnterInvitation={() => {
+                scrollToSection("invitation");
+                if (!isMobileOrTablet) {
+                  setShowNavbar(true);
+                }
               }}
-            >
-              <div className="page">
-                <Home onEnterInvitation={() => changePage("invitation")} />
-              </div>
+            />
+          </section>
 
-              <div className="page">
-                <Invitation
-                  name={`${guestInfo.firstName.toUpperCase()} ${guestInfo.lastName.toUpperCase()}`}
-                  roleId={roleId}
-                />
-              </div>
+          <section id="invitation" className="page">
+            <Invitation
+              name={`${guestInfo.firstName.toUpperCase()} ${guestInfo.lastName.toUpperCase()}`}
+              roleId={roleId}
+            />
+          </section>
 
-              <div className="page">
-                <Attire roleId={roleId} />
-              </div>
+          <section id="attire" className="page">
+            <Attire roleId={roleId} />
+          </section>
 
-              <div className="page">
-                <Gallery />
-              </div>
+          <section id="gallery" className="page">
+            <Gallery />
+          </section>
 
-              <div className="page">
-                <GiftRegistry guestInfo={guestInfo} showAlert={showAlert} />
-              </div>
+          <section id="gift" className="page">
+            <GiftRegistry guestInfo={guestInfo} showAlert={showAlert} />
+          </section>
 
-              {isAttending && (
-                <div className="page">
-                  <Details guestInfo={guestInfo} />
-                </div>
-              )}
-
-              <div className="page">
-                <Rsvp
-                  guestInfo={guestInfo}
-                  setGuestInfo={setGuestInfo}
-                  showAlert={showAlert}
-                />
-              </div>
-            </div>
+          {isAttending && (
+            <section id="details" className="page">
+              <Details guestInfo={guestInfo} />
+            </section>
           )}
+
+          <section id="rsvp" className="page">
+            <Rsvp
+              guestInfo={guestInfo}
+              setGuestInfo={setGuestInfo}
+              showAlert={showAlert}
+            />
+          </section>
         </div>
       )}
 

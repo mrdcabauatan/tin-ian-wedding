@@ -21,6 +21,18 @@
   background-repeat: no-repeat;
   filter: brightness(0.6);
   z-index: -2;
+  opacity: 0;
+  animation: backgroundFadeIn 2.5s ease forwards;
+}
+
+@keyframes backgroundFadeIn {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 .hero::after {
@@ -132,12 +144,12 @@
 }
 
 .scroll-indicator {
-  margin-top: 90px;
+  margin-top: 70px;
 }
 
 .mouse {
-  width: 70px;
-  height: 44px;
+  width: 44px;
+  height: 70px;
   border: 2px solid white;
   border-radius: 30px;
   display: flex;
@@ -163,44 +175,7 @@
   animation: bounce 2s infinite;
 }
 
-.mouse-mobile {
-  width: 44px;
-  height: 70px;
-  border: 2px solid white;
-  border-radius: 30px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  transition:
-    transform 0.35s ease,
-    box-shadow 0.35s ease,
-    border-color 0.35s ease;
-  border-color: #d8e4f0;
-  box-shadow:
-    0 0 10px rgba(216, 228, 240, 0.8),
-    0 0 20px rgba(191, 208, 226, 0.6),
-    0 0 40px rgba(90, 134, 173, 0.4);
-}
-
-.mouse-mobile span {
-  animation: bounceMobile 2s infinite;
-}
-
 @keyframes bounce {
-
-  0%,
-  100% {
-    transform: translateX(-4px);
-  }
-
-  50% {
-    transform: translateX(8px);
-  }
-}
-
-@keyframes bounceMobile {
-
   0%,
   100% {
     transform: translateY(-4px);
