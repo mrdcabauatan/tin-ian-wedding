@@ -39,7 +39,7 @@
     position: relative;
     overflow: hidden;
     background: #829CB7;
-    border: 1px solid var(#22395B);
+    border: 1px solid var(--home-accent);
     border-radius: 18px;
     box-shadow:
         0 12px 30px rgba(97, 123, 142, .10),
