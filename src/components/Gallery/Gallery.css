@@ -311,6 +311,8 @@
 ========================== */
 
 .gallery-modal-arrow {
+    position: relative;
+    z-index: 20;
     flex-shrink: 0;
     width: 52px;
     height: 52px;
