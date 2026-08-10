@@ -90,6 +90,11 @@
   text-align: center;
 }
 
+.map-button {
+  border: none;
+  border-radius: 12px;
+}
+
 /* =========================
    Large Desktop
 ========================= */
